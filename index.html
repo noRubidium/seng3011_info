@@ -218,16 +218,20 @@
       <p>
         <h6>Output	Format	for	Merchandise Export</h6>
         <pre>
-          {
-            "MonthlyCommodityExportData":
-              [{“Commodity”:<>,
-                “RegionalData”:[{
-                  State:<>,
-                  Data:[{“Date”:<>, “Value”:<>}, {“Date”:<>, “Value”:<>}]
-                },
-                {
-                  “Commodity”:<>,
-                  “State”:[
+        {
+          "MonthlyCommodityExportData":
+          [
+            {
+              “Commodity”:<>,
+              “RegionalData”:[
+              {
+                State:<>,
+                Data:[{“Date”:<>, “Value”:<>}, {“Date”:<>, “Value”:<>}]
+              },
+              {
+                “Commodity”:<>,
+                “State”:
+                  [
                     {
                       Region:<>,
                       Data:[
@@ -243,9 +247,11 @@
                       ]
                     }
                   ]
-                }]
-              }]
+                }
+              ]
             }
+          ]
+        }
         </pre>
       </p>
     </div>
