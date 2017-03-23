@@ -102,16 +102,151 @@
     <div class="divider"></div>
     <div class="section">
       <h5>API calling convention</h5>
-      <p>The way you call our API</p>
+      <p>Parameters will be passed to our module through a REST GET call with the following parameters, and be templated in the following way:</p>
+
+      <pre>http://ourwebsite.com/api/v1/{statisticsArea}/{category}/{state}{?startDate, endDate}</pre>
+      <table>
+        <thead>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Arguments and Formats
+        </td>
+        <td>
+          Requirement
+        </td>
+        <td>
+          Separated By
+        </td>
+        <td>
+          Example
+        </td>
+        </thead>
+        <tr>
+          <td>
+            statisticsArea
+          </td>
+          <td>
+            A string which can take value “Retail” or “MerchandiseExports”
+          </td>
+          <td>
+            Mandatory
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            “Retail”
+          </td>
+        </tr>
+        <tr>
+          <td>
+            category
+          </td>
+          <td>
+            A list of one or more categories, separated by commas, in the form of a string.
+          </td>
+          <td>
+            Mandatory
+          </td>
+          <td>
+            Comma
+          </td>
+          <td>
+            “Food,HousholdGood”
+          </td>
+        </tr>
+        <tr>
+          <td>
+            state
+          </td>
+          <td>
+            A list of one or more states/territories, separated by commas, in the form of a string.
+          </td>
+          <td>
+            Optional
+          </td>
+          <td>
+            Comma
+          </td>
+          <td>
+            “SA,VIC,NT”
+          </td>
+        </tr>
+        <tr>
+          <td>
+            startDate
+          </td>
+          <td>
+            A date string with the format “YYYY-MM-DD”
+          </td>
+          <td>
+            Optional
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            “2012-12-12”
+          </td>
+        </tr>
+        <tr>
+          <td>
+            endDate
+          </td>
+          <td>
+            A date string with the format “YYYY-MM-DD”
+          </td>
+          <td>
+            Optional
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            “2017-01-27”
+          </td>
+        </tr>
+      </table>
+
+
     </div>
     <div class="divider"></div>
     <div class="section">
       <h5>API response </h5>
       <p>
-        There are more stuff you can talk than us! There are more stuff you can talk than us!
-        There are more stuff you can talk than us! There are more stuff you can talk than us!
-        There are more stuff you can talk than us! There are more stuff you can talk than us!
-        There are more stuff you can talk than us! There are more stuff you can talk than us!
+        <h6>Output	Format	for	Merchandise Export</h6>
+        <pre>
+          {
+            "MonthlyCommodityExportData":
+              [{“Commodity”:<>,
+                “RegionalData”:[{
+                  State:<>,
+                  Data:[{“Date”:<>, “Value”:<>}, {“Date”:<>, “Value”:<>}]
+                },
+                {
+                  “Commodity”:<>,
+                  “State”:[
+                    {
+                      Region:<>,
+                      Data:[
+                        {“Date”:<>, “Value”:<>},
+                        {“Date”:<>, “Value”:<>}
+                      ]
+                    },
+                    {
+                      State:<>,
+                      Data:[
+                        {“Date”:<>, “Value”:<>},
+                        {“Date”:<>, “Value”:<>}
+                      ]
+                    }
+                  ]
+                }]
+              }]
+            }
+        </pre>
       </p>
     </div>
 
