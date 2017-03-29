@@ -224,8 +224,11 @@
     <div class="section">
       <h5>API response </h5>
       <p>
-        <h6>Output	Format	for	Merchandise Export</h6>
-        <li> Given </li>
+        <h6>Example Output Format for	Merchandise Export given these inputs</h6>
+        <ul> Statistics Area: 'Merchandise' </ul>
+        <ul> Category:'Beverages And Tobacco','Manufactured Goods'</ul>
+        <ul> Start Date: 2014-02-01</ul>
+        <ul> End Date: 2014-05-12</ul>
         <pre>
           {
            "MonthlyCommodityExportData":[
@@ -326,44 +329,6 @@
             ]
           }
         </pre>
-        <pre>
-        {
-          "MonthlyCommodityExportData":
-          [
-            {
-              “Commodity”:<>,
-              “RegionalData”:[
-              {
-                State:<>,
-                Data:
-                  [{“Date”:<>, “Value”:<>}, 
-                  {“Date”:<>, “Value”:<>}]
-              }],
-              {
-                “Commodity”:<>,
-                “State”:
-                  [
-                    {
-                      Region:<>,
-                      Data:[
-                        {“Date”:<>, “Value”:<>},
-                        {“Date”:<>, “Value”:<>}
-                      ]
-                    },
-                    {
-                      State:<>,
-                      Data:[
-                        {“Date”:<>, “Value”:<>},
-                        {“Date”:<>, “Value”:<>}
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        </pre>
       </p>
     </div>
     <h5>Update log</h5>
@@ -374,14 +339,12 @@
           </li>
           <li>
             Following functionality implemented:
-            <ul>
               <li>URL Routing from the user to the particular model </li>
               <li>Translation from input to required ABS API format </li>
               <li>API call to the ABS and getting the returned JSON.</li>
               <li>
               Sanitise JSON response into a human readable format
               </li>
-            </ul>
           </li>
       </ul>
     <h5>How to integrate our API</h5>
