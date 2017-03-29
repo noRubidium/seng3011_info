@@ -110,7 +110,7 @@
         <li>Supporting both in browser viewing and external API calls.</li>
       </ul>
       <h5>API calling convention</h5>
-      <p>Parameters will be passed to our module through a REST GET call with the following parameters, and be templated in the following way:</p>
+      <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
 
       <pre>http://api.kaiworship.xyz/v2/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</pre>
       <table>
@@ -162,7 +162,7 @@
             Comma
           </td>
           <td>
-            “Food,HousholdGood”
+            “Food,HouseholdGood”
           </td>
         </tr>
         <tr>
@@ -338,24 +338,102 @@
     </div>
     <h5>Update log</h5>
       <ul>
-          <li><h6>V2: Initial release of the API.</h6></li>
-          <li><h6>It has implemented the basic functionality of receiving API calls and return corresponding JSON responses, sanitised to a human readable format.</h6></li>
+          <h6>V2: Initial release of the API</h6><br>
+          Currently the API's Core functionality of receiving API calls and return corresponding JSON responses has been implemented. Sanitisation of the ABS responses to a human readable format.<br><br>
           
           <li>Following functionality implemented:</li>
-            <ul>
+            <ol>
               <li>URL Routing from the user to the particular model </li>
               <li>Translation from input to required ABS API format </li>
               <li>API call to the ABS and getting the returned JSON</li>
               <li>
-              Sanitise JSON response into a human readable format
+              Sanitise JSON response into a human readable text
               </li>
-            </ul>
+            </ol>
         </ul>
-    <h5>How to integrate our API</h5>
+    <h5>How to integrate our API within a Webapp</h5>
       <ul>
           <li>
-              V2: To call upon the API you must 
+              V2: To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
           </li>
+          <table>
+            <thead>
+            <td>
+              Parameter
+            </td>
+            <td>
+              Available Options
+            </td>
+            </thead>
+            <tr>
+              <td>
+                StatisticsArea
+              </td>
+              <td>
+                “Retail” or “MerchandiseExports”
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Category
+              </td>
+              <td>
+              If Statistics Area is chosen to be Retail, you are able to choose one or more of the following Industries.
+                <h6>Industries for Retail<h6>
+                <ul>
+                  <li>Total</li>
+                  <li>Food</li>
+                  <li>HouseHoldGood</li>
+                  <li>ClothingFootwareAndPersonalAccessory</li>
+                  <li>DepartmentStores</li>
+                  <li>CafesRestaurantsAndTakeawayFood</li>
+                  <li>Other</li>
+                </ul>
+                <br>
+                If Statistics Area is chosen to be Merchandise Exports, you are able to choose one or more of the following Commodities
+                <h6>Commodities for MerchendiseExports<h6>
+                <ul>
+                  <li>Total</li>
+                  <li>FoodAndLiveAnimals</li>
+                  <li>BeveragesAndTobacco</li>
+                  <li>CrudeMaterialAndInedible</li>
+                  <li>MineralFuelLubricantAndRelatedMaterial</li>
+                  <li>AnimalAndVegetableOilFatAndWaxes</li>
+                  <li>ChemicalsAndRelatedProducts</li>
+                  <li>ManufacturedGoods</li>
+                  <li>MachineryAndTransportEquipments</li>
+                  <li>OtherManufacturedArticles</li>
+                  <li>Unclassified</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                States
+              </td>
+                <td>
+                  <li>AUS</li>
+                  <li>NSW</li>
+                  <li>WA</li>
+                  <li>SA</li>
+                  <li>ACT</li>
+                  <li>VIC</li>
+                  <li>TAS</li>
+                  <li>QLD</li>
+                  <li>NT</li>
+                </td>
+            </tr>
+          </table>
+
+          <h6>For example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</h6>
+          <pre>http://api.kaiworship.xyz/v2/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</pre>
+          Here are examples of how to call this API in various languages
+
+          Python: INSERT HERE
+
+          JavaScript: INSERT HERE
+
+          Java: Insert here
       </ul>
 
     <h5>Testing app</h5>
