@@ -40,8 +40,8 @@ $(document).ready(() => {
         $('#catDiv').text('').append(cat);
         cat.material_select();
     });
-
     $('.datepicker').pickadate({
+	format: 'yyyy-mm-dd',
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 22 // Creates a dropdown of 15 years to control year
       });
