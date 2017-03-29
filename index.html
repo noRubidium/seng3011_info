@@ -9,6 +9,16 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <style>
+        td ol {
+            -moz-column-count: 2;
+            -moz-column-gap: 40px;
+            -webkit-column-count: 2;
+            -webkit-column-gap: 40px;
+            column-count: 2;
+            column-gap: 40px;
+        }
+    </style>
 </head>
 <body>
   <nav class="light-blue lighten-1" role="navigation">
@@ -103,18 +113,18 @@
       </div>
     </div>
 
-      <h3><a name="manual" > User manual </a> </h3>
+      <h2><a name="manual" > User manual </a> </h2>
     <div class="divider"></div>
     <div class="section">
-      <h5>Functionalities</h5>
+      <h3>Functionalities</h3>
       <ul>
         <li>Ability to get Merchandise and Retail data of one or more certain states within the certain category</li>
         <li>Supporting both in browser viewing and external API calls.</li>
       </ul>
-      <h5>API calling convention</h5>
+      <h3>API calling convention</h3>
       <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
 
-      <pre>http://api.kaiworship.xyz/v2/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</pre>
+      <code>http://api.kaiworship.xyz/v2/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
       <table>
         <thead>
         <td>
@@ -224,9 +234,8 @@
     </div>
     <div class="divider"></div>
     <div class="section">
-      <h5>API response </h5>
-      <p>
-        <h6>Example JSON Output for	Merchandise Export given these inputs</h6>
+      <h3>API response </h3>
+      <p>Example JSON Output for	Merchandise Export given these inputs</p>
         <ul> 
           <li>Statistics Area:  'Merchandise'</li> 
           <li>Category: 'Beverages And Tobacco' , 'Manufactured Goods'</li>
@@ -234,8 +243,8 @@
           <li>Start Date: '2014-02-01'</li>
           <li>End Date: '2014-05-01'</li>
         </ul>
-        <h6>Example url:</h6>
-        <pre>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco,ManufacturedGoods/NSW,SA?startDate=2014-02-01&endDate=2014-05-01</pre>
+        <p>Example url:</p>
+        <code>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco,ManufacturedGoods/NSW,SA?startDate=2014-02-01&endDate=2014-05-01</code>
         <pre>
           {
            "MonthlyCommodityExportData":[
@@ -338,12 +347,11 @@
         </pre>
       </p>
     </div>
-    <h5>Update log</h5>
-      <ul>
-          <h6>V2: Initial release of the API</h6><br>
+    <h3>Update log</h3>
+      <strong>V2: Initial release of the API</strong><br>
           Currently the API's Core functionality of receiving API calls and return corresponding JSON responses has been implemented. Sanitisation of the ABS responses to a human readable format.<br><br>
-          
-          <li>Following functionality implemented:</li>
+
+          <p>Following functionality implemented:</p>
             <ol>
               <li>URL Routing from the user to the particular model </li>
               <li>Translation from input to required ABS API format </li>
@@ -352,37 +360,44 @@
               Sanitise JSON response into a human readable text
               </li>
             </ol>
-        </ul>
-    <h5>How to integrate our API within a Webapp</h5>
-      <ul>
-          <li>
-              V2: To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
-          </li>
-          <table>
+    <h3>How to integrate our API within a Webapp</h3>
+          <p>
+              To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
+          </p>
+          <table class="bordered responsive-table">
             <thead>
-            <td>
-              Parameter
-            </td>
-            <td>
-              Available Options
-            </td>
+                <td>
+                  <strong>Parameter</strong>
+                </td>
+                <td>
+                    <strong>Remarks</strong>
+                </td>
+                <td>
+                    <strong>Available Options</strong>
+                </td>
             </thead>
             <tr>
               <td>
-                StatisticsArea
+                <strong>StatisticsArea</strong>
               </td>
+                <td></td>
               <td>
-                “Retail” or “MerchandiseExports”
+                <ol>
+                    <li>retail</li>
+                    <li>merch</li>
+                </ol>
               </td>
             </tr>
             <tr>
               <td>
-                Category
+                  <strong>Category</strong> (retail)
               </td>
               <td>
-              If Statistics Area is chosen to be Retail, you are able to choose one or more of the following Industries.
-                <h6>Industries for Retail<h6>
-                <ul>
+              If Statistics Area is chosen to be Retail,
+                  you are able to choose one or more of the following Industries.
+              </td>
+              <td>
+                <ol>
                   <li>Total</li>
                   <li>Food</li>
                   <li>HouseHoldGood</li>
@@ -390,11 +405,19 @@
                   <li>DepartmentStores</li>
                   <li>CafesRestaurantsAndTakeawayFood</li>
                   <li>Other</li>
-                </ul>
-                <br>
-                If Statistics Area is chosen to be Merchandise Exports, you are able to choose one or more of the following Commodities
-                <h6>Commodities for MerchendiseExports<h6>
-                <ul>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <strong>Category</strong> (merchandise)
+              </td>
+              <td>
+              If Statistics Area is chosen to be Merchandise Exports,
+                    you are able to choose one or more of the following Commodities
+              </td>
+              <td>
+                <ol>
                   <li>Total</li>
                   <li>FoodAndLiveAnimals</li>
                   <li>BeveragesAndTobacco</li>
@@ -406,39 +429,54 @@
                   <li>MachineryAndTransportEquipments</li>
                   <li>OtherManufacturedArticles</li>
                   <li>Unclassified</li>
-                </ul>
+                </ol>
               </td>
             </tr>
             <tr>
               <td>
-                States
+                <strong>States</strong>
               </td>
+                <td>Can be one or multiple values from the states</td>
                 <td>
-                  <li>AUS</li>
-                  <li>NSW</li>
-                  <li>WA</li>
-                  <li>SA</li>
-                  <li>ACT</li>
-                  <li>VIC</li>
-                  <li>TAS</li>
-                  <li>QLD</li>
-                  <li>NT</li>
+                    <ol>
+                        <li>AUS</li>
+                          <li>NSW</li>
+                          <li>WA</li>
+                          <li>SA</li>
+                          <li>ACT</li>
+                          <li>VIC</li>
+                          <li>TAS</li>
+                          <li>QLD</li>
+                          <li>NT</li>
+                    </ol>
                 </td>
             </tr>
           </table>
 
-          <h6>For example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</h6>
-          <pre>http://api.kaiworship.xyz/v2/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</pre>
-          Here are examples of how to call this API in various languages
+          <p>For example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
+          <code>http://api.kaiworship.xyz/v2/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</code>
+          Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
-          Python: INSERT HERE
+          <h5>Python:</h5>
+      <pre><code>
+import urllib2;
+response = urllib2.urlopen(url)
+json_string = response.read()
+      </code></pre>
 
-          JavaScript: INSERT HERE
+      <h5>JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</h5>
+            <pre><code>
+fetch(url)
+    .then((data) => {
+        // handle data
+        console.log(data);
+    })
+    .catch((error) => {
+        //handle error
+    });
+            </code></pre>
 
-          Java: Insert here
-      </ul>
-
-    <h5>Testing app</h5>
+    <h3>Testing app</h3>
   </div>
 
   <footer class="page-footer orange">
