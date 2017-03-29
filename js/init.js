@@ -43,7 +43,7 @@ $(document).ready(() => {
 
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
+        selectYears: 22 // Creates a dropdown of 15 years to control year
       });
 
     $('#submit-button').on("click", () => {
@@ -53,7 +53,7 @@ $(document).ready(() => {
         const endDate = $("#endDate").val();
         const startDate = $("#startDate").val();
 
-        $.get(`http://127.0.0.1:8001/v2/${stats}/${categ}/${states}`,{startDate, endDate},(data) => {
+        $.get(`http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`,{startDate, endDate},(data) => {
                 $("#result-display").text(JSON.stringify(data, null, 4));
                 hljs.initHighlightingOnLoad();
             })
