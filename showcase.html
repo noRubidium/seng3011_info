@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Eleven51 - release page</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#release">Release</a></li>
+        <li><a href="#manual">User Manual</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#release">Release</a></li><li><a href="#manual">User Manual</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+          <form>
+              <h3>Try out our API and see the result</h3>
+              <div class="row">
+                  <div class="col s6">
+                      <div class="col s12">
+                          <select id="stats-area">
+                              <option value="" disabled selected>Choose the stats area</option>
+                              <option value="merch">Merchandise</option>
+                              <option value="retail">Retail</option>
+                          </select>
+                          <label>Select Stats Area</label>
+                      </div>
+                      <div class="input-field col s12">
+                          <select id="states" multiple>
+                              <option value="" disabled selected>Choose the stats area</option>
+                              <option value="AUS">Whole Australia</option>
+                              <option value="NSW">New South Wales</option>
+                              <option value="WA">Western Australia</option>
+                              <option value="SA">South Australia</option>
+                              <option value="ACT">Australian Capital Territory</option>
+                              <option value="VIC">Victoria</option>
+                              <option value="TAS">Tasmania</option>
+                              <option value="QLD">Queensland</option>
+                              <option value="NT">Northern Territory</option>
+                          </select>
+                          <label>Select the states</label>
+                      </div>
+                      <div class="input-field col s12">
+                          <input value="Food,HousholdGood" id="categories" type="text" class="validate">
+                          <label class="active" for="categories">Categories</label>
+                      </div>
+                      <div class="input-field col s12">
+                          <input value="" id="startDate" type="text" class="validate">
+                          <label class="active" for="startDate">Start Date</label>
+                      </div>
+                      <div class="input-field col s12">
+                          <input value="" id="endDate" type="text" class="validate">
+                          <label class="active" for="endDate">End Date</label>
+                      </div>
+                  </div>
+                  <div>
+
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Team Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students
+            working on this project like it's not our full time job. Any amount
+            would help support and continue development on this project and is
+            greatly appreciated.</p>
+        </div>
+        <div class="col l6 s12">
+          <h5 class="white-text">Team members</h5>
+          <div class="col l6 s12">
+            <ul>
+              <li><a class="white-text" href="#!">Vaishnavi Bapat</a></li>
+              <li><a class="white-text" href="#!">Pranav Bhatia</a></li>
+              <li><a class="white-text" href="#!">Clinton Hadinata</a></li>
+            </ul>
+          </div>
+          <div class="col l6 s12">
+            <ul>
+              <li><a class="white-text" href="#!">Minjie Shen</a></li>
+              <li><a class="white-text" href="#!">Jessica Theodosius</a></li>
+              <li><a class="white-text" href="#!">Jason Vo</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by Eleven51
+      <!-- Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a> -->
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+    <script>
+        $(document).ready(function() {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
+  </body>
+</html>
