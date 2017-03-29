@@ -224,11 +224,13 @@
     <div class="section">
       <h5>API response </h5>
       <p>
-        <h6>Example Output Format for	Merchandise Export given these inputs</h6>
-        <ul> Statistics Area: 'Merchandise' </ul>
-        <ul> Category:'Beverages And Tobacco','Manufactured Goods'</ul>
-        <ul> Start Date: 2014-02-01</ul>
-        <ul> End Date: 2014-05-12</ul>
+        <h6>Example JSON Output for	Merchandise Export given these inputs</h6>
+        <ul> 
+          <li>Statistics Area:  'Merchandise'</li> 
+          <li>Category: 'Beverages And Tobacco' , 'Manufactured Goods'</li>
+          <li>Start Date: '2014-02-01'</li>
+          <li>End Date: '2014-05-12'</li>
+        </ul>
         <pre>
           {
            "MonthlyCommodityExportData":[
@@ -332,13 +334,11 @@
       </p>
     </div>
     <h5>Update log</h5>
-      <ul>
-          <li>
+          <h6>
               V2: Initial release of the API.
           It has implemented the basic functionality of receiving API calls and return corresponding JSON responses, sanitised to a human readable format.
-          </li>
-          <li>
-            Following functionality implemented:
+          
+          Following functionality implemented:</h6>
             <ul>
               <li>URL Routing from the user to the particular model </li>
               <li>Translation from input to required ABS API format </li>
@@ -347,8 +347,6 @@
               Sanitise JSON response into a human readable format
               </li>
             </ul>
-          </li>
-      </ul>
     <h5>How to integrate our API</h5>
       <ul>
           <li>
