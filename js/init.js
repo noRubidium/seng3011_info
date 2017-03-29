@@ -55,10 +55,12 @@ $(document).ready(() => {
 
         $.get(`http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`,{startDate, endDate},(data) => {
                 $("#result-display").text(JSON.stringify(data, null, 4));
+                hljs.initHighlightingOnLoad();
             })
             .fail((error) => {
                 console.log(error);
                 $("#result-display").text(JSON.stringify(error, null, 4));
+                hljs.initHighlightingOnLoad();
             });
     })
 });

@@ -68,7 +68,7 @@
                       <div id="submit-button" class="btn-large waves-effect waves-light orange">Try!</div>
                   </div>
                   <div class="col s6" style="height:100%;">
-                      <pre id="result-display" style="height:100%;word-wrap: break-word;"></pre>
+                      <pre style="height:100%;word-wrap: break-word;"><code id="result-display" class="json"></code></pre>
                   </div>
               </div>
           </form>
@@ -118,5 +118,8 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+    <link rel="stylesheet" href="/css/code_styles/atom-one-dark.css">
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

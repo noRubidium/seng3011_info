@@ -458,14 +458,14 @@
           Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
           <h5>Python:</h5>
-      <pre><code>
-import urllib2;
+      <pre><code class="python">
+import urllib2
 response = urllib2.urlopen(url)
 json_string = response.read()
       </code></pre>
 
       <h5>JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</h5>
-            <pre><code>
+            <pre><code class="js">
 fetch(url)
     .then((data) => {
         // handle data
@@ -522,6 +522,8 @@ fetch(url)
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-
+    <link rel="stylesheet" href="/css/code_styles/atom-one-dark.css">
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
