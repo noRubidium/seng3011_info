@@ -36,11 +36,10 @@
                               <option value="merch">Merchandise</option>
                               <option value="retail">Retail</option>
                           </select>
-                          <label>Select Stats Area</label>
                       </div>
                       <div class="input-field col s12">
                           <select id="states" multiple>
-                              <option value="" disabled selected>Choose the stats area</option>
+                              <option value="" disabled selected>Choose the states</option>
                               <option value="AUS">Whole Australia</option>
                               <option value="NSW">New South Wales</option>
                               <option value="WA">Western Australia</option>
@@ -51,18 +50,18 @@
                               <option value="QLD">Queensland</option>
                               <option value="NT">Northern Territory</option>
                           </select>
-                          <label>Select the states</label>
+                      </div>
+                      <div class="input-field col s12" id="catDiv">
+                          <select id="categories" multiple>
+                              <option value="" disabled selected>Choose the categories</option>
+                          </select>
                       </div>
                       <div class="input-field col s12">
-                          <input value="Food,HousholdGood" id="categories" type="text" class="validate">
-                          <label class="active" for="categories">Categories</label>
-                      </div>
-                      <div class="input-field col s12">
-                          <input value="" id="startDate" type="text" class="validate">
+                          <input value="" id="startDate" type="date" class="datepicker">
                           <label class="active" for="startDate">Start Date</label>
                       </div>
                       <div class="input-field col s12">
-                          <input value="" id="endDate" type="text" class="validate">
+                          <input value="" id="endDate" type="date" class="datepicker">
                           <label class="active" for="endDate">End Date</label>
                       </div>
                   </div>
@@ -117,11 +116,5 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-    <script>
-        $(document).ready(function() {
-            Materialize.updateTextFields();
-            $('select').material_select();
-        });
-    </script>
   </body>
 </html>
