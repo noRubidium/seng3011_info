@@ -18,10 +18,10 @@ const commodities = ['Total',
     'Unclassified'];
 
 
-$(document).ready(function() {
+$(document).ready(() => {
     Materialize.updateTextFields();
     $('select').material_select();
-    $('#stats-area').on("change", function(e) {
+    $('#stats-area').on("change", (e) => {
         const value = e.target.value;
         const list = value === "merch" ? categories : commodities;
         const cat = $('<select id="categories" multiple>');
@@ -42,4 +42,14 @@ $(document).ready(function() {
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15 // Creates a dropdown of 15 years to control year
       });
+
+    $('#submit-button').on("click", () => {
+        const stats = $("#stats-area").val();
+        const categ = $("#categories").val();
+        const states = $("#states").val();
+
+        $.get(`http://127.0.0.1:8001/v2/${stats}/${categ}/${states}`,(data, error) => {
+            $("#result-display").text(JSON.stringify(data, null, 4));
+        })
+    })
 });
