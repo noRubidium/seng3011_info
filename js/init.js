@@ -1,11 +1,11 @@
-const categories = ['Total',
+const commodities = ['Total',
     'Food',
     'HouseholdGood',
     'ClothingFootwareAndPersonalAccessory',
     'DepartmentStores',
     'CafesResturantsAndTakeawayFood',
     'Other'];
-const commodities = ['Total',
+const categories = ['Total',
     'FoodAndLiveAnimals',
     'BeveragesAndTobacco',
     'CrudMaterialAndInedible',
@@ -53,7 +53,7 @@ $(document).ready(() => {
         const endDate = $("#endDate").val();
         const startDate = $("#startDate").val();
 
-        $.get(`http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`,{startDate, endDate},(data) => {
+        $.get(`http://127.0.0.1:8001/v2/${stats}/${categ}/${states}`,{startDate, endDate},(data) => {
                 $("#result-display").text(JSON.stringify(data, null, 4));
                 hljs.initHighlightingOnLoad();
             })
