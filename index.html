@@ -112,7 +112,7 @@
       <h5>API calling convention</h5>
       <p>Parameters will be passed to our module through a REST GET call with the following parameters, and be templated in the following way:</p>
 
-      <pre>http://ourwebsite.com/api/v1/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</pre>
+      <pre>http://api.kaiworship.xyz/v2/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</pre>
       <table>
         <thead>
         <td>
@@ -224,42 +224,110 @@
     <div class="section">
       <h5>API response </h5>
       <p>
-        <h6>Output	Format	for	Merchandise Export</h6>
+        <h6>Example Output Format for	Merchandise Export given these inputs</h6>
+        <ul> Statistics Area: 'Merchandise' </ul>
+        <ul> Category:'Beverages And Tobacco','Manufactured Goods'</ul>
+        <ul> Start Date: 2014-02-01</ul>
+        <ul> End Date: 2014-05-12</ul>
         <pre>
-        {
-          "MonthlyCommodityExportData":
-          [
-            {
-              “Commodity”:<>,
-              “RegionalData”:[
+          {
+           "MonthlyCommodityExportData":[
               {
-                State:<>,
-                Data:[{“Date”:<>, “Value”:<>}, {“Date”:<>, “Value”:<>}]
-              },
-              {
-                “Commodity”:<>,
-                “State”:
-                  [
+                 "regional_data":[
                     {
-                      Region:<>,
-                      Data:[
-                        {“Date”:<>, “Value”:<>},
-                        {“Date”:<>, “Value”:<>}
-                      ]
+                       "state":"New South Wales",
+                       "data":[
+                          {
+                             "date":"Feb-2014",
+                             "value":36053.845
+                          },
+                          {
+                             "date":"Mar-2014",
+                             "value":35558.589
+                          },
+                          {
+                             "date":"Apr-2014",
+                             "value":37975.071
+                          },
+                          {
+                             "date":"May-2014",
+                             "value":44953.016
+                          }
+                       ]
                     },
                     {
-                      State:<>,
-                      Data:[
-                        {“Date”:<>, “Value”:<>},
-                        {“Date”:<>, “Value”:<>}
-                      ]
+                       "state":"South Australia",
+                       "data":[
+                          {
+                             "date":"Feb-2014",
+                             "value":91358.087
+                          },
+                          {
+                             "date":"Mar-2014",
+                             "value":96998.913
+                          },
+                          {
+                             "date":"Apr-2014",
+                             "value":83416.81
+                          },
+                          {
+                             "date":"May-2014",
+                             "value":114941.179
+                          }
+                       ]
                     }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
+                 ],
+                 "commodity":"Beverages and tobacco"
+              },
+              {
+                 "regional_data":[
+                    {
+                       "state":"New South Wales",
+                       "data":[
+                          {
+                             "date":"Feb-2014",
+                             "value":193473.083
+                          },
+                          {
+                             "date":"Mar-2014",
+                             "value":259435.32
+                          },
+                          {
+                             "date":"Apr-2014",
+                             "value":267763.476
+                          },
+                          {
+                             "date":"May-2014",
+                             "value":267756.105
+                          }
+                       ]
+                    },
+                    {
+                       "state":"South Australia",
+                       "data":[
+                          {
+                             "date":"Feb-2014",
+                             "value":177304.745
+                          },
+                          {
+                             "date":"Mar-2014",
+                             "value":205721.564
+                          },
+                          {
+                             "date":"Apr-2014",
+                             "value":194670.073
+                          },
+                          {
+                             "date":"May-2014",
+                             "value":193112.341
+                          }
+                       ]
+                    }
+                 ],
+                 "commodity":"Manufactured goods classified chiefly by material"
+              }
+            ]
+          }
         </pre>
       </p>
     </div>
@@ -267,9 +335,27 @@
       <ul>
           <li>
               V2: Initial release of the API.
-          It has implemented the basic functionality of receiving API calls and return corresponding JSON
+          It has implemented the basic functionality of receiving API calls and return corresponding JSON responses, sanitised to a human readable format.
+          </li>
+          <li>
+            Following functionality implemented:
+            <ul>
+              <li>URL Routing from the user to the particular model </li>
+              <li>Translation from input to required ABS API format </li>
+              <li>API call to the ABS and getting the returned JSON.</li>
+              <li>
+              Sanitise JSON response into a human readable format
+              </li>
+            </ul>
           </li>
       </ul>
+    <h5>How to integrate our API</h5>
+      <ul>
+          <li>
+              V2: To call upon the API  
+          </li>
+      </ul>
+
     <h5>Testing app</h5>
   </div>
 
