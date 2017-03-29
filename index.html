@@ -228,9 +228,12 @@
         <ul> 
           <li>Statistics Area:  'Merchandise'</li> 
           <li>Category: 'Beverages And Tobacco' , 'Manufactured Goods'</li>
+          <li>State: 'NSW','SA'</li>
           <li>Start Date: '2014-02-01'</li>
-          <li>End Date: '2014-05-12'</li>
+          <li>End Date: '2014-05-01'</li>
         </ul>
+        <h6>Example url:</h6>
+        <pre>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco,ManufacturedGoods/NSW,SA?startDate=2014-02-01&endDate=2014-05-01</pre>
         <pre>
           {
            "MonthlyCommodityExportData":[
@@ -334,23 +337,24 @@
       </p>
     </div>
     <h5>Update log</h5>
-          <h6>
-              V2: Initial release of the API.
-          It has implemented the basic functionality of receiving API calls and return corresponding JSON responses, sanitised to a human readable format.
+      <ul>
+          <li><h6>V2: Initial release of the API.</h6></li>
+          <li><h6>It has implemented the basic functionality of receiving API calls and return corresponding JSON responses, sanitised to a human readable format.</h6></li>
           
-          Following functionality implemented:</h6>
+          <li>Following functionality implemented:</li>
             <ul>
               <li>URL Routing from the user to the particular model </li>
               <li>Translation from input to required ABS API format </li>
-              <li>API call to the ABS and getting the returned JSON.</li>
+              <li>API call to the ABS and getting the returned JSON</li>
               <li>
               Sanitise JSON response into a human readable format
               </li>
             </ul>
+        </ul>
     <h5>How to integrate our API</h5>
       <ul>
           <li>
-              V2: To call upon the API  
+              V2: To call upon the API you must 
           </li>
       </ul>
 
