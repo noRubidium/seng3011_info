@@ -10,7 +10,7 @@ const isChromium = window.chrome,
     isOpera = winNav.userAgent.indexOf("OPR") > -1,
     isIEedge = winNav.userAgent.indexOf("Edge") > -1,
     isIOSChrome = winNav.userAgent.match("CriOS");
-
+console.log("Latest version!");
 if (isIOSChrome) {
    // is Google Chrome on IOS
 } else if(isChromium !== null && isChromium !== undefined && vendorName === "Google Inc." && isOpera == false && isIEedge == false) {
