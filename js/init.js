@@ -80,14 +80,19 @@ $(document).ready(() => {
         const endDate = $("#endDate").val();
         const startDate = $("#startDate").val();
 
-        $.get(`http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`,{startDate, endDate},(data) => {
-                $("#result-display").text(JSON.stringify(data, null, 4));
-                hljs.initHighlightingOnLoad();
+        const requestUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
+        resultdisp.text("Loading...");
+        $("#url").text(requestUrl);
+        $.get(requestUrl,{startDate, endDate},(data) => {
+                const resultdisp = $("#result-display");
+                resultdisp.text(JSON.stringify(data, null, 4));
+                hljs.highlightBlock(resultdisp);
             })
             .fail((error) => {
                 console.log(error);
-                $("#result-display").text(JSON.stringify(error, null, 4));
-                hljs.initHighlightingOnLoad();
+                const resultdisp = $("#result-display");
+                resultdisp.text(JSON.stringify(error, null, 4));
+                hljs.highlightBlock(resultdisp);
             });
     })
 });
