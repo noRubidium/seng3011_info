@@ -23,6 +23,16 @@ if (window.location.protocol === 'https:') {
     $("#index-banner").html("<h1>PLEASE GO TO OUR NEW RELEASE PAGE: <p></p> <a href='http://release.kaiworship.xyz'>Eleven 51 API release</a></h1>");
 }
 
+
+const randomString = function(length) {
+    let text = "";
+    const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    for(let i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+};
+
 const commodities = ['Total',
         'Food',
         'HouseholdGood',
@@ -95,5 +105,27 @@ $(document).ready(() => {
                 resultdisp.text(JSON.stringify(error, null, 4));
                 hljs.highlightBlock(resultdisp);
             });
-    })
+    });
+
+    $('#error-button').on("click", () => {
+        const stats = 'Retail';
+        const categ = (Math.random() > 0.5) ? 'Total': randomString(6);
+        const states = (Math.random() > 0.5) ? '': randomString(6);
+
+        const requestUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
+        const resultdisp = $("#result-display");
+
+        resultdisp.text("Loading...");
+        $("#url").text(requestUrl);
+        $.get(requestUrl,(data) => {
+                resultdisp.text(JSON.stringify(data, null, 4));
+                hljs.highlightBlock(resultdisp);
+            })
+            .fail((error) => {
+                console.log(error);
+                const resultdisp = $("#result-display");
+                resultdisp.text(JSON.stringify(error, null, 4));
+                hljs.highlightBlock(resultdisp);
+            });
+    });
 });
