@@ -69,9 +69,7 @@ $(document).ready(() => {
             first = false;
             newOption.text(choice.replace(/([A-Z])/g, ' $1')
                 .replace(/^./, function(str){ return str.toUpperCase(); }));
-            window.no = newOption;
             newOption.val(choice);
-            window.cat = cat;
             cat.append(newOption);
         });
         $('#catDiv').text('').append(cat);
@@ -85,10 +83,12 @@ $(document).ready(() => {
 
     $('#submit-button').on("click", () => {
         const stats = $("#stats-area").val() || 'Retail';
-        const categ = $("#categories").val() || 'Total';
+        const categ = $("#categories").val().length === 0 ? 'Total' : $("#categories").val() || 'Total';
         const states = $("#states").val() || '';
         const endDate = $("#endDate").val();
-        const startDate = $("#startDate").val();
+        const startDate = $("#startDate").val() || '2016-01-01';
+
+        console.log(categ);
 
         const requestUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
         const resultdisp = $("#result-display");
@@ -97,13 +97,13 @@ $(document).ready(() => {
         $("#url").text(requestUrl);
         $.get(requestUrl,{startDate, endDate},(data) => {
                 resultdisp.text(JSON.stringify(data, null, 4));
-                hljs.highlightBlock(resultdisp);
+                hljs.highlightBlock(resultdisp[0]);
             })
             .fail((error) => {
                 console.log(error);
                 const resultdisp = $("#result-display");
                 resultdisp.text(JSON.stringify(error, null, 4));
-                hljs.highlightBlock(resultdisp);
+                hljs.highlightBlock(resultdisp[0]);
             });
     });
 
@@ -119,13 +119,13 @@ $(document).ready(() => {
         $("#url").text(requestUrl);
         $.get(requestUrl,(data) => {
                 resultdisp.text(JSON.stringify(data, null, 4));
-                hljs.highlightBlock(resultdisp);
+                hljs.highlightBlock(resultdisp[0]);
             })
             .fail((error) => {
                 console.log(error);
                 const resultdisp = $("#result-display");
                 resultdisp.text(JSON.stringify(error, null, 4));
-                hljs.highlightBlock(resultdisp);
+                hljs.highlightBlock(resultdisp[0]);
             });
     });
 });
