@@ -69,8 +69,8 @@ $(document).ready(() => {
 
     $('#submit-button').on("click", () => {
         const stats = $("#stats-area").val() || '';
-        const categ = $("#categories").val() || '';
-        const states = $("#states").val() || '';
+        const categ = $("#categories").val() || 'Total';
+        const states = $("#states").val() || 'Total';
         const endDate = $("#endDate").val();
         const startDate = $("#startDate").val();
 
