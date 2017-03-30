@@ -20,7 +20,7 @@ if (isIOSChrome) {
 }
 
 if (window.location.protocol === 'https:') {
-    $(".section").html("<h1>PLEASE GO TO OUR NEW RELEASE PAGE: <a href='http://release.kaiworship.xyz'>Eleven 51 API release</a></h1>");
+    $(".section").html("<h1>PLEASE GO TO OUR NEW RELEASE PAGE: <p></p> <a href='http://release.kaiworship.xyz'>Eleven 51 API release</a></h1>");
 }
 const commodities = ['Total',
     'Food',
