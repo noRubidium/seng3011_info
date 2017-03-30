@@ -44,7 +44,7 @@ $(document).ready(() => {
     $('select').material_select();
     $('#stats-area').on("change", (e) => {
         const value = e.target.value;
-        const list = value === "merch" ? categories : commodities;
+        const list = value === 'MerchandiseExports' ? categories : commodities;
         const cat = $('<select id="categories" multiple>');
         const defaultOption = $("<option disabled selected>");
         defaultOption.text("Choose the categories");
