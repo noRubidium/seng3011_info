@@ -51,10 +51,12 @@ $(document).ready(() => {
         const list = value === 'MerchandiseExports' ? categories : commodities;
         const cat = $('<select id="categories" multiple>');
         const defaultOption = $("<option disabled selected>");
+        let first = true;
         defaultOption.text("Choose the categories");
         cat.append(defaultOption);
         list.map(function (choice) {
-            const newOption = $('<option>');
+            const newOption = first? $('<option default>') : $('<option>');
+            first = false;
             newOption.text(choice.replace(/([A-Z])/g, ' $1')
                 .replace(/^./, function(str){ return str.toUpperCase(); }));
             window.no = newOption;
@@ -72,7 +74,7 @@ $(document).ready(() => {
       });
 
     $('#submit-button').on("click", () => {
-        const stats = $("#stats-area").val() || '';
+        const stats = $("#stats-area").val() || 'Retail';
         const categ = $("#categories").val() || 'Total';
         const states = $("#states").val() || '';
         const endDate = $("#endDate").val();
