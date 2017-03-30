@@ -81,10 +81,11 @@ $(document).ready(() => {
         const startDate = $("#startDate").val();
 
         const requestUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
+        const resultdisp = $("#result-display");
+
         resultdisp.text("Loading...");
         $("#url").text(requestUrl);
         $.get(requestUrl,{startDate, endDate},(data) => {
-                const resultdisp = $("#result-display");
                 resultdisp.text(JSON.stringify(data, null, 4));
                 hljs.highlightBlock(resultdisp);
             })
