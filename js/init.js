@@ -16,11 +16,11 @@ if (isIOSChrome) {
 } else if(isChromium !== null && isChromium !== undefined && vendorName === "Google Inc." && isOpera == false && isIEedge == false) {
    // is Google Chrome
 } else { 
-   $(".section").html("<h1>PLEASE USE CHROME</h1>");
+   $(".section, .container").html("<h1>PLEASE USE CHROME</h1>");
 }
 
 if (window.location.protocol === 'https:') {
-    $(".section").html("<h1>PLEASE GO TO OUR NEW RELEASE PAGE: <p></p> <a href='http://release.kaiworship.xyz'>Eleven 51 API release</a></h1>");
+    $(".section, .container").html("<h1>PLEASE GO TO OUR NEW RELEASE PAGE: <p></p> <a href='http://release.kaiworship.xyz'>Eleven 51 API release</a></h1>");
 }
 const commodities = ['Total',
     'Food',
