@@ -24,23 +24,23 @@ if (window.location.protocol === 'https:') {
 }
 
 const commodities = ['Total',
-    'Food',
-    'HouseholdGood',
-    'ClothingFootwareAndPersonalAccessory',
-    'DepartmentStores',
-    'CafesResturantsAndTakeawayFood',
-    'Other'];
+        'Food',
+        'HouseholdGood',
+        'ClothingFootwareAndPersonalAccessory',
+        'DepartmentStores',
+        'CafesRestaurantsAndTakeawayFood',
+        'Other'];
 const categories = ['Total',
-    'FoodAndLiveAnimals',
-    'BeveragesAndTobacco',
-    'CrudMaterialAndInedible',
-    'MineralFuelLubricentAndRelatedMaterial',
-    'AnimalAndVegitableOilFatAndWaxes',
-    'ChemicalsAndRelatedProducts',
-    'ManufacutedGoods',
-    'MachineryAndTransportEquipments',
-    'OtheranucacturedArticles',
-    'Unclassified'];
+        'FoodAndLiveAnimals',
+        'BeveragesAndTobacco',
+        'CrudeMaterialAndInedible',
+        'MineralFuelLubricantAndRelatedMaterial',
+        'AnimalAndVegetableOilFatAndWaxes',
+        'ChemicalsAndRelatedProducts',
+        'ManufacturedGoods',
+        'MachineryAndTransportEquipments',
+        'OtherManufacturedArticles',
+        'Unclassified'];
 
 
 $(document).ready(() => {
