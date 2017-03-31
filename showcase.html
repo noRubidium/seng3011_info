@@ -120,10 +120,32 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script>
+
+    const isChromium = window.chrome,
+        winNav = window.navigator,
+        vendorName = winNav.vendor,
+        isOpera = winNav.userAgent.indexOf("OPR") > -1,
+        isIEedge = winNav.userAgent.indexOf("Edge") > -1,
+        isIOSChrome = winNav.userAgent.match("CriOS");
+        console.log("Latest version!");
+    if (isIOSChrome) {
+       // is Google Chrome on IOS
+    } else if(isChromium !== null && isChromium !== undefined && vendorName === "Google Inc." && isOpera == false && isIEedge == false) {
+       // is Google Chrome
+    } else {
+       $("#index-banner").html("<h1>PLEASE USE CHROME</h1>");
+    }
+
+    if (window.location.protocol === 'https:') {
+        $("#index-banner").html("<h1>PLEASE GO TO OUR NEW RELEASE PAGE: <p></p> <a href='http://release.kaiworship.xyz'>Eleven 51 API release</a></h1>");
+    }
+    </script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
     <link rel="stylesheet" href="/css/code_styles/atom-one-dark.css">
     <script src="/js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+
   </body>
 </html>
