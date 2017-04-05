@@ -70,13 +70,18 @@ $(document).ready(() => {
         const startDate = $("#startDate").val() || '2016-01-01';
 
         console.log(categ);
+        const baseUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
+        
+        const params = '?${startDate}?${endDate}';
+        var requestUrl = baseUrl.concat(params);
 
-        const requestUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
         const resultdisp = $("#result-display");
+        var endDateParam = endDate == '' ? '':('/endDate='+ endDate);
+        var requestUrlDisp = baseUrl.concat('/startDate=' + startDate + endDateParam);
 
         resultdisp.text("Loading...");
-        $("#url").text(requestUrl);
-        $.get(requestUrl,{startDate, endDate},(data) => {
+        $("#url").text(requestUrlDisp);
+        $.get(requestUrl,(data) => {
                 resultdisp.text(JSON.stringify(data, null, 4));
                 hljs.highlightBlock(resultdisp[0]);
             })
