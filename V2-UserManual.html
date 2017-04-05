@@ -169,7 +169,7 @@
           <li>End Date: '2014-05-01'</li>
         </ul>
         <p>Example url:</p>
-        <code>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco,ManufacturedGoods/NSW,SA?startDate=2014-02-01&endDate=2014-05-01</code>
+        <code>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco,ManufacturedGoods/NSW,SA/startDate=2014-02-01&endDate=2014-05-01</code>
         <p>JSON Response</p>
         <pre style="max-height:300px;"><code class="json">
           {
@@ -272,7 +272,7 @@
           }
         </code>
         </pre>
-        <p>The JSON response if formated by category, above the categories are Beverages and Tobacco & Manufactured goods. Within each category property there are the states which were selected and within each state there is a list of months with the corresponding statistic value</p>
+        <p>The JSON response is formated by category, above the categories are Beverages and Tobacco & Manufactured goods. Each category property contains selected states, within which exists a list of months with the corresponding statistic value</p>
         Given the statistic area the statistics values are these units<br>
         Merchandice - Thousands<br>
         Retails - Millions
@@ -280,9 +280,9 @@
     </div>
     <h3>Update log</h3>
       <h5>V2: Initial release of the API</h5>
-          Currently the API's Core functionality of receiving API calls and return corresponding JSON responses has been implemented. Sanitisation of the ABS responses to a human readable format.<br><br>
+          Currently the API's Core functionality of receiving API calls and returning corresponding JSON responses has been implemented. ABS responses have been sanitised into a human readable format.<br><br>
 
-          <p>Following functionality implemented:</p>
+          <p>The following functionality has been implemented:</p>
             <ol>
               <li>URL Routing from the user to the particular model </li>
               <li>Translation from input to required ABS API format </li>
@@ -314,8 +314,8 @@
                 <td></td>
               <td>
                 <ol>
-                    <li>retail</li>
-                    <li>merch</li>
+                    <li>Retail</li>
+                    <li>Merchandise</li>
                 </ol>
               </td>
             </tr>
@@ -367,7 +367,7 @@
               <td>
                 <strong>States</strong>
               </td>
-                <td>Can be one or multiple values from the states</td>
+                <td>You are able to choose one or multiple values from the states</td>
                 <td>
                     <ol>
                         <li>AUS</li>

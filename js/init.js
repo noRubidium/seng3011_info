@@ -76,7 +76,7 @@ $(document).ready(() => {
         var requestUrl = baseUrl.concat(params);
 
         const resultdisp = $("#result-display");
-        var endDateParam = endDate == '' ? '':('/endDate='+ endDate);
+        var endDateParam = endDate == '' ? '':('&endDate='+ endDate);
         var requestUrlDisp = baseUrl.concat('/startDate=' + startDate + endDateParam);
 
         resultdisp.text("Loading...");
