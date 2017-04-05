@@ -25,12 +25,12 @@
     <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Logo</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#release">Release</a></li>
-        <li><a href="#manual">User Manual</a></li>
+        <li><a href="V2-UserManual.html">User Manual</a></li>
         <li><a href="showcase.html">Try it out!</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#release">Release</a></li><li><a href="#manual">User Manual</a></li><li><a href="showcase.html">Try it out!</a></li>
+        <li><a href="#release">Release</a></li><li><a href="#UserManual.html">User Manual</a></li><li><a href="showcase.html">Try it out!</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -104,7 +104,7 @@
             <div class="section">
               <div class="collection">
                 <a href="http://api.kaiworship.xyz/v1/" class="collection-item"><span class="badge">22/03/2017</span>v1.0.0.0</a>
-                <a href="http://api.kaiworship.xyz/v2/" class="collection-item"><span class="new badge">29/03/2017</span>v2.0.0.0</a>
+                <a href="V2-UserManual.html" class="collection-item"><span class="new badge">29/03/2017</span>v2.0.0.0</a>
                 <!-- <a href="#!" class="collection-item"><span class="new badge">20/03/2017</span>v1.0.0.1</a> -->
               </div>
             </div>
@@ -112,372 +112,6 @@
         </div>
       </div>
     </div>
-
-      <h2><a name="manual" > User manual </a> </h2>
-    <div class="divider"></div>
-    <div class="section">
-      <h3>Functionalities</h3>
-      <ul>
-        <li>Ability to get Merchandise and Retail data of one or more certain states within the certain category</li>
-        <li>Supporting both in browser viewing and external API calls.</li>
-      </ul>
-      <h3>API calling convention</h3>
-      <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
-
-      <code>http://api.kaiworship.xyz/v2/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
-      <table>
-        <thead>
-        <td>
-          Parameter
-        </td>
-        <td>
-          Arguments and Formats
-        </td>
-        <td>
-          Requirement
-        </td>
-        <td>
-          Separated By
-        </td>
-        <td>
-          Example
-        </td>
-        </thead>
-        <tr>
-          <td>
-            statisticsArea
-          </td>
-          <td>
-            A string which can take value “Retail” or “MerchandiseExports”
-          </td>
-          <td>
-            Mandatory
-          </td>
-          <td>
-            N/A
-          </td>
-          <td>
-            “Retail”
-          </td>
-        </tr>
-        <tr>
-          <td>
-            category
-          </td>
-          <td>
-            A list of one or more categories, separated by commas, in the form of a string.
-          </td>
-          <td>
-            Mandatory
-          </td>
-          <td>
-            Comma
-          </td>
-          <td>
-            “Food,HouseholdGood”
-          </td>
-        </tr>
-        <tr>
-          <td>
-            state
-          </td>
-          <td>
-            A list of one or more states/territories, separated by commas, in the form of a string.
-          </td>
-          <td>
-            Optional
-          </td>
-          <td>
-            Comma
-          </td>
-          <td>
-            “SA,VIC,NT”
-          </td>
-        </tr>
-        <tr>
-          <td>
-            startDate
-          </td>
-          <td>
-            A date string with the format “YYYY-MM-DD”
-          </td>
-          <td>
-            Optional
-          </td>
-          <td>
-            N/A
-          </td>
-          <td>
-            “2012-12-12”
-          </td>
-        </tr>
-        <tr>
-          <td>
-            endDate
-          </td>
-          <td>
-            A date string with the format “YYYY-MM-DD”
-          </td>
-          <td>
-            Optional
-          </td>
-          <td>
-            N/A
-          </td>
-          <td>
-            “2017-01-27”
-          </td>
-        </tr>
-      </table>
-
-
-    </div>
-    <div class="divider"></div>
-    <div class="section">
-      <h3>API response </h3>
-      <p>Example JSON Output for	Merchandise Export given these inputs</p>
-        <ul> 
-          <li>Statistics Area:  'Merchandise'</li> 
-          <li>Category: 'Beverages And Tobacco' , 'Manufactured Goods'</li>
-          <li>State: 'NSW','SA'</li>
-          <li>Start Date: '2014-02-01'</li>
-          <li>End Date: '2014-05-01'</li>
-        </ul>
-        <p>Example url:</p>
-        <code>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco,ManufacturedGoods/NSW,SA?startDate=2014-02-01&endDate=2014-05-01</code>
-        <pre style="max-height:300px;"><code class="json">
-          {
-           "MonthlyCommodityExportData":[
-              {
-                 "regional_data":[
-                    {
-                       "state":"New South Wales",
-                       "data":[
-                          {
-                             "date":"Feb-2014",
-                             "value":36053.845
-                          },
-                          {
-                             "date":"Mar-2014",
-                             "value":35558.589
-                          },
-                          {
-                             "date":"Apr-2014",
-                             "value":37975.071
-                          },
-                          {
-                             "date":"May-2014",
-                             "value":44953.016
-                          }
-                       ]
-                    },
-                    {
-                       "state":"South Australia",
-                       "data":[
-                          {
-                             "date":"Feb-2014",
-                             "value":91358.087
-                          },
-                          {
-                             "date":"Mar-2014",
-                             "value":96998.913
-                          },
-                          {
-                             "date":"Apr-2014",
-                             "value":83416.81
-                          },
-                          {
-                             "date":"May-2014",
-                             "value":114941.179
-                          }
-                       ]
-                    }
-                 ],
-                 "commodity":"Beverages and tobacco"
-              },
-              {
-                 "regional_data":[
-                    {
-                       "state":"New South Wales",
-                       "data":[
-                          {
-                             "date":"Feb-2014",
-                             "value":193473.083
-                          },
-                          {
-                             "date":"Mar-2014",
-                             "value":259435.32
-                          },
-                          {
-                             "date":"Apr-2014",
-                             "value":267763.476
-                          },
-                          {
-                             "date":"May-2014",
-                             "value":267756.105
-                          }
-                       ]
-                    },
-                    {
-                       "state":"South Australia",
-                       "data":[
-                          {
-                             "date":"Feb-2014",
-                             "value":177304.745
-                          },
-                          {
-                             "date":"Mar-2014",
-                             "value":205721.564
-                          },
-                          {
-                             "date":"Apr-2014",
-                             "value":194670.073
-                          },
-                          {
-                             "date":"May-2014",
-                             "value":193112.341
-                          }
-                       ]
-                    }
-                 ],
-                 "commodity":"Manufactured goods classified chiefly by material"
-              }
-            ]
-          }
-        </code>
-        </pre>
-      </p>
-    </div>
-    <h3>Update log</h3>
-      <h5>V2: Initial release of the API</h5>
-          Currently the API's Core functionality of receiving API calls and return corresponding JSON responses has been implemented. Sanitisation of the ABS responses to a human readable format.<br><br>
-
-          <p>Following functionality implemented:</p>
-            <ol>
-              <li>URL Routing from the user to the particular model </li>
-              <li>Translation from input to required ABS API format </li>
-              <li>API call to the ABS and getting the returned JSON</li>
-              <li>
-              Sanitise JSON response into a human readable text
-              </li>
-            </ol>
-    <h3>How to integrate our API within a Webapp</h3>
-          <p>
-              To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
-          </p>
-          <table class="bordered responsive-table">
-            <thead>
-                <td>
-                  <strong>Parameter</strong>
-                </td>
-                <td>
-                    <strong>Remarks</strong>
-                </td>
-                <td>
-                    <strong>Available Options</strong>
-                </td>
-            </thead>
-            <tr>
-              <td>
-                <strong>StatisticsArea</strong>
-              </td>
-                <td></td>
-              <td>
-                <ol>
-                    <li>retail</li>
-                    <li>merch</li>
-                </ol>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <strong>Category</strong> (retail)
-              </td>
-              <td>
-              If Statistics Area is chosen to be Retail,
-                  you are able to choose one or more of the following Industries.
-              </td>
-              <td>
-                <ol>
-                  <li>Total</li>
-                  <li>Food</li>
-                  <li>HouseholdGood</li>
-                  <li>ClothingFootwareAndPersonalAccessory</li>
-                  <li>DepartmentStores</li>
-                  <li>CafesRestaurantsAndTakeawayFood</li>
-                  <li>Other</li>
-                </ol>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <strong>Category</strong> (merchandise)
-              </td>
-              <td>
-              If Statistics Area is chosen to be Merchandise Exports,
-                    you are able to choose one or more of the following Commodities
-              </td>
-              <td>
-                <ol>
-                  <li>Total</li>
-                  <li>FoodAndLiveAnimals</li>
-                  <li>BeveragesAndTobacco</li>
-                  <li>CrudeMaterialAndInedible</li>
-                  <li>MineralFuelLubricantAndRelatedMaterial</li>
-                  <li>AnimalAndVegetableOilFatAndWaxes</li>
-                  <li>ChemicalsAndRelatedProducts</li>
-                  <li>ManufacturedGoods</li>
-                  <li>MachineryAndTransportEquipments</li>
-                  <li>OtherManufacturedArticles</li>
-                  <li>Unclassified</li>
-                </ol>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>States</strong>
-              </td>
-                <td>Can be one or multiple values from the states</td>
-                <td>
-                    <ol>
-                        <li>AUS</li>
-                          <li>NSW</li>
-                          <li>WA</li>
-                          <li>SA</li>
-                          <li>ACT</li>
-                          <li>VIC</li>
-                          <li>TAS</li>
-                          <li>QLD</li>
-                          <li>NT</li>
-                    </ol>
-                </td>
-            </tr>
-          </table>
-
-          <p>For example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
-          <code>http://api.kaiworship.xyz/v2/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</code>
-          Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
-
-          <h5>Python:</h5>
-      <pre><code class="python">
-import urllib2
-response = urllib2.urlopen(url)
-json_string = response.read()
-      </code></pre>
-
-      <h5>JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</h5>
-            <pre><code class="js">
-fetch(url)
-    .then((data) => {
-        // handle data
-        console.log(data);
-    })
-    .catch((error) => {
-        //handle error
-    });
-            </code></pre>
-
-    <h3><a href="showcase.html">Testing app</a></h3>
   </div>
 
   <footer class="page-footer orange">
@@ -494,16 +128,16 @@ fetch(url)
           <h5 class="white-text">Team members</h5>
           <div class="col l6 s12">
             <ul>
-              <li><a class="white-text" href="#!">Vaishnavi Bapat</a></li>
-              <li><a class="white-text" href="#!">Pranav Bhatia</a></li>
-              <li><a class="white-text" href="#!">Clinton Hadinata</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/vaishnavi-bapat-59179758/" target="_blank">Vaishnavi Bapat</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/pranav-bhatia-65563694/" target="_blank">Pranav Bhatia</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/clinton-hadinata-5b7598133/" target="_blank">Clinton Hadinata</a></li>
             </ul>
           </div>
           <div class="col l6 s12">
             <ul>
-              <li><a class="white-text" href="#!">Minjie Shen</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/minjie-shen-4a2511ba/" target="_blank">Minjie Shen</a></li>
               <li><a class="white-text" href="#!">Jessica Theodosius</a></li>
-              <li><a class="white-text" href="#!">Jason Vo</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/jason-vo/" target="_blank">Jason Vo</a></li>
             </ul>
           </div>
         </div>

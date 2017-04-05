@@ -91,7 +91,7 @@ $(document).ready(() => {
     $('#error-button').on("click", () => {
         const stats = 'Retail';
         const categ = (Math.random() > 0.5) ? 'Total': randomString(6);
-        const states = (Math.random() > 0.5) ? '': randomString(6);
+        const states = (Math.random() > 0.5) ? 'UNSW': randomString(6);
 
         const requestUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
         const resultdisp = $("#result-display");
