@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Eleven51 - release page</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <style>
+        td ol {
+            -moz-column-count: 2;
+            -moz-column-gap: 40px;
+            -webkit-column-count: 2;
+            -webkit-column-gap: 40px;
+            column-count: 2;
+            column-gap: 40px;
+        }
+    </style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index.html#release">Release</a></li>
+        <li><a href="UserManual-V1.1.html">User Manual</a></li>
+        <li><a href="showcase.html">Try it out!</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="index.html#release">Release</a></li><li><a href="UserManual-V1.1.html">User Manual</a></li><li><a href="showcase.html">Try it out!</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <h2><a name="manual" > User manual </a> </h2>
+    <div class="divider"></div>
+    <div class="section">
+      <h5>Functionalities</h5>
+        Given atleast the area of statistic, we are able to:
+        <ol>
+          <li>Retrieve industry specific data for Retail and Merchandise</li>
+          <li>Have the industry data filtered further by a list of industry-specific categories</li>
+          <li>Show monthly turnover by industry groups</li>
+          <li>Retrieve Merchandise and Retail data of one or more certain states/territories within the certain category</li>       
+          <li>Show data based the user's input of start and end dates</li>
+        </ol>
+      <br>
+      <br>
+
+      <h5>Update log</h5>
+        <h5>V2: Updates</h5>
+          <p>Functionality which has been implemented:</p>
+            <ol>
+              <li>Error handling for Invalid input</li>
+              <li>Logging for API response</li>
+            </ol>
+      <br>
+      <h5>API calling convention</h5>
+        <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
+
+        <code>http://api.kaiworship.xyz/v1.1/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
+        <table>
+          <thead>
+          <td>
+            Parameter
+          </td>
+          <td>
+            Arguments and Formats
+          </td>
+          <td>
+            Requirement
+          </td>
+          <td>
+            Separated By
+          </td>
+          <td>
+            Example
+          </td>
+          </thead>
+          <tr>
+            <td>
+              statisticsArea
+            </td>
+            <td>
+              A string which can take value “Retail” or “MerchandiseExports”
+            </td>
+            <td>
+              Mandatory
+            </td>
+            <td>
+              N/A
+            </td>
+            <td>
+              “Retail”
+            </td>
+          </tr>
+          <tr>
+            <td>
+              category
+            </td>
+            <td>
+              A list of one or more categories, separated by commas, in the form of a string.
+            </td>
+            <td>
+              Mandatory
+            </td>
+            <td>
+              Comma
+            </td>
+            <td>
+              “Food,HouseholdGood”
+            </td>
+          </tr>
+          <tr>
+            <td>
+              state
+            </td>
+            <td>
+              A list of one or more states/territories, separated by commas, in the form of a string.
+            </td>
+            <td>
+              Optional
+            </td>
+            <td>
+              Comma
+            </td>
+            <td>
+              “SA,VIC,NT”
+            </td>
+          </tr>
+          <tr>
+            <td>
+              startDate
+            </td>
+            <td>
+              A date string with the format “YYYY-MM-DD”
+            </td>
+            <td>
+              Optional
+            </td>
+            <td>
+              N/A
+            </td>
+            <td>
+              “2012-12-12”
+            </td>
+          </tr>
+          <tr>
+            <td>
+              endDate
+            </td>
+            <td>
+              A date string with the format “YYYY-MM-DD”
+            </td>
+            <td>
+              Optional
+            </td>
+            <td>
+              N/A
+            </td>
+            <td>
+              “2017-01-27”
+            </td>
+          </tr>
+        </table>
+        <br>
+      <h5>How to integrate our API within a Webapp</h5>
+          <p>
+              To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
+          </p>
+          <table class="bordered responsive-table">
+            <thead>
+                <td>
+                  <strong>Parameter</strong>
+                </td>
+                <td>
+                    <strong>Remarks</strong>
+                </td>
+                <td>
+                    <strong>Available Options</strong>
+                </td>
+            </thead>
+            <tr>
+              <td>
+                <strong>StatisticsArea</strong>
+              </td>
+                <td></td>
+              <td>
+                <ol>
+                    <li>Retail</li>
+                    <li>Merchandise</li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <strong>Category</strong> (retail)
+              </td>
+              <td>
+              If Statistics Area is chosen to be Retail,
+                  you are able to choose one or more of the following Industries.
+              </td>
+              <td>
+                <ol>
+                  <li>Total</li>
+                  <li>Food</li>
+                  <li>HouseholdGood</li>
+                  <li>ClothingFootwareAndPersonalAccessory</li>
+                  <li>DepartmentStores</li>
+                  <li>CafesRestaurantsAndTakeawayFood</li>
+                  <li>Other</li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <strong>Category</strong> (merchandise)
+              </td>
+              <td>
+              If Statistics Area is chosen to be Merchandise Exports,
+                    you are able to choose one or more of the following Commodities
+              </td>
+              <td>
+                <ol>
+                  <li>Total</li>
+                  <li>FoodAndLiveAnimals</li>
+                  <li>BeveragesAndTobacco</li>
+                  <li>CrudeMaterialAndInedible</li>
+                  <li>MineralFuelLubricantAndRelatedMaterial</li>
+                  <li>AnimalAndVegetableOilFatAndWaxes</li>
+                  <li>ChemicalsAndRelatedProducts</li>
+                  <li>ManufacturedGoods</li>
+                  <li>MachineryAndTransportEquipments</li>
+                  <li>OtherManufacturedArticles</li>
+                  <li>Unclassified</li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>States</strong>
+              </td>
+                <td>You are able to choose one or multiple values from the states</td>
+                <td>
+                    <ol>
+                        <li>AUS</li>
+                          <li>NSW</li>
+                          <li>WA</li>
+                          <li>SA</li>
+                          <li>ACT</li>
+                          <li>VIC</li>
+                          <li>TAS</li>
+                          <li>QLD</li>
+                          <li>NT</li>
+                    </ol>
+                </td>
+            </tr>
+          </table>
+
+          <p>For example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
+          <code>http://api.kaiworship.xyz/v1.1/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</code><br><br>
+          Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
+
+          <h5>Python:</h5>
+            <pre><code class="python">
+              import urllib2
+              response = urllib2.urlopen(url)
+              json_string = response.read()
+            </code></pre>
+
+          <h5>JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</h5>
+            <pre><code class="js">
+            fetch(url)
+                .then((data) => {
+                    // handle data
+                    console.log(data);
+                })
+                .catch((error) => {
+                    //handle error
+                });
+            </code></pre>
+
+
+     
+
+    </div>
+    <div class="divider"></div>
+    <div class="section">
+      <h5>API response </h5>
+      <p>The API response is in JSON format, which gives the relevant statistica data given the paramaters selected. Below is an example API call with these paramaters selected below. This example shows the example URL and JSON response.</p>
+        <ul> 
+          <li>Statistics Area:  'Merchandise'</li> 
+          <li>Category: 'Beverages And Tobacco' , 'Manufactured Goods'</li>
+          <li>State: 'New South Wales','South Australia'</li>
+          <li>Start Date: '1st Febuary 2014'</li>
+          <li>End Date: '1st May 2014</li>
+        </ul>
+        <p>Example url:</p>
+        <code>http://api.kaiworship.xyz/v1.1/MerchandiseExports/BeveragesAndTobacco/NSW,SA/startDate=2014-02-01&endDate=2014-05-01</code>
+        <p>JSON Response</p>
+        <pre style="max-height:300px;"><code class="json">
+          {
+            "MonthlyCommodityExportData": [
+                {
+                    "regional_data": [
+                        {
+                            "state": "NSW",
+                            "data": [
+                                {
+                                    "date": "2014-02-28",
+                                    "value": 36053.845
+                                },
+                                {
+                                    "date": "2014-03-31",
+                                    "value": 35558.589
+                                },
+                                {
+                                    "date": "2014-04-30",
+                                    "value": 37975.071
+                                },
+                                {
+                                    "date": "2014-05-31",
+                                    "value": 44953.016
+                                }
+                            ]
+                        },
+                        {
+                            "state": "SA",
+                            "data": [
+                                {
+                                    "date": "2014-02-28",
+                                    "value": 91358.087
+                                },
+                                {
+                                    "date": "2014-03-31",
+                                    "value": 96998.913
+                                },
+                                {
+                                    "date": "2014-04-30",
+                                    "value": 83416.81
+                                },
+                                {
+                                    "date": "2014-05-31",
+                                    "value": 114941.179
+                                }
+                            ]
+                        }
+                    ],
+                    "commodity": "BeveragesAndTobacco"
+                },
+                {
+                    "regional_data": [
+                        {
+                            "state": "NSW",
+                            "data": [
+                                {
+                                    "date": "2014-02-28",
+                                    "value": 193473.083
+                                },
+                                {
+                                    "date": "2014-03-31",
+                                    "value": 259435.32
+                                },
+                                {
+                                    "date": "2014-04-30",
+                                    "value": 267763.476
+                                },
+                                {
+                                    "date": "2014-05-31",
+                                    "value": 267756.105
+                                }
+                            ]
+                        },
+                        {
+                            "state": "SA",
+                            "data": [
+                                {
+                                    "date": "2014-02-28",
+                                    "value": 177304.745
+                                },
+                                {
+                                    "date": "2014-03-31",
+                                    "value": 205721.564
+                                },
+                                {
+                                    "date": "2014-04-30",
+                                    "value": 194670.073
+                                },
+                                {
+                                    "date": "2014-05-31",
+                                    "value": 193112.341
+                                }
+                            ]
+                        }
+                    ],
+                    "commodity": "ManufacturedGoods"
+                }
+            ]
+          }
+        </code>
+        </pre>
+        <p>The JSON response is formated by category, in the example above the categories are Beverages and Tobacco & Manufactured goods. Each category property contains selected states which in the example are NSW and SA. Within each state there which exists a list of months with the corresponding statistic value.</p>
+        
+        Here is another example with Retail as the statistics Area. In this example no dates have been selected. So as a default value the start date will be January of the previous year.
+
+      <ul> 
+          <li>Statistics Area:  'Retail'</li> 
+          <li>Category: 'Food' , 'Cafes Restuarants And Takeaway Food'</li>
+          <li>State: 'Total'</li>
+      </ul>
+
+      <p>Example url:</p>
+      <code>http://api.kaiworship.xyz/v1.1/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</code>
+      <p>JSON Response</p>
+      <pre style="max-height:300px;"><code class="json">
+      {
+        "MonthlyRetailData": [
+            {
+                "category": "CafesRestaurantsAndTakeawayFood",
+                "regional_data": [
+                    {
+                        "state": "AUS",
+                        "data": [
+                            {
+                                "date": "2016-01-31",
+                                "turnover": 3431.8
+                            },
+                            {
+                                "date": "2016-02-29",
+                                "turnover": 3186.9
+                            },
+                            {
+                                "date": "2016-03-31",
+                                "turnover": 3435.2
+                            },
+                            {
+                                "date": "2016-04-30",
+                                "turnover": 3451.7
+                            },
+                            {
+                                "date": "2016-05-31",
+                                "turnover": 3431
+                            },
+                            {
+                                "date": "2016-06-30",
+                                "turnover": 3313.9
+                            },
+                            {
+                                "date": "2016-07-31",
+                                "turnover": 3573
+                            },
+                            {
+                                "date": "2016-08-31",
+                                "turnover": 3647.5
+                            },
+                            {
+                                "date": "2016-09-30",
+                                "turnover": 3696.3
+                            },
+                            {
+                                "date": "2016-10-31",
+                                "turnover": 3716.6
+                            },
+                            {
+                                "date": "2016-11-30",
+                                "turnover": 3678.5
+                            },
+                            {
+                                "date": "2016-12-31",
+                                "turnover": 4047.3
+                            },
+                            {
+                                "date": "2017-01-31",
+                                "turnover": 3621.4
+                            },
+                            {
+                                "date": "2017-02-28",
+                                "turnover": 3260.6
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "category": "Total",
+                "regional_data": [
+                    {
+                        "state": "AUS",
+                        "data": [
+                            {
+                                "date": "2016-01-31",
+                                "turnover": 24753.1
+                            },
+                            {
+                                "date": "2016-02-29",
+                                "turnover": 22734.9
+                            },
+                            {
+                                "date": "2016-03-31",
+                                "turnover": 24517.3
+                            },
+                            {
+                                "date": "2016-04-30",
+                                "turnover": 23975.9
+                            },
+                            {
+                                "date": "2016-05-31",
+                                "turnover": 24143.5
+                            },
+                            {
+                                "date": "2016-06-30",
+                                "turnover": 24165.3
+                            },
+                            {
+                                "date": "2016-07-31",
+                                "turnover": 24563.7
+                            },
+                            {
+                                "date": "2016-08-31",
+                                "turnover": 24591.3
+                            },
+                            {
+                                "date": "2016-09-30",
+                                "turnover": 25063.6
+                            },
+                            {
+                                "date": "2016-10-31",
+                                "turnover": 25974.6
+                            },
+                            {
+                                "date": "2016-11-30",
+                                "turnover": 26781.1
+                            },
+                            {
+                                "date": "2016-12-31",
+                                "turnover": 33100.2
+                            },
+                            {
+                                "date": "2017-01-31",
+                                "turnover": 25306.2
+                            },
+                            {
+                                "date": "2017-02-28",
+                                "turnover": 22615
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+      }  
+      </code>
+    </div>
+        Depending on the statistics area provided, the data returned will be in a different format. <br>
+        <table class="bordered responsive-table">
+            <thead>
+                <td>
+                  <strong>Statistic Area</strong>
+                </td>
+                <td>
+                    <strong>Value</strong>
+                </td>
+            </thead>
+            <tr>
+              <td>
+                <strong>Retail</strong>
+              </td>
+              <td>
+                Turn over for Retail in Millions
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Merchandise</strong>
+              </td>
+              <td>
+                Value of Merchendise exports in Thousands
+              </td>
+            </tr>
+          </table>
+        </p>
+      <br>
+
+    <h3><a href="showcase.html">Testing app</a></h3>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Team Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students
+            working on this project like it's not our full time job. Any amount
+            would help support and continue development on this project and is
+            greatly appreciated.</p>
+        </div>
+        <div class="col l6 s12">
+          <h5 class="white-text">Team members</h5>
+          <div class="col l6 s12">
+            <ul>
+              <li><a class="white-text" href="https://www.linkedin.com/in/vaishnavi-bapat-59179758/" target="_blank">Vaishnavi Bapat</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/pranav-bhatia-65563694/" target="_blank">Pranav Bhatia</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/clinton-hadinata-5b7598133/" target="_blank">Clinton Hadinata</a></li>
+            </ul>
+          </div>
+          <div class="col l6 s12">
+            <ul>
+              <li><a class="white-text" href="https://www.linkedin.com/in/minjie-shen-4a2511ba/" target="_blank">Minjie Shen</a></li>
+              <li><a class="white-text" href="#!">Jessica Theodosius</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/jason-vo/" target="_blank">Jason Vo</a></li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by Eleven51
+      <!-- Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a> -->
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <!--<script src="js/init.js"></script>-->
+    <link rel="stylesheet" href="/css/code_styles/atom-one-dark.css">
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
