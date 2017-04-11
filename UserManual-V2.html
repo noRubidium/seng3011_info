@@ -40,7 +40,7 @@
 
     <h2><a name="manual" > User manual - V2.0 </a> </h2>
     <div class="divider"></div>
-    <a href="http://api.kaiworship.xyz/v2/">API End Point</a>
+    <a href="http://api.kaiworship.xyz/v2/" style="text-decoration: underline;">API End Point</a>
 
     <div class="section">
       <h5>Functionalities</h5>
@@ -309,7 +309,7 @@
           <li>End Date: '1st May 2014</li>
         </ul>
         <p>Example url:</p>
-        <code>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco/NSW,SA/startDate=2014-02-01&endDate=2014-05-01</code>
+        <code>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</code>
         <p>JSON Response</p>
         <pre style="max-height:300px;"><code class="json">
           {
@@ -564,37 +564,66 @@
       }  
       </code>
     </div>
-        Depending on the statistics area provided, the data returned will be in a different format. <br>
+
+        The following is an outline of the response JSON properties.
+
         <table class="bordered responsive-table">
-            <thead>
-                <td>
-                  <strong>Statistic Area</strong>
-                </td>
-                <td>
-                    <strong>Value</strong>
-                </td>
-            </thead>
-            <tr>
+          <thead>
               <td>
-                <strong>Retail</strong>
+                <strong>Property</strong>
               </td>
+              <td></td>
+              <td></td>
               <td>
-                Turn over for Retail in Millions
+                  <strong>Description</strong>
               </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Merchandise</strong>
-              </td>
-              <td>
-                Value of Merchendise exports in Thousands
-              </td>
-            </tr>
-          </table>
+          </thead>
+          <tr>
+            <td>
+              <strong>Statistics Area</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            The statistics area chosen to query, that is "MonthlyRetailData" for Retail or "MonthlyCommodityExportData" for Merchandise.
+                <li>Turn over for Retail in Millions</li>
+                <li>Value of Merchendise exports in Thousands</li>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <strong>Category</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>The industry-specific category as listed above in the "How to integrate our API within a Webapp" section.</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>States</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            States of Australia as chosen by the user, in their 3-letter abbreviations
+                <ol>
+                    <li>Australia - AUS</li>
+                      <li>New South Wales - NSW</li>
+                      <li>Western Australia - WA</li>
+                      <li>South Australia - SA</li>
+                      <li>Australian Captial Territory - ACT</li>
+                      <li>Victoria - VIC</li>
+                      <li>Tasmania - TAS</li>
+                      <li>Queensland - QLD</li>
+                      <li>Northern Territory - NT</li>
+                </ol>
+            </td>
+          </tr>
+        </table>
         </p>
       <br>
 
-    <h3><a href="showcase.html">Testing app</a></h3>
+    <h3 style="text-decoration: underline;"><a href="showcase.html">Testing App</a></h3>
   </div>
 
   <footer class="page-footer orange">
