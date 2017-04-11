@@ -38,19 +38,26 @@
 
   <div class="container">
 
-    <h2><a name="manual" > User manual </a> </h2>
+    <h2><a name="manual" > User manual - V2.0 </a> </h2>
     <div class="divider"></div>
     <a href="http://api.kaiworship.xyz/v2/">API End Point</a>
 
     <div class="section">
       <h5>Functionalities</h5>
-        The API's core functionality is return statistical data given a set of predefined paramaters. The data is sources from the Australian Bureau of Statistics (ABS) which is then sanitised into a more human readable format. Given atleast the area of statistic, we are able to:
+
+        Data sourced from the Australian Burea of Statistics (ABS) is usually cluttered and hard to read. This API implementation provides industry data and statistics relating to Retail and Merchandise Exports from the ABS in more human readable format. The core functionality of the API is outlined below.
+        <br>
+        <br>Given atleast the area of statistic, we are able to:
         <ol>
-          <li>Retrieve industry specific data for Retail and Merchandise</li>
+          <li>Retrieve industry specific data for Retail or Merchandise Exports</li>
           <li>Have the industry data filtered further by a list of industry-specific categories</li>
-          <li>Show monthly turnover by industry groups</li>
-          <li>Retrieve Merchandise and Retail data of one or more certain states/territories within the certain category</li>       
-          <li>Show data based the user's input of start and end dates</li>
+          <li>For specified industry groups, show:</li>
+            <ol>
+              <li>Monthly retail turnover</li>
+              <li>Monthly value of various commodities that are exported</li>
+            </ol>       
+          <li>Retrieve Merchandise and Retail data for all of Australia, or one or more specified states/territories within the certain category</li>
+          <li>Show all data based the user's input of start and/or end dates</li>
         </ol>
       <br>
       <br>
@@ -58,9 +65,20 @@
       <h5>Update log</h5>
         <h5>V2: Updates</h5>
           <p>Functionality which has been implemented:</p>
-            <ol>
               <li>API Logging</li>
-            </ol>
+              <ol>
+                For all API calls made a log file is outputted which contains
+                <li>Developer Team Name</li>
+                <li>Version</li>
+                <li>Paramaters Passed</li>
+                <li>Error Events</li>
+                <li>If successful</li>
+                <ol>
+                  <li>Start Date and Time of Execution</li>
+                  <li>End Date and Time of Excution</li>
+                  <li>Elapsed Time</li>
+                </ol>
+              </ol> 
       <br>
       <h5>API calling convention</h5>
         <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>

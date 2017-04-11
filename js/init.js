@@ -67,7 +67,16 @@ $(document).ready(() => {
         const categ = $("#categories").val().length === 0 ? 'Total' : $("#categories").val() || 'Total';
         const states = $("#states").val() || '';
         const endDate = $("#endDate").val();
-        const startDate = $("#startDate").val() || '2016-01-01';
+        var startDate = $("#startDate").val() || '';  //removed default because we need to be able to tell if '2016-01-01' was actually chosen by user
+
+        // params for the url we display to users
+        var endDateParam = endDate == '' ? '':('&endDate='+ endDate);
+        var startDateParam = startDate == '' ? ('?defaultStartDate=2016-01-01'):('?startDate='+ startDate)
+        
+        //assign default start date
+        if (startDate == '') {
+            startDate = '2016-01-01';
+        }
 
         console.log(categ);
         const baseUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
@@ -76,8 +85,8 @@ $(document).ready(() => {
         var requestUrl = baseUrl.concat(params);
 
         const resultdisp = $("#result-display");
-        var endDateParam = endDate == '' ? '':('&endDate='+ endDate);
-        var requestUrlDisp = baseUrl.concat('/startDate=' + startDate + endDateParam);
+
+        var requestUrlDisp = baseUrl.concat(startDateParam + endDateParam);
 
         resultdisp.text("Loading...");
         $("#url").text(requestUrlDisp);
