@@ -22,7 +22,7 @@
 </head>
 <body>
   <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Logo</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.html#release">Release</a></li>
         <li><a href="UserManual-V2.html">User Manual</a></li>
@@ -38,21 +38,23 @@
 
   <div class="container">
 
-    <h2><a name="manual" > User manual - V2.0 </a> </h2>
+    <h2> User manual - V2.0 </a> </h2>
+    <a href="http://api.kaiworship.xyz/v2/" style="text-decoration: underline;"><p align="right">API End Point</p></a>
     <div class="divider"></div>
-    <a href="http://api.kaiworship.xyz/v2/" style="text-decoration: underline;">API End Point</a>
+
 
     <div class="section">
       <h5>Functionalities</h5>
-        This API implementation provides industry data, and statistics related to retail and merchandise from the Australian Bureau of Statistics. The core functionality of the API is outlined below.
 
-        Given atleast the area of statistic, we are able to:
+        Data sourced from the Australian Burea of Statistics (ABS) is usually cluttered and hard to read. This API implementation provides industry data and statistics relating to Retail and Merchandise Exports from the ABS in more human readable format. The core functionality of the API is outlined below.
+        <br>
+        <br>Given atleast the area of statistic, we are able to:
         <ol>
-          <li>Retrieve industry specific data for Retail or Merchandise</li>
+          <li>Retrieve industry specific data for Retail or Merchandise Exports</li>
           <li>Have the industry data filtered further by a list of industry-specific categories</li>
           <li>For specified industry groups, show:</li>
             <ol>
-              <li>Monthly retail turnover, or</li>
+              <li>Monthly retail turnover</li>
               <li>Monthly value of various commodities that are exported</li>
             </ol>       
           <li>Retrieve Merchandise and Retail data for all of Australia, or one or more specified states/territories within the certain category</li>
@@ -64,9 +66,20 @@
       <h5>Update log</h5>
         <h5>V2: Updates</h5>
           <p>Functionality which has been implemented:</p>
-            <ol>
               <li>API Logging</li>
-            </ol>
+              <ol>
+                For all API calls made a log file is outputted which contains
+                <li>Developer Team Name</li>
+                <li>Version</li>
+                <li>Paramaters Passed</li>
+                <li>Error Events</li>
+                <li>If successful</li>
+                <ol>
+                  <li>Start Date and Time of Execution</li>
+                  <li>End Date and Time of Excution</li>
+                  <li>Elapsed Time</li>
+                </ol>
+              </ol> 
       <br>
       <h5>API calling convention</h5>
         <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
@@ -129,7 +142,7 @@
               state
             </td>
             <td>
-              A list of one or more states/territories, separated by commas, in the form of a string.
+              A list of one or more states/territories, separated by commas, in the form of a string. If no paramaters are defined 'Total' will be set as default.
             </td>
             <td>
               Optional
@@ -146,7 +159,7 @@
               startDate
             </td>
             <td>
-              A date string with the format “YYYY-MM-DD”
+              A date string with the format “YYYY-MM-DD”. 
             </td>
             <td>
               Optional
@@ -177,6 +190,10 @@
           </tr>
         </table>
         <br>
+      Due to the start and end data being optional, there are various cases
+      <li>If no start date and no end date provded. Data will be provided for previous 12 months from today</li>
+      <li>If only start date is provided. The end date will be set to a year after the start date</li>
+      <li>If only end data is provided. The Start date will be set to a year before the end date</li>
       <h5>How to integrate our API within a Webapp</h5>
           <p>
               To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
@@ -227,7 +244,7 @@
             </tr>
             <tr>
               <td>
-                  <strong>Category</strong> (merchandise)
+                  <strong>Category</strong> (Commodities)
               </td>
               <td>
               If Statistics Area is chosen to be Merchandise Exports,
