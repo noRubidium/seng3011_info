@@ -22,7 +22,7 @@
 </head>
 <body>
   <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Logo</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.html#release">Release</a></li>
         <li><a href="UserManual-V2.html">User Manual</a></li>
@@ -43,15 +43,20 @@
     <a href="http://api.kaiworship.xyz/v1/">API End Point</a>
     <div class="section">
       <h5>Functionalities</h5>
+
         Data sourced from the Australian Burea of Statistics (ABS) is usually cluttered and hard to read. This API implementation provides industry data and statistics relating to Retail and Merchandise Exports from the ABS in more human readable format. The core functionality of the API is outlined below.
         <br>
-        Given atleast the area of statistic, we are able to:
+        <br>Given atleast the area of statistic, we are able to:
         <ol>
-          <li>Retrieve industry specific data for Retail and Merchandise</li>
+          <li>Retrieve industry specific data for Retail or Merchandise Exports</li>
           <li>Have the industry data filtered further by a list of industry-specific categories</li>
-          <li>Show monthly turnover by industry groups</li>       
-          <li>Retrieve Merchandise and Retail data of one or more certain states/territories within the certain category</li>
-          <li>Show data based the user's input of start and end dates</li>
+          <li>For specified industry groups, show:</li>
+            <ol>
+              <li>Monthly retail turnover</li>
+              <li>Monthly value of various commodities that are exported</li>
+            </ol>       
+          <li>Retrieve Merchandise and Retail data for all of Australia, or one or more specified states/territories within the certain category</li>
+          <li>Show all data based the user's input of start and/or end dates</li>
         </ol>
       <br>
       <br>
@@ -117,7 +122,7 @@
               state
             </td>
             <td>
-              A list of one or more states/territories, separated by commas, in the form of a string.
+              A list of one or more states/territories, separated by commas, in the form of a string. If no paramaters are defined 'Total' will be set as default.
             </td>
             <td>
               Optional
@@ -215,7 +220,7 @@
             </tr>
             <tr>
               <td>
-                  <strong>Category</strong> (merchandise)
+                  <strong>Category</strong> (Commodities)
               </td>
               <td>
               If Statistics Area is chosen to be Merchandise Exports,
