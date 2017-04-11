@@ -40,24 +40,32 @@
 
     <h2><a name="manual" > User manual </a> </h2>
     <div class="divider"></div>
-    <a href="http://api.kaiworship.xyz/v1/">API End Point</a>
+    <a href="http://api.kaiworship.xyz/v2/">API End Point</a>
+
     <div class="section">
       <h5>Functionalities</h5>
         Given atleast the area of statistic, we are able to:
         <ol>
           <li>Retrieve industry specific data for Retail and Merchandise</li>
           <li>Have the industry data filtered further by a list of industry-specific categories</li>
-          <li>Show monthly turnover by industry groups</li>       
-          <li>Retrieve Merchandise and Retail data of one or more certain states/territories within the certain category</li>
+          <li>Show monthly turnover by industry groups</li>
+          <li>Retrieve Merchandise and Retail data of one or more certain states/territories within the certain category</li>       
           <li>Show data based the user's input of start and end dates</li>
         </ol>
       <br>
       <br>
 
+      <h5>Update log</h5>
+        <h5>V2: Updates</h5>
+          <p>Functionality which has been implemented:</p>
+            <ol>
+              <li>API Logging</li>
+            </ol>
+      <br>
       <h5>API calling convention</h5>
         <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
 
-        <code>http://api.kaiworship.xyz/v1/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
+        <code>http://api.kaiworship.xyz/v2/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
         <table>
           <thead>
           <td>
@@ -242,7 +250,7 @@
                 <td>You are able to choose one or multiple values from the states</td>
                 <td>
                     <ol>
-                          <li>Total</li>
+                        <li>AUS</li>
                           <li>NSW</li>
                           <li>WA</li>
                           <li>SA</li>
@@ -257,7 +265,7 @@
           </table>
 
           <p>For example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
-          <code>http://api.kaiworship.xyz/v1/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</code><br><br>
+          <code>http://api.kaiworship.xyz/v2/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</code><br><br>
           Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
           <h5>Python:</h5>
@@ -295,7 +303,7 @@
           <li>End Date: '1st May 2014</li>
         </ul>
         <p>Example url:</p>
-        <code>http://api.kaiworship.xyz/v1/MerchandiseExports/BeveragesAndTobacco/NSW,SA/startDate=2014-02-01&endDate=2014-05-01</code>
+        <code>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco/NSW,SA/startDate=2014-02-01&endDate=2014-05-01</code>
         <p>JSON Response</p>
         <pre style="max-height:300px;"><code class="json">
           {
@@ -409,7 +417,7 @@
       </ul>
 
       <p>Example url:</p>
-      <code>http://api.kaiworship.xyz/v1/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</code>
+      <code>http://api.kaiworship.xyz/v2/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</code>
       <p>JSON Response</p>
       <pre style="max-height:300px;"><code class="json">
       {
