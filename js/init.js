@@ -71,11 +71,14 @@ $(document).ready(() => {
 
         // params for the url we display to users
         var endDateParam = endDate == '' ? '':('&endDate='+ endDate);
-        var startDateParam = startDate == '' ? ('?defaultStartDate=2016-01-01'):('?startDate='+ startDate)
+        var startDateParam = startDate == '' ? '':('?startDate='+ startDate)
+        
+        var additionalInfo = '';
         
         //assign default start date
         if (startDate == '') {
             startDate = '2016-01-01';
+            additionalInfo = " - Default start date '2016-01-01' used";
         }
 
         console.log(categ);
@@ -90,6 +93,7 @@ $(document).ready(() => {
 
         resultdisp.text("Loading...");
         $("#url").text(requestUrlDisp);
+        $("#additional").text(additionalInfo);
         $.get(requestUrl,(data) => {
                 resultdisp.text(JSON.stringify(data, null, 4));
                 hljs.highlightBlock(resultdisp[0]);
