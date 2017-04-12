@@ -6,6 +6,7 @@
   <title>Eleven51 - release page</title>
 
   <!-- CSS  -->
+  <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -21,8 +22,8 @@
     </style>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
+  <nav class="blue-grey darken-4" id="top-navbar" role="navigation">
+    <div class="nav-wrapper"><a id="logo-container" href="index.html">Australian Statistics API</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#release">Release</a></li>
         <li><a href="UserManual-V3.html">User Manual</a></li>
@@ -38,24 +39,26 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Eleven51 - Australian Statistics API</h1>
+      <div class="center heading">Australian Statistics API by Team Eleven51</div>
       <div class="row center">
-        <h5 class="header col s12 light">An API endpoint for you to get stats from Australian government</h5>
+        <h5 class="header col s12 light" id="heading-blurb">An API endpoint for you to get Australian statistics</h5>
       </div>
       <div class="row center">
-        <a href="#release" id="download-button" class="btn-large waves-effect waves-light orange">Releases</a>
-        <a href="showcase.html" id="try-it-button" class="btn-large waves-effect waves-light orange">Try it out!</a>
+        <a href="#release" id="download-button" class="btn waves-effect waves-light">Releases</a>
+        <a href="UserManual-V3.html" id="documentation-button" class="btn waves-effect waves-light">Documentation</a>
+        <a href="showcase.html" id="try-it-button" class="btn waves-effect waves-light">Try it out</a>
       </div>
-      <br><br>
+      <div class="row center">
+        <a href="#" id="webapp-link">Click here to view a web application we made that utilises this API</a>
+      </div>
 
     </div>
   </div>
 
-
+<!--
   <div class="container">
     <div class="section">
 
-      <!--   Icon Section   -->
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
@@ -91,7 +94,7 @@
     <div class="section">
 
     </div>
-  </div>
+  </div> -->
 
   <div class="container">
 
@@ -100,43 +103,43 @@
         <div class="card white darken-3">
           <div class="card-content white-text">
               <a name="release" />
-            <span class="card-title">Releases</span>
+            <span class="card-title" id="releases-title">Releases</span>
             <div class="section">
               <div class="collection">
-                <a href="UserManual-V3.html" class="collection-item"><span class="new badge">12/04/2017</span>
+                <a href="UserManual-V3.html" class="collection-item" id="release"><span class="new badge teal lighten-2">12/04/2017</span>
                   <strong>v3.0</strong>
                   <br>
                     Update:
                     <li>Team signature on responses</li>
                     <li>Error Handling for Incorrect Statistics Area</li>
                 </a>
-                <a href="UserManual-V2.html" class="collection-item"><span class="badge">7/04/2017</span>
+                <a href="UserManual-V2.html" class="collection-item" id="release"><span class="badge">7/04/2017</span>
                   <strong>v2.0</strong>
                   <br>
                     Update:
                     <li>API logging for successful and unsuccessful calls</li>
                 </a>
-                <a href="UserManual-V1.1.html" class="collection-item"><span class="badge">29/03/2017</span>
+                <a href="UserManual-V1.1.html" class="collection-item" id="release"><span class="badge">29/03/2017</span>
                   <strong>v1.1</strong>
                   <br>
                     Update:
                     <li>Error handling for invalid input.</li>
                 </a>
-                <a href="UserManual-V1.html" class="collection-item"><span class="badge">22/03/2017</span>
+                <a href="UserManual-V1.html" class="collection-item" id="release"><span class="badge">22/03/2017</span>
                   <strong>v1.0</strong>
                   <br>
                     Initial Release
                 </a>
                 <!-- <a href="#!" class="collection-item"><span class="new badge">20/03/2017</span>v1.0.0.1</a> -->
               </div>
-            </div> 
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="page-footer orange">
+  <footer class="page-footer blue-grey">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -163,7 +166,7 @@
             </ul>
           </div>
         </div>
-        
+
       </div>
     </div>
     <div class="footer-copyright">

@@ -17,7 +17,7 @@ html, body {
 #over {
   height: calc(100% - 63px);
   background-color: #FAFAFA;
-
+  padding-right: 20px;
 }
 
 .collection-header{
@@ -33,6 +33,64 @@ html, body {
 .nav-wrapper{
   padding-left: 15px;
   padding-right: 5px;
+}
+
+#logo-container {
+  font-size: 16pt;
+}
+
+.heading {
+  font-size: 20pt;
+}
+
+#releases-title {
+  color: black;
+}
+
+#heading-blurb {
+  font-size: 14pt;
+}
+
+#download-button {
+  margin-right: 20px;
+}
+
+#download-button:hover {
+  margin-right: 20px;
+}
+
+#documentation-button {
+  margin-right: 20px;
+}
+
+#release {
+  color: #424242;
+}
+
+#webapp-link {
+  color: black;
+  opacity: 0.6;
+}
+
+#webapp-link:hover {
+  opacity: 1.0;
+}
+
+.collection-item {
+  color: black;
+}
+
+#sidebar-item {
+  /*color: #009688;*/
+  color: #004d40;
+  opacity: 0.7;
+}
+#sidebar-item:hover {
+  opacity: 1.0;
+}
+
+.manual-heading {
+  font-size: 28pt;
 }
 
 .row {

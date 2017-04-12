@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Eleven51 - release page</title>
 
-  <link rel="stylesheet" href="css/styles.css">
-
   <!-- CSS  -->
+  <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -43,25 +42,26 @@
     <div class="col s3" id="sidebar">
       <ul class="collection with-header">
         <li class="collection-header">Version 3.0 Documentation</li>
-        <li class="collection-item"><a href="#one">Functionality</a></li>
-        <li class="collection-item"><a href="#two">Update Log</a></li>
-        <li class="collection-item"><a href="#three">API calling Convention</a></li>
-        <li class="collection-item"><a href="#four">Integrating our API</a></li>
-        <li class="collection-item"><a href="#five">API Response</a></li>
+        <li class="collection-item"><a href="#one" id="sidebar-item">Functionality</a></li>
+        <li class="collection-item"><a href="#two" id="sidebar-item">Update Log</a></li>
+        <li class="collection-item"><a href="#three" id="sidebar-item">API calling Convention</a></li>
+        <li class="collection-item"><a href="#four" id="sidebar-item">Integrating our API</a></li>
+        <li class="collection-item"><a href="#five" id="sidebar-item">API Response</a></li>
       </ul>
     </div>
 
     <div class="col s9" id="contents">
 
-    <h2> User manual - V3.0 </a> </h2>
+    <div class="manual-heading"> User manual - V3.0 </a> </div>
     <a href="http://api.kaiworship.xyz/v2/" style="text-decoration: underline;"><p align="right">API End Point</p></a>
     <div class="divider"></div>
 
 
     <div class="section">
-      <a name="one"><h5>Functionalities</h5></a>
-
-        Data sourced from the Australian Burea of Statistics (ABS) is usually cluttered and hard to read. This API implementation provides industry data and statistics relating to Retail and Merchandise Exports from the ABS in more human readable format. The core functionality of the API is outlined below.
+      <a name="one"></a>
+      <h5>Functionalities</h5>
+      <br />
+        Data sourced from the Australian Bureau of Statistics (ABS) is usually cluttered and hard to read. This API implementation provides industry data and statistics relating to Retail and Merchandise Exports from the ABS in more human readable format. The core functionality of the API is outlined below.
         <br>
         <br>Given atleast the area of statistic, we are able to:
         <ol>
@@ -77,7 +77,10 @@
         </ol>
       <br>
 
-      <a name="two"><h5>Update log</h5></a>
+      <div class="divider"></div>
+
+      <a name="two"></a>
+      <h5>Update log</h5>
         <h5>V3: Updates</h5>
           <p>Functionality which has been implemented:</p>
               <li><strong>Team Signature on Logs</strong></li>
@@ -91,8 +94,8 @@
 
       <br>
       <div class="divider"></div>
-      <a name="api"></a>
-      <a name="three"><h5>API Calling Convention</h5></a>
+      <a name="three"></a>
+      <h5>API Calling Convention</h5>
         <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
 
         <code>http://api.kaiworship.xyz/v3/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
@@ -209,7 +212,8 @@
       <br>
       <div class="divider"></div>
 
-      <a name="four"><h5>How to Integrate our API within a Webapp</h5></a>
+      <a name="four"></a>
+      <h5>How to Integrate our API within a Webapp</h5>
           <p>
               To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
           </p>
@@ -307,7 +311,7 @@
 
           Invalid url:<br>
 
-          <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code> 
+          <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
           <br>
           <pre style="max-height:300px;"><code class="json">
 {
@@ -347,7 +351,8 @@
     </div>
     <div class="divider"></div>
     <div class="section">
-      <a name="five"><h5>API response</h5></a>
+      <a name="five"></a>
+      <h5>API response</h5>
         The following is an outline of the response JSON properties.
 
         <table class="bordered responsive-table">
@@ -675,7 +680,7 @@
 </div>
 
 
-   <footer class="page-footer blue-grey darken-4">
+   <footer class="page-footer blue-grey">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
