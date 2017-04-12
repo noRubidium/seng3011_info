@@ -1,0 +1,48 @@
+#sidebar {
+  height: 100%;
+}
+
+#contents {
+  overflow: scroll;
+  height: 100%;
+  padding: 30px;
+  padding-right: 40px;
+  background-color: #FAFAFA;
+}
+
+html, body {
+  height: 100%;
+}
+
+#over {
+  height: calc(100% - 63px);
+  background-color: #FAFAFA;
+
+}
+
+.collection-header{
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+#top-navbar {
+  height: 63px;
+  width: 100%;
+}
+
+.nav-wrapper{
+  padding-left: 15px;
+  padding-right: 5px;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.row::after{
+
+}
+
+.brand-logo {
+
+}
