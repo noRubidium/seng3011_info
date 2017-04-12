@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Eleven51 - release page</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -26,8 +23,8 @@
     </style>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
+  <nav class="blue-grey darken-4" id="top-navbar" role="navigation">
+    <div class="nav-wrapper"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.html#release">Release</a></li>
         <li><a href="UserManual-V3.html">User Manual</a></li>
@@ -41,7 +38,20 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="row" id="over">
+
+    <div class="col s3" id="sidebar">
+      <ul class="collection with-header">
+        <li class="collection-header">Version 3.0 Documentation</li>
+        <li class="collection-item">Functionality</li>
+        <li class="collection-item">Update Log</li>
+        <li class="collection-item">Parameters</li>
+        <li class="collection-item">Integrating our API</li>
+        <li class="collection-item">API Response</li>
+      </ul>
+    </div>
+
+    <div class="col s9" id="contents">
 
     <h2> User manual - V3.0 </a> </h2>
     <a href="http://api.kaiworship.xyz/v2/" style="text-decoration: underline;"><p align="right">API End Point</p></a>
@@ -61,7 +71,7 @@
             <ol>
               <li>Monthly retail turnover</li>
               <li>Monthly value of various commodities that are exported</li>
-            </ol>       
+            </ol>
           <li>Retrieve Merchandise and Retail data for all of Australia, or one or more specified states/territories within the certain category</li>
           <li>Show all data based the user's input of start and/or end dates</li>
         </ol>
@@ -76,10 +86,11 @@
                   <li>Developer Team Name</li>
                   <li>Version</li>
                   <li>Date Stamp</li>
-                </ol> 
+                </ol>
               <li><strong>Error Handling for Incorrect Statistics Area</strong></li>
 
       <br>
+      <a name="api"></a>
       <h5>API calling convention</h5>
         <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
 
@@ -158,7 +169,7 @@
               startDate
             </td>
             <td>
-              A date string with the format “YYYY-MM-DD”. 
+              A date string with the format “YYYY-MM-DD”.
             </td>
             <td>
               Optional
@@ -290,12 +301,12 @@
 
           <p>
           Invalid input is handled with a corresponding error message notifying the user of the invalid paramater, followed by a list of valid paramaters which can replace it.</p>
- 
+
           Invalid url:<br>
-          <code><a href="http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code> 
+          <code><a href="http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
           <br>
           <pre style="max-height:300px;"><code class="json">
-{  
+{
    "error":"The type you are requiring (MachineryAndTransportEquipment) doesn't exist. You should choose from ['AnimalAndVegetableOilFatAndWaxes', 'BeveragesAndTobacco', 'CrudeMaterialAndInedible', 'Unclassified', 'OtherManufacturedArticles', 'FoodAndLiveAnimals', 'ChemicalsAndRelatedProducts', 'MachineryAndTransportEquipments', 'MineralFuelLubricantAndRelatedMaterial', 'ManufacturedGoods', 'Total']"
 }
           </code></pre>
@@ -327,7 +338,7 @@
             </code></pre>
 
 
-     
+
 
     </div>
     <div class="divider"></div>
@@ -392,8 +403,8 @@
       <br>
 
       <p>The API response is in JSON format, which gives the relevant statistica data given the paramaters selected. Below is an example API call with these paramaters selected below. This example shows the example URL and JSON response.</p>
-        <ul> 
-          <li>Statistics Area:  'Merchandise'</li> 
+        <ul>
+          <li>Statistics Area:  'Merchandise'</li>
           <li>Category: 'Beverages And Tobacco' , 'Manufactured Goods'</li>
           <li>State: 'New South Wales','South Australia'</li>
           <li>Start Date: '1st Febuary 2014'</li>
@@ -507,11 +518,11 @@
         </pre>
         </div>
         <p>The JSON response is formated by category, in the example above the categories are Beverages and Tobacco & Manufactured goods. Each category property contains selected states which in the example are NSW and SA. Within each state there which exists a list of months with the corresponding statistic value.</p>
-        
+
         Here is another example with Retail as the statistics Area. In this example no dates have been selected. So as a default value the start date will be January of the previous year.
 
-      <ul> 
-          <li>Statistics Area:  'Retail'</li> 
+      <ul>
+          <li>Statistics Area:  'Retail'</li>
           <li>Category: 'Food' , 'Cafes Restuarants And Takeaway Food'</li>
           <li>State: 'Total'</li>
       </ul>
@@ -655,13 +666,15 @@
                 ]
             }
         ]
-      }  
+      }
       </code>
     </div>
-    <h3 style="text-decoration: underline;"><a href="showcase.html">Testing App</a></h3>
   </div>
 
-  <footer class="page-footer orange">
+</div>
+
+
+   <footer class="page-footer blue-grey darken-4">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -688,7 +701,7 @@
             </ul>
           </div>
         </div>
-        
+
       </div>
     </div>
     <div class="footer-copyright">
