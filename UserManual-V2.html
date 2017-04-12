@@ -25,12 +25,12 @@
     <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.html#release">Release</a></li>
-        <li><a href="UserManual-V2.html">User Manual</a></li>
+        <li><a href="UserManual-V3.html">User Manual</a></li>
         <li><a href="showcase.html">Try it out!</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="index.html#release">Release</a></li><li><a href="UserManual-V2.html">User Manual</a></li><li><a href="showcase.html">Try it out!</a></li>
+        <li><a href="index.html#release">Release</a></li><li><a href="UserManual-V3.html">User Manual</a></li><li><a href="showcase.html">Try it out!</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -288,12 +288,17 @@
           </table>
 
           <p>
-          Invalid input is handled with a corresponding error message notifying the user which paramater is invalid, followed by a list of valid paramaters which can replace it.</p>
+          Invalid input is handled with a corresponding error message notifying the user of the invalid paramater, followed by a list of valid paramaters which can replace it.</p>
  
           Invalid url:<br>
           <code><a href="http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code> 
-
-          For example in the URL above "MachineryAndTransportEquipment" is missing a 's' at the end, it should be "MachineryAndTransportEquiments". Prompting an error message.</p>
+          <br>
+          <pre style="max-height:300px;"><code class="json">
+{  
+   "error":"The type you are requiring (MachineryAndTransportEquipment) doesn't exist. You should choose from ['AnimalAndVegetableOilFatAndWaxes', 'BeveragesAndTobacco', 'CrudeMaterialAndInedible', 'Unclassified', 'OtherManufacturedArticles', 'FoodAndLiveAnimals', 'ChemicalsAndRelatedProducts', 'MachineryAndTransportEquipments', 'MineralFuelLubricantAndRelatedMaterial', 'ManufacturedGoods', 'Total']"
+}
+          </code></pre>
+          The URL above "MachineryAndTransportEquipment" is missing a 's' at the end, it should be "MachineryAndTransportEquiments".</p>
           </p>
 
 

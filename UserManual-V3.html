@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Eleven51 - release page</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -38,9 +43,11 @@
 
   <div class="container">
 
-    <h2><a name="manual" > User Manual - V1.0 </a> </h2>
+    <h2> User manual - V3.0 </a> </h2>
+    <a href="http://api.kaiworship.xyz/v2/" style="text-decoration: underline;"><p align="right">API End Point</p></a>
     <div class="divider"></div>
-    <a href="http://api.kaiworship.xyz/v1/">API End Point</a>
+
+
     <div class="section">
       <h5>Functionalities</h5>
 
@@ -59,12 +66,24 @@
           <li>Show all data based the user's input of start and/or end dates</li>
         </ol>
       <br>
-      <br>
 
+      <h5>Update log</h5>
+        <h5>V3: Updates</h5>
+          <p>Functionality which has been implemented:</p>
+              <li><strong>Team Signature on Logs</strong></li>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFor all API calls made a log file is outputted which contains:
+                <ol>
+                  <li>Developer Team Name</li>
+                  <li>Version</li>
+                  <li>Date Stamp</li>
+                </ol> 
+              <li><strong>Error Handling for Incorrect Statistics Area</strong></li>
+
+      <br>
       <h5>API calling convention</h5>
         <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
 
-        <code>http://api.kaiworship.xyz/v1/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
+        <code>http://api.kaiworship.xyz/v2/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
         <table>
           <thead>
           <td>
@@ -139,7 +158,7 @@
               startDate
             </td>
             <td>
-              A date string with the format “YYYY-MM-DD”
+              A date string with the format “YYYY-MM-DD”. 
             </td>
             <td>
               Optional
@@ -170,6 +189,12 @@
           </tr>
         </table>
         <br>
+      Due to the start and end data being optional, there are various cases
+      <li>If no start date and no end date provded. Data will be provided for previous 12 months from today</li>
+      <li>If only start date is provided. The end date will be set to a year after the start date</li>
+      <li>If only end data is provided. The Start date will be set to a year before the end date</li>
+
+      <br>
       <h5>How to integrate our API within a Webapp</h5>
           <p>
               To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
@@ -220,7 +245,7 @@
             </tr>
             <tr>
               <td>
-                <strong>Commodities</strong> (Merchendise Exports)              
+                  <strong>Category</strong> (Commodities)
               </td>
               <td>
               If Statistics Area is chosen to be Merchandise Exports,
@@ -249,7 +274,7 @@
                 <td>You are able to choose one or multiple values from the states</td>
                 <td>
                     <ol>
-                          <li>Total</li>
+                        <li>AUS</li>
                           <li>NSW</li>
                           <li>WA</li>
                           <li>SA</li>
@@ -263,8 +288,23 @@
             </tr>
           </table>
 
-          <p>For example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
-          <code><a href="http://api.kaiworship.xyz/v1/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v1/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
+          <p>
+          Invalid input is handled with a corresponding error message notifying the user of the invalid paramater, followed by a list of valid paramaters which can replace it.</p>
+ 
+          Invalid url:<br>
+          <code><a href="http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code> 
+          <br>
+          <pre style="max-height:300px;"><code class="json">
+{  
+   "error":"The type you are requiring (MachineryAndTransportEquipment) doesn't exist. You should choose from ['AnimalAndVegetableOilFatAndWaxes', 'BeveragesAndTobacco', 'CrudeMaterialAndInedible', 'Unclassified', 'OtherManufacturedArticles', 'FoodAndLiveAnimals', 'ChemicalsAndRelatedProducts', 'MachineryAndTransportEquipments', 'MineralFuelLubricantAndRelatedMaterial', 'ManufacturedGoods', 'Total']"
+}
+          </code></pre>
+          The URL above "MachineryAndTransportEquipment" is missing a 's' at the end, it should be "MachineryAndTransportEquiments".</p>
+          </p>
+
+
+          <p>An example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
+          <code><a href="http://api.kaiworship.xyz/v2/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v2/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
           Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
           <h5>Python:</h5>
@@ -360,8 +400,10 @@
           <li>End Date: '1st May 2014</li>
         </ul>
         <p>Example url:</p>
-        <code><a href="http://api.kaiworship.xyz/v1/MerchandiseExports/BeveragesAndTobacco/NSW,SA/startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v1/MerchandiseExports/BeveragesAndTobacco/NSW,SA/startDate=2014-02-01&endDate=2014-05-01</a></code>
-        <p>JSON Response</p>
+        <code>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</code>
+        <br>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">JSON Response</button>
+        <div id="demo" class="collapse">
         <pre style="max-height:300px;"><code class="json">
           {
             "MonthlyCommodityExportData": [
@@ -463,6 +505,7 @@
           }
         </code>
         </pre>
+        </div>
         <p>The JSON response is formated by category, in the example above the categories are Beverages and Tobacco & Manufactured goods. Each category property contains selected states which in the example are NSW and SA. Within each state there which exists a list of months with the corresponding statistic value.</p>
         
         Here is another example with Retail as the statistics Area. In this example no dates have been selected. So as a default value the start date will be January of the previous year.
@@ -474,7 +517,7 @@
       </ul>
 
       <p>Example url:</p>
-      <code><a href="http://api.kaiworship.xyz/v1/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v1/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
+      <code>http://api.kaiworship.xyz/v2/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</code>
       <p>JSON Response</p>
       <pre style="max-height:300px;"><code class="json">
       {
@@ -615,8 +658,7 @@
       }  
       </code>
     </div>
-
-    <h3><a href="showcase.html">Testing app</a></h3>
+    <h3 style="text-decoration: underline;"><a href="showcase.html">Testing App</a></h3>
   </div>
 
   <footer class="page-footer orange">

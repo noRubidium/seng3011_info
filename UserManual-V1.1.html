@@ -25,12 +25,12 @@
     <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.html#release">Release</a></li>
-        <li><a href="UserManual-V2.html">User Manual</a></li>
+        <li><a href="UserManual-V3.html">User Manual</a></li>
         <li><a href="showcase.html">Try it out!</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="index.html#release">Release</a></li><li><a href="UserManual-V2.html">User Manual</a></li><li><a href="showcase.html">Try it out!</a></li>
+        <li><a href="index.html#release">Release</a></li><li><a href="UserManual-V3.html">User Manual</a></li><li><a href="showcase.html">Try it out!</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -301,6 +301,62 @@
     <div class="divider"></div>
     <div class="section">
       <h5>API response </h5>
+        The following is an outline of the response JSON properties.
+        <table class="bordered responsive-table">
+          <thead>
+              <td>
+                <strong>Property</strong>
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+                  <strong>Description</strong>
+              </td>
+          </thead>
+          <tr>
+            <td>
+              <strong>Statistics Area</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            The statistics area chosen to query, that is "MonthlyRetailData" for Retail or "MonthlyCommodityExportData" for Merchandise.
+                <li>Turn over for Retail in Millions</li>
+                <li>Value of Merchendise exports in Thousands</li>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <strong>Category</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>The industry-specific category as listed above in the "How to integrate our API within a Webapp" section.</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>States</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            States of Australia as chosen by the user, in their 3-letter abbreviations
+                <ol>
+                    <li>Australia - AUS</li>
+                      <li>New South Wales - NSW</li>
+                      <li>Western Australia - WA</li>
+                      <li>South Australia - SA</li>
+                      <li>Australian Captial Territory - ACT</li>
+                      <li>Victoria - VIC</li>
+                      <li>Tasmania - TAS</li>
+                      <li>Queensland - QLD</li>
+                      <li>Northern Territory - NT</li>
+                </ol>
+            </td>
+          </tr>
+        </table>
+        </p>
+      <br>
       <p>The API response is in JSON format, which gives the relevant statistica data given the paramaters selected. Below is an example API call with these paramaters selected below. This example shows the example URL and JSON response.</p>
         <ul> 
           <li>Statistics Area:  'Merchandise'</li> 
@@ -565,62 +621,6 @@
       }  
       </code>
     </div>
-        The following is an outline of the response JSON properties.
-        <table class="bordered responsive-table">
-          <thead>
-              <td>
-                <strong>Property</strong>
-              </td>
-              <td></td>
-              <td></td>
-              <td>
-                  <strong>Description</strong>
-              </td>
-          </thead>
-          <tr>
-            <td>
-              <strong>Statistics Area</strong>
-            </td>
-            <td></td>
-            <td></td>
-            <td>
-            The statistics area chosen to query, that is "MonthlyRetailData" for Retail or "MonthlyCommodityExportData" for Merchandise.
-                <li>Turn over for Retail in Millions</li>
-                <li>Value of Merchendise exports in Thousands</li>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <strong>Category</strong>
-            </td>
-            <td></td>
-            <td></td>
-            <td>The industry-specific category as listed above in the "How to integrate our API within a Webapp" section.</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>States</strong>
-            </td>
-            <td></td>
-            <td></td>
-            <td>
-            States of Australia as chosen by the user, in their 3-letter abbreviations
-                <ol>
-                    <li>Australia - AUS</li>
-                      <li>New South Wales - NSW</li>
-                      <li>Western Australia - WA</li>
-                      <li>South Australia - SA</li>
-                      <li>Australian Captial Territory - ACT</li>
-                      <li>Victoria - VIC</li>
-                      <li>Tasmania - TAS</li>
-                      <li>Queensland - QLD</li>
-                      <li>Northern Territory - NT</li>
-                </ol>
-            </td>
-          </tr>
-        </table>
-        </p>
-      <br>
 
     <h3><a href="showcase.html">Testing app</a></h3>
   </div>
