@@ -54,11 +54,10 @@
 
     <div class="manual-heading"> User manual - V3.0 </a> </div>
     <a href="http://api.kaiworship.xyz/v2/" style="text-decoration: underline;"><p align="right">API End Point</p></a>
+    <a name="one"></a>
     <div class="divider"></div>
-
-
     <div class="section">
-      <a name="one"></a>
+      <br />
       <h5>Functionalities</h5>
       <br />
         Data sourced from the Australian Bureau of Statistics (ABS) is usually cluttered and hard to read. This API implementation provides industry data and statistics relating to Retail and Merchandise Exports from the ABS in more human readable format. The core functionality of the API is outlined below.
@@ -77,25 +76,32 @@
         </ol>
       <br>
 
-      <div class="divider"></div>
-
       <a name="two"></a>
-      <h5>Update log</h5>
-        <h5>V3: Updates</h5>
+      <br />
+      <div class="divider"></div>
+      <br />
+      <br />
+      <h5>Update Log</h5>
+      <br />
+        <div>New updates in v3.0 from v2.0</div>
           <p>Functionality which has been implemented:</p>
               <li><strong>Team Signature on Logs</strong></li>
                 For all API calls made a log file is outputted which contains:
                 <ol>
                   <li>Developer Team Name</li>
                   <li>Version</li>
-                  <li>Date Stamp</li>
+                  <li>Date Stamp (in UTC time)</li>
                 </ol>
               <li><strong>Error Handling for Incorrect Statistics Area</strong></li>
 
       <br>
-      <div class="divider"></div>
+      <br />
       <a name="three"></a>
+      <div class="divider"></div>
+      <br />
+      <br />
       <h5>API Calling Convention</h5>
+      <br />
         <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
 
         <code>http://api.kaiworship.xyz/v3/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
@@ -210,9 +216,13 @@
       <li>If only end data is provided. The Start date will be set to a year before the end date</li>
 
       <br>
+      <br />
+      <a name="three"></a>
       <div class="divider"></div>
-
+      <br />
+      <br />
       <a name="four"></a>
+      <br />
       <h5>How to Integrate our API within a Webapp</h5>
           <p>
               To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
