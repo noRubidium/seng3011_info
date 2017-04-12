@@ -81,7 +81,7 @@
         <h5>V3: Updates</h5>
           <p>Functionality which has been implemented:</p>
               <li><strong>Team Signature on Logs</strong></li>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFor all API calls made a log file is outputted which contains:
+                For all API calls made a log file is outputted which contains:
                 <ol>
                   <li>Developer Team Name</li>
                   <li>Version</li>
@@ -90,11 +90,12 @@
               <li><strong>Error Handling for Incorrect Statistics Area</strong></li>
 
       <br>
+      <div class="divider"></div>
       <a name="api"></a>
       <h5>API calling convention</h5>
         <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
 
-        <code>http://api.kaiworship.xyz/v2/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
+        <code>http://api.kaiworship.xyz/v3/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
         <table>
           <thead>
           <td>
@@ -206,6 +207,8 @@
       <li>If only end data is provided. The Start date will be set to a year before the end date</li>
 
       <br>
+      <div class="divider"></div>
+
       <h5>How to integrate our API within a Webapp</h5>
           <p>
               To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
@@ -256,7 +259,7 @@
             </tr>
             <tr>
               <td>
-                  <strong>Category</strong> (Commodities)
+                  <strong>Commodities</strong> (Merchendise Exports)
               </td>
               <td>
               If Statistics Area is chosen to be Merchandise Exports,
@@ -303,7 +306,8 @@
           Invalid input is handled with a corresponding error message notifying the user of the invalid paramater, followed by a list of valid paramaters which can replace it.</p>
 
           Invalid url:<br>
-          <code><a href="http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v2/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
+
+          <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code> 
           <br>
           <pre style="max-height:300px;"><code class="json">
 {
@@ -315,7 +319,7 @@
 
 
           <p>An example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
-          <code><a href="http://api.kaiworship.xyz/v2/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v2/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
+          <code><a href="http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
           Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
           <h5>Python:</h5>
@@ -411,10 +415,8 @@
           <li>End Date: '1st May 2014</li>
         </ul>
         <p>Example url:</p>
-        <code>http://api.kaiworship.xyz/v2/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</code>
+        <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v3/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</a></code>
         <br>
-        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">JSON Response</button>
-        <div id="demo" class="collapse">
         <pre style="max-height:300px;"><code class="json">
           {
             "MonthlyCommodityExportData": [
@@ -516,7 +518,6 @@
           }
         </code>
         </pre>
-        </div>
         <p>The JSON response is formated by category, in the example above the categories are Beverages and Tobacco & Manufactured goods. Each category property contains selected states which in the example are NSW and SA. Within each state there which exists a list of months with the corresponding statistic value.</p>
 
         Here is another example with Retail as the statistics Area. In this example no dates have been selected. So as a default value the start date will be January of the previous year.
@@ -528,7 +529,7 @@
       </ul>
 
       <p>Example url:</p>
-      <code>http://api.kaiworship.xyz/v2/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</code>
+      <code><a href="http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
       <p>JSON Response</p>
       <pre style="max-height:300px;"><code class="json">
       {
