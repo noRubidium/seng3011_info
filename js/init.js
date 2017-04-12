@@ -76,10 +76,10 @@ $(document).ready(() => {
         var additionalInfo = '';
         
         //assign default start date
-        if (startDate == '') {
-            startDate = '2016-01-01';
-            additionalInfo = " - Default start date '2016-01-01' used";
-        }
+        // if (startDate == '') {
+        //     startDate = '2016-01-01';
+        //     additionalInfo = " - Default start date '2016-01-01' used";
+        // }
 
         console.log(categ);
         const baseUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
