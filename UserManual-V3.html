@@ -43,11 +43,11 @@
     <div class="col s3" id="sidebar">
       <ul class="collection with-header">
         <li class="collection-header">Version 3.0 Documentation</li>
-        <li class="collection-item">Functionality</li>
-        <li class="collection-item">Update Log</li>
-        <li class="collection-item">Parameters</li>
-        <li class="collection-item">Integrating our API</li>
-        <li class="collection-item">API Response</li>
+        <li class="collection-item"><a href="#one">Functionality</a></li>
+        <li class="collection-item"><a href="#two">Update Log</a></li>
+        <li class="collection-item"><a href="#three">API calling Convention</a></li>
+        <li class="collection-item"><a href="#four">Integrating our API</a></li>
+        <li class="collection-item"><a href="#five">API Response</a></li>
       </ul>
     </div>
 
@@ -59,7 +59,7 @@
 
 
     <div class="section">
-      <h5>Functionalities</h5>
+      <a name="one"><h5>Functionalities</h5></a>
 
         Data sourced from the Australian Burea of Statistics (ABS) is usually cluttered and hard to read. This API implementation provides industry data and statistics relating to Retail and Merchandise Exports from the ABS in more human readable format. The core functionality of the API is outlined below.
         <br>
@@ -77,7 +77,7 @@
         </ol>
       <br>
 
-      <h5>Update log</h5>
+      <a name="two"><h5>Update log</h5></a>
         <h5>V3: Updates</h5>
           <p>Functionality which has been implemented:</p>
               <li><strong>Team Signature on Logs</strong></li>
@@ -92,7 +92,7 @@
       <br>
       <div class="divider"></div>
       <a name="api"></a>
-      <h5>API calling convention</h5>
+      <a name="three"><h5>API Calling Convention</h5></a>
         <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
 
         <code>http://api.kaiworship.xyz/v3/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
@@ -209,7 +209,7 @@
       <br>
       <div class="divider"></div>
 
-      <h5>How to integrate our API within a Webapp</h5>
+      <a name="four"><h5>How to Integrate our API within a Webapp</h5></a>
           <p>
               To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
           </p>
@@ -347,7 +347,7 @@
     </div>
     <div class="divider"></div>
     <div class="section">
-      <h5>API response </h5>
+      <a name="five"><h5>API response</h5></a>
         The following is an outline of the response JSON properties.
 
         <table class="bordered responsive-table">
