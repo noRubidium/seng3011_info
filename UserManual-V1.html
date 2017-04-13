@@ -6,6 +6,8 @@
   <title>Eleven51 - release page</title>
 
   <!-- CSS  -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/manuals.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -21,8 +23,8 @@
     </style>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
+  <nav class="blue-grey darken-4" id="top-navbar" role="navigation">
+    <div class="nav-wrapper"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.html#release">Release</a></li>
         <li><a href="UserManual-V3.html">User Manual</a></li>
@@ -36,53 +38,118 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="row" id="over">
 
-    <h2><a name="manual" > User Manual - V1.0 </a> </h2>
+    <div class="col s3" id="sidebar">
+      <ul class="collection with-header">
+        <li class="collection-header">Version 1 Documentation</li>
+        <li class="collection-item"><a href="#gettingstarted" class="sidebar-item">Getting Started</a></li>
+        <li class="collection-item"><a href="#functionality" class="sidebar-item">Functionality</a></li>
+        <li class="collection-item"><a href="#apicall" class="sidebar-item">API Calling Convention</a></li>
+        <li class="collection-item"><a href="#parameters" class="sidebar-item">Parameters</a></li>
+        <li class="collection-item"><a href="#acceptable" class="sidebar-item">Acceptable Input</a></li>
+        <li class="collection-item"><a href="#integrate" class="sidebar-item">Integrating our API</a></li>
+        <li class="collection-item"><a href="#apiresponse" class="sidebar-item">API Response</a></li>
+        <li class="collection-item"><a href="#examples" class="sidebar-item">Examples</a></li>
+      </ul>
+    </div>
+
+    <div class="col s9" id="contents">
+
+    <div class="manual-heading">User manual - V1</a></div>
+
+    <br />
+
+    <a name="gettingstarted"></a>
     <div class="divider"></div>
-    <a href="http://api.kaiworship.xyz/v1/">API End Point</a>
-    <div class="section">
-      <h5>Functionalities</h5>
+    <br />
+    <h5>Getting Started</h5>
+    <br />
+    Our API is accessible as a web service. You can access our endpoint here at:
+    <br />
+    <br />
+    <a href="http://api.kaiworship.xyz/v1/" id="endpoint-url" class="link">http://api.kaiworship.xyz/v1/</a>
+    <br />
+    <br />
+    To use our API, append desired parameters to the end of the above URL in the format described in <a href="#apicall" class="link">API Calling Convention</a>.
+    You can then make a HTTP request using this URL.
+    <br />
+    <br />
+    Alternatively, you can use our <a href="showcase.html" class="link">tool</a> to generate a URL based on your desired parameters. The tool also displays the response our API would provide.
+    <br />
 
-        Data sourced from the Australian Burea of Statistics (ABS) is usually cluttered and hard to read. This API implementation provides industry data and statistics relating to Retail and Merchandise Exports from the ABS in more human readable format. The core functionality of the API is outlined below.
+    <br />
+    <br />
+    <a name="functionality"></a>
+    <div class="divider"></div>
+      <br />
+      <h5>Functionality</h5>
+      <br />
+        Data sourced directly from the Australian Bureau of Statistics (ABS) is cluttered and hard to read.
+        This API provides ABS data and statistics on the Retail industry and on Merchandise Exports in a human readable format.
+        The core functionality of the API is outlined below:
         <br>
-        <br>Given atleast the area of statistic, we are able to:
+        <br>
+        Users are able to specify whether they want to obtain Retail industry data, or Merchandise Exports data.
+        <br />
+        <br />
+        For Retail industry data, users are able to:
         <ol>
-          <li>Retrieve industry specific data for Retail or Merchandise Exports</li>
-          <li>Have the industry data filtered further by a list of industry-specific categories</li>
-          <li>For specified industry groups, show:</li>
+          <li>Obtain data on one or more retail industry categories, including the total for all categories.</li>
+          <li>Obtain data on one or more Australian states/territories, including the total for the country.</li>
+          <li>Specify dates between which the data will be obtained.</li>
+          <li>For each retail category, in each state, users are returned with the following information:</li>
             <ol>
-              <li>Monthly retail turnover</li>
-              <li>Monthly value of various commodities that are exported</li>
-            </ol>       
-          <li>Retrieve Merchandise and Retail data for all of Australia, or one or more specified states/territories within the certain category</li>
-          <li>Show all data based the user's input of start and/or end dates</li>
+              <li>Retail turnover (in millions of $A)</li>
+              <li>The month this data is for</li>
+            </ol>
         </ol>
-      <br>
-      <br>
+        For Merchandise Export data, users are able to:
+        <ol>
+          <li>Obtain data on one or more export commodity, including the total for all exports.</li>
+          <li>Obtain data on one or more Australian states/territories, including the total for the country.</li>
+          <li>Specify dates between which the data will be obtained.</li>
+          <li>For each export commodity, in each state, users are returned with the following information:</li>
+            <ol>
+              <li>Value of exports (in thousands of $A)</li>
+              <li>The month this data is for</li>
+            </ol>
+        </ol>
+      <br />
+
+      <a name="apicall"></a>
       <div class="divider"></div>
-
-      <h5>API calling convention</h5>
-        <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
-
+      <br />
+      <h5>API Calling Convention</h5>
+      <br />
+        Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:
+        <br />
+        <br />
         <code>http://api.kaiworship.xyz/v1/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
-        <table>
+        <br />
+        <br />
+      <br />
+      <a name="parameters"></a>
+      <div class="divider"></div>
+      <br />
+      <h5>Parameters</h5>
+        <table class="striped">
           <thead>
-          <td>
+          <th>
             Parameter
-          </td>
-          <td>
+          </th>
+          <th>
             Arguments and Formats
-          </td>
-          <td>
+          </th>
+          <th>
             Requirement
-          </td>
-          <td>
+          </th>
+          <th>
             Separated By
-          </td>
-          <td>
+          </th>
+          <th>
             Example
-          </td>
+          </th>
           </thead>
           <tr>
             <td>
@@ -140,7 +207,7 @@
               startDate
             </td>
             <td>
-              A date string with the format “YYYY-MM-DD”
+              A date string with the format “YYYY-MM-DD”.
             </td>
             <td>
               Optional
@@ -170,115 +237,133 @@
             </td>
           </tr>
         </table>
-
         <br>
-        <div class="divider"></div>
+      Due to the start and end data being optional, there are various cases
+      <li>If no start date and no end date provded. Data will be provided for previous 12 months from today</li>
+      <li>If only start date is provided. The end date will be set to a year after the start date</li>
+      <li>If only end data is provided. The Start date will be set to a year before the end date</li>
 
-      <h5>How to integrate our API within a Webapp</h5>
-          <p>
-              To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
-          </p>
-          <table class="bordered responsive-table">
-            <thead>
-                <td>
-                  <strong>Parameter</strong>
-                </td>
-                <td>
-                    <strong>Remarks</strong>
-                </td>
-                <td>
-                    <strong>Available Options</strong>
-                </td>
-            </thead>
-            <tr>
-              <td>
-                <strong>StatisticsArea</strong>
-              </td>
-                <td></td>
-              <td>
+      <br />
+      <a name="acceptable"></a>
+      <div class="divider"></div>
+      <br />
+      <h5>Acceptable Input</h5>
+      <br />
+      Below are all the possible values which can be used as parameters in a call to our API.
+      Please only use values listed in the table below.
+      <br />
+      <br />
+      <table class="bordered responsive-table">
+        <thead>
+            <td>
+              <strong>Parameter</strong>
+            </td>
+            <td>
+                <strong>Remarks</strong>
+            </td>
+            <td>
+                <strong>Available Options</strong>
+            </td>
+        </thead>
+        <tr>
+          <td>
+            <strong>StatisticsArea</strong>
+          </td>
+            <td></td>
+          <td>
+            <ol>
+                <li>Retail</li>
+                <li>Merchandise</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Category</strong> (retail)
+          </td>
+          <td>
+          If Statistics Area is chosen to be Retail,
+              you are able to choose one or more of the following Industries.
+          </td>
+          <td>
+            <ol>
+              <li>Total</li>
+              <li>Food</li>
+              <li>HouseholdGood</li>
+              <li>ClothingFootwareAndPersonalAccessory</li>
+              <li>DepartmentStores</li>
+              <li>CafesRestaurantsAndTakeawayFood</li>
+              <li>Other</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Commodities</strong> (Merchendise Exports)
+          </td>
+          <td>
+          If Statistics Area is chosen to be Merchandise Exports,
+                you are able to choose one or more of the following Commodities
+          </td>
+          <td>
+            <ol>
+              <li>Total</li>
+              <li>FoodAndLiveAnimals</li>
+              <li>BeveragesAndTobacco</li>
+              <li>CrudeMaterialAndInedible</li>
+              <li>MineralFuelLubricantAndRelatedMaterial</li>
+              <li>AnimalAndVegetableOilFatAndWaxes</li>
+              <li>ChemicalsAndRelatedProducts</li>
+              <li>ManufacturedGoods</li>
+              <li>MachineryAndTransportEquipments</li>
+              <li>OtherManufacturedArticles</li>
+              <li>Unclassified</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>States</strong>
+          </td>
+            <td>You are able to choose one or multiple values from the states. Use 'Total' for statistics on the entire country.</td>
+            <td>
                 <ol>
-                    <li>Retail</li>
-                    <li>Merchandise</li>
+                    <li>Total</li>
+                      <li>NSW</li>
+                      <li>WA</li>
+                      <li>SA</li>
+                      <li>ACT</li>
+                      <li>VIC</li>
+                      <li>TAS</li>
+                      <li>QLD</li>
+                      <li>NT</li>
                 </ol>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <strong>Category</strong> (retail)
-              </td>
-              <td>
-              If Statistics Area is chosen to be Retail,
-                  you are able to choose one or more of the following Industries.
-              </td>
-              <td>
-                <ol>
-                  <li>Total</li>
-                  <li>Food</li>
-                  <li>HouseholdGood</li>
-                  <li>ClothingFootwareAndPersonalAccessory</li>
-                  <li>DepartmentStores</li>
-                  <li>CafesRestaurantsAndTakeawayFood</li>
-                  <li>Other</li>
-                </ol>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Commodities</strong> (Merchendise Exports)              
-              </td>
-              <td>
-              If Statistics Area is chosen to be Merchandise Exports,
-                    you are able to choose one or more of the following Commodities
-              </td>
-              <td>
-                <ol>
-                  <li>Total</li>
-                  <li>FoodAndLiveAnimals</li>
-                  <li>BeveragesAndTobacco</li>
-                  <li>CrudeMaterialAndInedible</li>
-                  <li>MineralFuelLubricantAndRelatedMaterial</li>
-                  <li>AnimalAndVegetableOilFatAndWaxes</li>
-                  <li>ChemicalsAndRelatedProducts</li>
-                  <li>ManufacturedGoods</li>
-                  <li>MachineryAndTransportEquipments</li>
-                  <li>OtherManufacturedArticles</li>
-                  <li>Unclassified</li>
-                </ol>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>States</strong>
-              </td>
-                <td>You are able to choose one or multiple values from the states</td>
-                <td>
-                    <ol>
-                          <li>Total</li>
-                          <li>NSW</li>
-                          <li>WA</li>
-                          <li>SA</li>
-                          <li>ACT</li>
-                          <li>VIC</li>
-                          <li>TAS</li>
-                          <li>QLD</li>
-                          <li>NT</li>
-                    </ol>
-                </td>
-            </tr>
-          </table>
+            </td>
+        </tr>
+      </table>
 
-          <p>For example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
-          <code><a href="http://api.kaiworship.xyz/v1/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v1/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
+      <br />
+      <a name="integrate"></a>
+      <div class="divider"></div>
+      <br />
+      <h5>How to Integrate our API within a Webapp</h5>
+      <br />
+
+          <!-- <p>An example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
+          <code><a href="http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
+          -->
           Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
-          <h5>Python:</h5>
+          <br />
+          <br />
+          <div class="language-title">Python:</div>
             <pre><code class="python">
               import urllib2
               response = urllib2.urlopen(url)
               json_string = response.read()
             </code></pre>
 
-          <h5>JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</h5>
+          <div class="language-title">JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</div>
             <pre><code class="js">
             fetch(url)
                 .then((data) => {
@@ -291,14 +376,16 @@
             </code></pre>
 
 
-     
 
-    </div>
+    <br />
+    <a name="apiresponse"></a>
     <div class="divider"></div>
-    <div class="section">
-      <h5>API response </h5>
-        The following is an outline of the response JSON properties.
-
+      <br />
+      <h5>API response</h5>
+      <br />
+        Our API returns a response to a call in JSON format. The following is an outline of the response's JSON properties:
+        <br />
+        <br />
         <table class="bordered responsive-table">
           <thead>
               <td>
@@ -317,9 +404,9 @@
             <td></td>
             <td></td>
             <td>
-            The statistics area chosen to query, that is "MonthlyRetailData" for Retail or "MonthlyCommodityExportData" for Merchandise.
-                <li>Turn over for Retail in Millions</li>
-                <li>Value of Merchendise exports in Thousands</li>
+            The statistics area chosen to be queried, that is:
+                <li>"MonthlyRetailData" for Retail</li>
+                <li>"MonthlyCommodityExportData" for Merchandise Exports</li>
             </td>
           </tr>
           <tr>
@@ -328,7 +415,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>The industry-specific category as listed above in the "How to integrate our API within a Webapp" section.</td>
+            <td>The industry-specific category as listed above in the <a href="#acceptable" class="link">Acceptable Input</a> section.</td>
           </tr>
           <tr>
             <td>
@@ -337,7 +424,7 @@
             <td></td>
             <td></td>
             <td>
-            States of Australia as chosen by the user, in their 3-letter abbreviations
+            States of Australia as chosen by the user, in their 3-letter abbreviation
                 <ol>
                     <li>Australia - AUS</li>
                       <li>New South Wales - NSW</li>
@@ -351,21 +438,44 @@
                 </ol>
             </td>
           </tr>
+          <tr>
+            <td>
+              <strong>Data</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            The data for the specified month, state and category. This contains within it:
+            <br />
+            <br />
+                Date - the last date of the month in which the data pertains to (in the format YYYY-MM-DD)
+                <br />
+                Value - the actual data value, which is:
+                    <li>for Retail: Turnover in millions of $A</li>
+                    <li>for MerchandiseExports: Export value in thousands of $A</li>
+            </td>
+          </tr>
         </table>
         </p>
-      <br>
+
+      <br />
+
+      <a name="examples"></a>
+        <h5>Examples</h5>
+        <br />
 
       <p>The API response is in JSON format, which gives the relevant statistica data given the paramaters selected. Below is an example API call with these paramaters selected below. This example shows the example URL and JSON response.</p>
-        <ul> 
-          <li>Statistics Area:  'Merchandise'</li> 
+        <ul>
+          <li>Statistics Area:  'Merchandise'</li>
           <li>Category: 'Beverages And Tobacco' , 'Manufactured Goods'</li>
           <li>State: 'New South Wales','South Australia'</li>
           <li>Start Date: '1st Febuary 2014'</li>
           <li>End Date: '1st May 2014</li>
         </ul>
         <p>Example url:</p>
-        <code><a href="http://api.kaiworship.xyz/v1/MerchandiseExports/BeveragesAndTobacco/NSW,SA/startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v1/MerchandiseExports/BeveragesAndTobacco/NSW,SA/startDate=2014-02-01&endDate=2014-05-01</a></code>
-        <p>JSON Response</p>
+        <code><a href="http://api.kaiworship.xyz/v1/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v1/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</a></code>
+        <br>
+        <p>JSON Response from our API:</p>
         <pre style="max-height:300px;"><code class="json">
           {
             "MonthlyCommodityExportData": [
@@ -468,160 +578,138 @@
         </code>
         </pre>
         <p>The JSON response is formated by category, in the example above the categories are Beverages and Tobacco & Manufactured goods. Each category property contains selected states which in the example are NSW and SA. Within each state there which exists a list of months with the corresponding statistic value.</p>
-        
+
         Here is another example with Retail as the statistics Area. In this example no dates have been selected. So as a default value the start date will be January of the previous year.
 
-      <ul> 
-          <li>Statistics Area:  'Retail'</li> 
+      <ul>
+          <li>Statistics Area:  'Retail'</li>
           <li>Category: 'Food' , 'Cafes Restuarants And Takeaway Food'</li>
           <li>State: 'Total'</li>
       </ul>
 
       <p>Example url:</p>
       <code><a href="http://api.kaiworship.xyz/v1/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v1/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
-      <p>JSON Response</p>
+      <p>JSON Response from our API:</p>
       <pre style="max-height:300px;"><code class="json">
-      {
-        "MonthlyRetailData": [
-            {
-                "category": "CafesRestaurantsAndTakeawayFood",
-                "regional_data": [
-                    {
-                        "state": "AUS",
-                        "data": [
-                            {
-                                "date": "2016-01-31",
-                                "turnover": 3431.8
-                            },
-                            {
-                                "date": "2016-02-29",
-                                "turnover": 3186.9
-                            },
-                            {
-                                "date": "2016-03-31",
-                                "turnover": 3435.2
-                            },
-                            {
-                                "date": "2016-04-30",
-                                "turnover": 3451.7
-                            },
-                            {
-                                "date": "2016-05-31",
-                                "turnover": 3431
-                            },
-                            {
-                                "date": "2016-06-30",
-                                "turnover": 3313.9
-                            },
-                            {
-                                "date": "2016-07-31",
-                                "turnover": 3573
-                            },
-                            {
-                                "date": "2016-08-31",
-                                "turnover": 3647.5
-                            },
-                            {
-                                "date": "2016-09-30",
-                                "turnover": 3696.3
-                            },
-                            {
-                                "date": "2016-10-31",
-                                "turnover": 3716.6
-                            },
-                            {
-                                "date": "2016-11-30",
-                                "turnover": 3678.5
-                            },
-                            {
-                                "date": "2016-12-31",
-                                "turnover": 4047.3
-                            },
-                            {
-                                "date": "2017-01-31",
-                                "turnover": 3621.4
-                            },
-                            {
-                                "date": "2017-02-28",
-                                "turnover": 3260.6
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "category": "Total",
-                "regional_data": [
-                    {
-                        "state": "AUS",
-                        "data": [
-                            {
-                                "date": "2016-01-31",
-                                "turnover": 24753.1
-                            },
-                            {
-                                "date": "2016-02-29",
-                                "turnover": 22734.9
-                            },
-                            {
-                                "date": "2016-03-31",
-                                "turnover": 24517.3
-                            },
-                            {
-                                "date": "2016-04-30",
-                                "turnover": 23975.9
-                            },
-                            {
-                                "date": "2016-05-31",
-                                "turnover": 24143.5
-                            },
-                            {
-                                "date": "2016-06-30",
-                                "turnover": 24165.3
-                            },
-                            {
-                                "date": "2016-07-31",
-                                "turnover": 24563.7
-                            },
-                            {
-                                "date": "2016-08-31",
-                                "turnover": 24591.3
-                            },
-                            {
-                                "date": "2016-09-30",
-                                "turnover": 25063.6
-                            },
-                            {
-                                "date": "2016-10-31",
-                                "turnover": 25974.6
-                            },
-                            {
-                                "date": "2016-11-30",
-                                "turnover": 26781.1
-                            },
-                            {
-                                "date": "2016-12-31",
-                                "turnover": 33100.2
-                            },
-                            {
-                                "date": "2017-01-31",
-                                "turnover": 25306.2
-                            },
-                            {
-                                "date": "2017-02-28",
-                                "turnover": 22615
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-      }  
+      {  
+       "MonthlyRetailData":[  
+          {  
+             "category":"Food",
+             "regional_data":[  
+                {  
+                   "state":"AUS",
+                   "data":[  
+                      {  
+                         "date":"2016-04-30",
+                         "turnover":9727.9
+                      },
+                      {  
+                         "date":"2016-05-31",
+                         "turnover":9815.2
+                      },
+                      {  
+                         "date":"2016-06-30",
+                         "turnover":9516.5
+                      },
+                      {  
+                         "date":"2016-07-31",
+                         "turnover":9928.5
+                      },
+                      {  
+                         "date":"2016-08-31",
+                         "turnover":10041.9
+                      },
+                      {  
+                         "date":"2016-09-30",
+                         "turnover":10005.7
+                      },
+                      {  
+                         "date":"2016-10-31",
+                         "turnover":10482.6
+                      },
+                      {  
+                         "date":"2016-11-30",
+                         "turnover":10435.7
+                      },
+                      {  
+                         "date":"2016-12-31",
+                         "turnover":12230.1
+                      },
+                      {  
+                         "date":"2017-01-31",
+                         "turnover":10431.5
+                      },
+                      {  
+                         "date":"2017-02-28",
+                         "turnover":9574.6
+                      }
+                   ]
+                }
+             ]
+          },
+          {  
+             "category":"CafesRestaurantsAndTakeawayFood",
+             "regional_data":[  
+                {  
+                   "state":"AUS",
+                   "data":[  
+                      {  
+                         "date":"2016-04-30",
+                         "turnover":3451.7
+                      },
+                      {  
+                         "date":"2016-05-31",
+                         "turnover":3431.0
+                      },
+                      {  
+                         "date":"2016-06-30",
+                         "turnover":3313.9
+                      },
+                      {  
+                         "date":"2016-07-31",
+                         "turnover":3573.0
+                      },
+                      {  
+                         "date":"2016-08-31",
+                         "turnover":3647.5
+                      },
+                      {  
+                         "date":"2016-09-30",
+                         "turnover":3696.3
+                      },
+                      {  
+                         "date":"2016-10-31",
+                         "turnover":3716.6
+                      },
+                      {  
+                         "date":"2016-11-30",
+                         "turnover":3678.5
+                      },
+                      {  
+                         "date":"2016-12-31",
+                         "turnover":4047.3
+                      },
+                      {  
+                         "date":"2017-01-31",
+                         "turnover":3621.4
+                      },
+                      {  
+                         "date":"2017-02-28",
+                         "turnover":3260.6
+                      }
+                   ]
+                }
+             ]
+          }
+       ]
+      }
       </code>
-    </div>
   </div>
 
-  <footer class="page-footer orange">
+</div>
+
+
+   <footer class="page-footer blue-grey">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -648,7 +736,7 @@
             </ul>
           </div>
         </div>
-        
+
       </div>
     </div>
     <div class="footer-copyright">

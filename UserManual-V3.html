@@ -47,6 +47,7 @@
         <li class="collection-item"><a href="#updates" class="sidebar-item">Update Log</a></li>
         <li class="collection-item"><a href="#functionality" class="sidebar-item">Functionality</a></li>
         <li class="collection-item"><a href="#apicall" class="sidebar-item">API Calling Convention</a></li>
+        <li class="collection-item"><a href="#errors" class="sidebar-item">Error Handling</a></li>
         <li class="collection-item"><a href="#parameters" class="sidebar-item">Parameters</a></li>
         <li class="collection-item"><a href="#acceptable" class="sidebar-item">Acceptable Input</a></li>
         <li class="collection-item"><a href="#integrate" class="sidebar-item">Integrating our API</a></li>
@@ -69,7 +70,7 @@
     Our API is accessible as a web service. You can access our endpoint here at:
     <br />
     <br />
-    <a href="http://api.kaiworship.xyz/v2/" id="endpoint-url" class="link">http://api.kaiworship.xyz/v2/</a>
+    <a href="http://api.kaiworship.xyz/v3/" id="endpoint-url" class="link">http://api.kaiworship.xyz/v3/</a>
     <br />
     <br />
     To use our API, append desired parameters to the end of the above URL in the format described in <a href="#apicall" class="link">API Calling Convention</a>.
@@ -361,7 +362,8 @@
       </table>
 
       <br />
-
+      <a name="errors"></a>
+      <h5>Error Handling</h5>
       <p>
       Invalid input is handled with a corresponding error message notifying the user of the invalid parameter, followed by a list of valid paramaters which should be used instead.</p>
 
@@ -379,6 +381,7 @@
       </code></pre>
       The URL above "MachineryAndTransportEquipment" is missing a 's' at the end, it should be "MachineryAndTransportEquiments".</p>
       </p>
+      If start and end dates are not provided in the format of 'YYYY-MM-DD', they're invalid inputs. Which the user will be prompted to format them correctly.
 
 
       <br />
@@ -516,103 +519,64 @@
         <br>
         <p>JSON Response from our API:</p>
         <pre style="max-height:300px;"><code class="json">
-          {
-            "MonthlyCommodityExportData": [
-                {
-                    "regional_data": [
-                        {
-                            "state": "NSW",
-                            "data": [
-                                {
-                                    "date": "2014-02-28",
-                                    "value": 36053.845
-                                },
-                                {
-                                    "date": "2014-03-31",
-                                    "value": 35558.589
-                                },
-                                {
-                                    "date": "2014-04-30",
-                                    "value": 37975.071
-                                },
-                                {
-                                    "date": "2014-05-31",
-                                    "value": 44953.016
-                                }
-                            ]
-                        },
-                        {
-                            "state": "SA",
-                            "data": [
-                                {
-                                    "date": "2014-02-28",
-                                    "value": 91358.087
-                                },
-                                {
-                                    "date": "2014-03-31",
-                                    "value": 96998.913
-                                },
-                                {
-                                    "date": "2014-04-30",
-                                    "value": 83416.81
-                                },
-                                {
-                                    "date": "2014-05-31",
-                                    "value": 114941.179
-                                }
-                            ]
-                        }
-                    ],
-                    "commodity": "BeveragesAndTobacco"
-                },
-                {
-                    "regional_data": [
-                        {
-                            "state": "NSW",
-                            "data": [
-                                {
-                                    "date": "2014-02-28",
-                                    "value": 193473.083
-                                },
-                                {
-                                    "date": "2014-03-31",
-                                    "value": 259435.32
-                                },
-                                {
-                                    "date": "2014-04-30",
-                                    "value": 267763.476
-                                },
-                                {
-                                    "date": "2014-05-31",
-                                    "value": 267756.105
-                                }
-                            ]
-                        },
-                        {
-                            "state": "SA",
-                            "data": [
-                                {
-                                    "date": "2014-02-28",
-                                    "value": 177304.745
-                                },
-                                {
-                                    "date": "2014-03-31",
-                                    "value": 205721.564
-                                },
-                                {
-                                    "date": "2014-04-30",
-                                    "value": 194670.073
-                                },
-                                {
-                                    "date": "2014-05-31",
-                                    "value": 193112.341
-                                }
-                            ]
-                        }
-                    ],
-                    "commodity": "ManufacturedGoods"
+          {  
+             "Header":{  
+                "end_date":"2014-05-01",
+                "team":"Eleven51",
+                "elapsed_time":623.8517761230469,
+                "version":"v3",
+                "time":"2017-04-13 05:16:28",
+                "start_date":"2014-02-01"
+             },
+             "MonthlyCommodityExportData":[  
+                {  
+                   "regional_data":[  
+                      {  
+                         "state":"NSW",
+                         "data":[  
+                            {  
+                               "date":"2014-02-28",
+                               "value":36053.845
+                            },
+                            {  
+                               "date":"2014-03-31",
+                               "value":35558.589
+                            },
+                            {  
+                               "date":"2014-04-30",
+                               "value":37975.071
+                            },
+                            {  
+                               "date":"2014-05-31",
+                               "value":44953.016
+                            }
+                         ]
+                      },
+                      {  
+                         "state":"SA",
+                         "data":[  
+                            {  
+                               "date":"2014-02-28",
+                               "value":91358.087
+                            },
+                            {  
+                               "date":"2014-03-31",
+                               "value":96998.913
+                            },
+                            {  
+                               "date":"2014-04-30",
+                               "value":83416.81
+                            },
+                            {  
+                               "date":"2014-05-31",
+                               "value":114941.179
+                            }
+                         ]
+                      }
+                   ],
+                   "commodity":"BeveragesAndTobacco"
                 }
-            ]
+             ]
           }
         </code>
         </pre>
@@ -630,141 +594,117 @@
       <code><a href="http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
       <p>JSON Response from our API:</p>
       <pre style="max-height:300px;"><code class="json">
-      {
-        "MonthlyRetailData": [
-            {
-                "category": "CafesRestaurantsAndTakeawayFood",
-                "regional_data": [
-                    {
-                        "state": "AUS",
-                        "data": [
-                            {
-                                "date": "2016-01-31",
-                                "turnover": 3431.8
-                            },
-                            {
-                                "date": "2016-02-29",
-                                "turnover": 3186.9
-                            },
-                            {
-                                "date": "2016-03-31",
-                                "turnover": 3435.2
-                            },
-                            {
-                                "date": "2016-04-30",
-                                "turnover": 3451.7
-                            },
-                            {
-                                "date": "2016-05-31",
-                                "turnover": 3431
-                            },
-                            {
-                                "date": "2016-06-30",
-                                "turnover": 3313.9
-                            },
-                            {
-                                "date": "2016-07-31",
-                                "turnover": 3573
-                            },
-                            {
-                                "date": "2016-08-31",
-                                "turnover": 3647.5
-                            },
-                            {
-                                "date": "2016-09-30",
-                                "turnover": 3696.3
-                            },
-                            {
-                                "date": "2016-10-31",
-                                "turnover": 3716.6
-                            },
-                            {
-                                "date": "2016-11-30",
-                                "turnover": 3678.5
-                            },
-                            {
-                                "date": "2016-12-31",
-                                "turnover": 4047.3
-                            },
-                            {
-                                "date": "2017-01-31",
-                                "turnover": 3621.4
-                            },
-                            {
-                                "date": "2017-02-28",
-                                "turnover": 3260.6
-                            }
-                        ]
-                    }
-                ]
+      {  
+         "Header":{  
+            "end_date":null,
+            "team":"Eleven51",
+            "elapsed_time":660.4750156402588,
+            "version":"v3",
+            "time":"2017-04-13 05:15:33",
+            "start_date":null
+         },
+         "MonthlyRetailData":[  
+            {  
+               "category":"Food",
+               "regional_data":[  
+                  {  
+                     "state":"AUS",
+                     "data":[  
+                        {  
+                           "date":"2016-05-31",
+                           "turnover":9815.2
+                        },
+                        {  
+                           "date":"2016-06-30",
+                           "turnover":9516.5
+                        },
+                        {  
+                           "date":"2016-07-31",
+                           "turnover":9928.5
+                        },
+                        {  
+                           "date":"2016-08-31",
+                           "turnover":10041.9
+                        },
+                        {  
+                           "date":"2016-09-30",
+                           "turnover":10005.7
+                        },
+                        {  
+                           "date":"2016-10-31",
+                           "turnover":10482.6
+                        },
+                        {  
+                           "date":"2016-11-30",
+                           "turnover":10435.7
+                        },
+                        {  
+                           "date":"2016-12-31",
+                           "turnover":12230.1
+                        },
+                        {  
+                           "date":"2017-01-31",
+                           "turnover":10431.5
+                        },
+                        {  
+                           "date":"2017-02-28",
+                           "turnover":9574.6
+                        }
+                     ]
+                  }
+               ]
             },
-            {
-                "category": "Total",
-                "regional_data": [
-                    {
-                        "state": "AUS",
-                        "data": [
-                            {
-                                "date": "2016-01-31",
-                                "turnover": 24753.1
-                            },
-                            {
-                                "date": "2016-02-29",
-                                "turnover": 22734.9
-                            },
-                            {
-                                "date": "2016-03-31",
-                                "turnover": 24517.3
-                            },
-                            {
-                                "date": "2016-04-30",
-                                "turnover": 23975.9
-                            },
-                            {
-                                "date": "2016-05-31",
-                                "turnover": 24143.5
-                            },
-                            {
-                                "date": "2016-06-30",
-                                "turnover": 24165.3
-                            },
-                            {
-                                "date": "2016-07-31",
-                                "turnover": 24563.7
-                            },
-                            {
-                                "date": "2016-08-31",
-                                "turnover": 24591.3
-                            },
-                            {
-                                "date": "2016-09-30",
-                                "turnover": 25063.6
-                            },
-                            {
-                                "date": "2016-10-31",
-                                "turnover": 25974.6
-                            },
-                            {
-                                "date": "2016-11-30",
-                                "turnover": 26781.1
-                            },
-                            {
-                                "date": "2016-12-31",
-                                "turnover": 33100.2
-                            },
-                            {
-                                "date": "2017-01-31",
-                                "turnover": 25306.2
-                            },
-                            {
-                                "date": "2017-02-28",
-                                "turnover": 22615
-                            }
-                        ]
-                    }
-                ]
+            {  
+               "category":"CafesRestaurantsAndTakeawayFood",
+               "regional_data":[  
+                  {  
+                     "state":"AUS",
+                     "data":[  
+                        {  
+                           "date":"2016-05-31",
+                           "turnover":3431.0
+                        },
+                        {  
+                           "date":"2016-06-30",
+                           "turnover":3313.9
+                        },
+                        {  
+                           "date":"2016-07-31",
+                           "turnover":3573.0
+                        },
+                        {  
+                           "date":"2016-08-31",
+                           "turnover":3647.5
+                        },
+                        {  
+                           "date":"2016-09-30",
+                           "turnover":3696.3
+                        },
+                        {  
+                           "date":"2016-10-31",
+                           "turnover":3716.6
+                        },
+                        {  
+                           "date":"2016-11-30",
+                           "turnover":3678.5
+                        },
+                        {  
+                           "date":"2016-12-31",
+                           "turnover":4047.3
+                        },
+                        {  
+                           "date":"2017-01-31",
+                           "turnover":3621.4
+                        },
+                        {  
+                           "date":"2017-02-28",
+                           "turnover":3260.6
+                        }
+                     ]
+                  }
+               ]
             }
-        ]
+         ]
       }
       </code>
   </div>
