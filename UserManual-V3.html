@@ -46,10 +46,12 @@
         <li class="collection-item"><a href="#gettingstarted" class="sidebar-item">Getting Started</a></li>
         <li class="collection-item"><a href="#updates" class="sidebar-item">Update Log</a></li>
         <li class="collection-item"><a href="#functionality" class="sidebar-item">Functionality</a></li>
-        <li class="collection-item"><a href="#apicall" class="sidebar-item">API calling Convention</a></li>
+        <li class="collection-item"><a href="#apicall" class="sidebar-item">API Calling Convention</a></li>
         <li class="collection-item"><a href="#parameters" class="sidebar-item">Parameters</a></li>
-        <li class="collection-item"><a href="#four" class="sidebar-item">Integrating our API</a></li>
-        <li class="collection-item"><a href="#five" class="sidebar-item">API Response</a></li>
+        <li class="collection-item"><a href="#acceptable" class="sidebar-item">Acceptable Input</a></li>
+        <li class="collection-item"><a href="#integrate" class="sidebar-item">Integrating our API</a></li>
+        <li class="collection-item"><a href="#apiresponse" class="sidebar-item">API Response</a></li>
+        <li class="collection-item"><a href="#examples" class="sidebar-item">Examples</a></li>
       </ul>
     </div>
 
@@ -57,9 +59,9 @@
 
     <div class="manual-heading">User manual - V3.0</a></div>
 
+    <br />
+
     <a name="gettingstarted"></a>
-    <br />
-    <br />
     <div class="divider"></div>
     <br />
     <h5>Getting Started</h5>
@@ -259,134 +261,148 @@
       <li>If only start date is provided. The end date will be set to a year after the start date</li>
       <li>If only end data is provided. The Start date will be set to a year before the end date</li>
 
-      <br>
       <br />
-      <a name="four"></a>
+      <a name="acceptable"></a>
       <div class="divider"></div>
       <br />
+      <h5>Acceptable Input</h5>
+      <br />
+      Below are all the possible values which can be used as parameters in a call to our API.
+      Please only use values listed in the table below.
+      <br />
+      <br />
+      <table class="bordered responsive-table">
+        <thead>
+            <td>
+              <strong>Parameter</strong>
+            </td>
+            <td>
+                <strong>Remarks</strong>
+            </td>
+            <td>
+                <strong>Available Options</strong>
+            </td>
+        </thead>
+        <tr>
+          <td>
+            <strong>StatisticsArea</strong>
+          </td>
+            <td></td>
+          <td>
+            <ol>
+                <li>Retail</li>
+                <li>Merchandise</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Category</strong> (retail)
+          </td>
+          <td>
+          If Statistics Area is chosen to be Retail,
+              you are able to choose one or more of the following Industries.
+          </td>
+          <td>
+            <ol>
+              <li>Total</li>
+              <li>Food</li>
+              <li>HouseholdGood</li>
+              <li>ClothingFootwareAndPersonalAccessory</li>
+              <li>DepartmentStores</li>
+              <li>CafesRestaurantsAndTakeawayFood</li>
+              <li>Other</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Commodities</strong> (Merchendise Exports)
+          </td>
+          <td>
+          If Statistics Area is chosen to be Merchandise Exports,
+                you are able to choose one or more of the following Commodities
+          </td>
+          <td>
+            <ol>
+              <li>Total</li>
+              <li>FoodAndLiveAnimals</li>
+              <li>BeveragesAndTobacco</li>
+              <li>CrudeMaterialAndInedible</li>
+              <li>MineralFuelLubricantAndRelatedMaterial</li>
+              <li>AnimalAndVegetableOilFatAndWaxes</li>
+              <li>ChemicalsAndRelatedProducts</li>
+              <li>ManufacturedGoods</li>
+              <li>MachineryAndTransportEquipments</li>
+              <li>OtherManufacturedArticles</li>
+              <li>Unclassified</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>States</strong>
+          </td>
+            <td>You are able to choose one or multiple values from the states. Use 'Total' for statistics on the entire country.</td>
+            <td>
+                <ol>
+                    <li>Total</li>
+                      <li>NSW</li>
+                      <li>WA</li>
+                      <li>SA</li>
+                      <li>ACT</li>
+                      <li>VIC</li>
+                      <li>TAS</li>
+                      <li>QLD</li>
+                      <li>NT</li>
+                </ol>
+            </td>
+        </tr>
+      </table>
+
+      <br />
+
+      <p>
+      Invalid input is handled with a corresponding error message notifying the user of the invalid parameter, followed by a list of valid paramaters which should be used instead.</p>
+
+      For example, the following invalid url:<br>
+
+      <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
+      <br>
+      <br />
+      would return:
+      <br />
+      <pre style="max-height:300px;"><code class="json">
+{
+"error":"The type you are requiring (MachineryAndTransportEquipment) doesn't exist. You should choose from ['AnimalAndVegetableOilFatAndWaxes', 'BeveragesAndTobacco', 'CrudeMaterialAndInedible', 'Unclassified', 'OtherManufacturedArticles', 'FoodAndLiveAnimals', 'ChemicalsAndRelatedProducts', 'MachineryAndTransportEquipments', 'MineralFuelLubricantAndRelatedMaterial', 'ManufacturedGoods', 'Total']"
+}
+      </code></pre>
+      The URL above "MachineryAndTransportEquipment" is missing a 's' at the end, it should be "MachineryAndTransportEquiments".</p>
+      </p>
+
+
+      <br />
+      <a name="integrate"></a>
+      <div class="divider"></div>
       <br />
       <h5>How to Integrate our API within a Webapp</h5>
       <br />
-          <p>
-              To call upon the API you must call a HTTP GET request, passing the paramaters through the url. There are a wide range of categories which can be selected dependant on which Statistics area you have selected. <br>Below are the following options available.
-          </p>
-          <table class="bordered responsive-table">
-            <thead>
-                <td>
-                  <strong>Parameter</strong>
-                </td>
-                <td>
-                    <strong>Remarks</strong>
-                </td>
-                <td>
-                    <strong>Available Options</strong>
-                </td>
-            </thead>
-            <tr>
-              <td>
-                <strong>StatisticsArea</strong>
-              </td>
-                <td></td>
-              <td>
-                <ol>
-                    <li>Retail</li>
-                    <li>Merchandise</li>
-                </ol>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <strong>Category</strong> (retail)
-              </td>
-              <td>
-              If Statistics Area is chosen to be Retail,
-                  you are able to choose one or more of the following Industries.
-              </td>
-              <td>
-                <ol>
-                  <li>Total</li>
-                  <li>Food</li>
-                  <li>HouseholdGood</li>
-                  <li>ClothingFootwareAndPersonalAccessory</li>
-                  <li>DepartmentStores</li>
-                  <li>CafesRestaurantsAndTakeawayFood</li>
-                  <li>Other</li>
-                </ol>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <strong>Commodities</strong> (Merchendise Exports)
-              </td>
-              <td>
-              If Statistics Area is chosen to be Merchandise Exports,
-                    you are able to choose one or more of the following Commodities
-              </td>
-              <td>
-                <ol>
-                  <li>Total</li>
-                  <li>FoodAndLiveAnimals</li>
-                  <li>BeveragesAndTobacco</li>
-                  <li>CrudeMaterialAndInedible</li>
-                  <li>MineralFuelLubricantAndRelatedMaterial</li>
-                  <li>AnimalAndVegetableOilFatAndWaxes</li>
-                  <li>ChemicalsAndRelatedProducts</li>
-                  <li>ManufacturedGoods</li>
-                  <li>MachineryAndTransportEquipments</li>
-                  <li>OtherManufacturedArticles</li>
-                  <li>Unclassified</li>
-                </ol>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>States</strong>
-              </td>
-                <td>You are able to choose one or multiple values from the states</td>
-                <td>
-                    <ol>
-                        <li>AUS</li>
-                          <li>NSW</li>
-                          <li>WA</li>
-                          <li>SA</li>
-                          <li>ACT</li>
-                          <li>VIC</li>
-                          <li>TAS</li>
-                          <li>QLD</li>
-                          <li>NT</li>
-                    </ol>
-                </td>
-            </tr>
-          </table>
 
-          <p>
-          Invalid input is handled with a corresponding error message notifying the user of the invalid paramater, followed by a list of valid paramaters which can replace it.</p>
-
-          Invalid url:<br>
-
-          <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
-          <br>
-          <pre style="max-height:300px;"><code class="json">
-{
-   "error":"The type you are requiring (MachineryAndTransportEquipment) doesn't exist. You should choose from ['AnimalAndVegetableOilFatAndWaxes', 'BeveragesAndTobacco', 'CrudeMaterialAndInedible', 'Unclassified', 'OtherManufacturedArticles', 'FoodAndLiveAnimals', 'ChemicalsAndRelatedProducts', 'MachineryAndTransportEquipments', 'MineralFuelLubricantAndRelatedMaterial', 'ManufacturedGoods', 'Total']"
-}
-          </code></pre>
-          The URL above "MachineryAndTransportEquipment" is missing a 's' at the end, it should be "MachineryAndTransportEquiments".</p>
-          </p>
-
-
-          <p>An example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
+          <!-- <p>An example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
           <code><a href="http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
+          -->
           Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
-          <h6>Python:</h6>
+          <br />
+          <br />
+          <div class="language-title">Python:</div>
             <pre><code class="python">
               import urllib2
               response = urllib2.urlopen(url)
               json_string = response.read()
             </code></pre>
 
-          <h6>JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</h6>
+          <div class="language-title">JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</div>
             <pre><code class="js">
             fetch(url)
                 .then((data) => {
@@ -400,16 +416,15 @@
 
 
 
-
     <br />
-    <a name="five"></a>
+    <a name="apiresponse"></a>
     <div class="divider"></div>
-    <br />
-    <div class="section">
       <br />
       <h5>API response</h5>
-        The following is an outline of the response JSON properties.
-
+      <br />
+        Our API returns a response to a call in JSON format. The following is an outline of the response's JSON properties:
+        <br />
+        <br />
         <table class="bordered responsive-table">
           <thead>
               <td>
@@ -428,9 +443,9 @@
             <td></td>
             <td></td>
             <td>
-            The statistics area chosen to query, that is "MonthlyRetailData" for Retail or "MonthlyCommodityExportData" for Merchandise.
-                <li>Turn over for Retail in Millions</li>
-                <li>Value of Merchendise exports in Thousands</li>
+            The statistics area chosen to be queried, that is:
+                <li>"MonthlyRetailData" for Retail</li>
+                <li>"MonthlyCommodityExportData" for Merchandise Exports</li>
             </td>
           </tr>
           <tr>
@@ -439,7 +454,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>The industry-specific category as listed above in the "How to integrate our API within a Webapp" section.</td>
+            <td>The industry-specific category as listed above in the <a href="#acceptable" class="link">Acceptable Input</a> section.</td>
           </tr>
           <tr>
             <td>
@@ -448,7 +463,7 @@
             <td></td>
             <td></td>
             <td>
-            States of Australia as chosen by the user, in their 3-letter abbreviations
+            States of Australia as chosen by the user, in their 3-letter abbreviation
                 <ol>
                     <li>Australia - AUS</li>
                       <li>New South Wales - NSW</li>
@@ -462,9 +477,31 @@
                 </ol>
             </td>
           </tr>
+          <tr>
+            <td>
+              <strong>Data</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            The data for the specified month, state and category. This contains within it:
+            <br />
+            <br />
+                Date - the last date of the month in which the data pertains to (in the format YYYY-MM-DD)
+                <br />
+                Value - the actual data value, which is:
+                    <li>for Retail: Turnover in millions of $A</li>
+                    <li>for MerchandiseExports: Export value in thousands of $A</li>
+            </td>
+          </tr>
         </table>
         </p>
-      <br>
+
+      <br />
+
+      <a name="examples"></a>
+        <h5>Examples</h5>
+        <br />
 
       <p>The API response is in JSON format, which gives the relevant statistica data given the paramaters selected. Below is an example API call with these paramaters selected below. This example shows the example URL and JSON response.</p>
         <ul>
@@ -477,6 +514,7 @@
         <p>Example url:</p>
         <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v3/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</a></code>
         <br>
+        <p>JSON Response from our API:</p>
         <pre style="max-height:300px;"><code class="json">
           {
             "MonthlyCommodityExportData": [
@@ -590,7 +628,7 @@
 
       <p>Example url:</p>
       <code><a href="http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
-      <p>JSON Response</p>
+      <p>JSON Response from our API:</p>
       <pre style="max-height:300px;"><code class="json">
       {
         "MonthlyRetailData": [
@@ -729,7 +767,6 @@
         ]
       }
       </code>
-    </div>
   </div>
 
 </div>
