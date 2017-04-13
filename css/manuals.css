@@ -1,0 +1,24 @@
+h5 {
+  color: #009688;
+}
+
+#update-sub {
+  font-size: 12pt;
+
+}
+
+#endpoint-url {
+  padding-left: 40px;
+}
+
+.manual-heading {
+}
+
+.link {
+  color: #009688;
+}
+
+#params-heading {
+  font-size: 12pt;
+  font-weight: bold;
+}

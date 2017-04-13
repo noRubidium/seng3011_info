@@ -7,6 +7,7 @@
 
   <!-- CSS  -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/manuals.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -42,86 +43,129 @@
     <div class="col s3" id="sidebar">
       <ul class="collection with-header">
         <li class="collection-header">Version 3.0 Documentation</li>
-        <li class="collection-item"><a href="#one" id="sidebar-item">Functionality</a></li>
-        <li class="collection-item"><a href="#two" id="sidebar-item">Update Log</a></li>
-        <li class="collection-item"><a href="#three" id="sidebar-item">API calling Convention</a></li>
-        <li class="collection-item"><a href="#four" id="sidebar-item">Integrating our API</a></li>
-        <li class="collection-item"><a href="#five" id="sidebar-item">API Response</a></li>
+        <li class="collection-item"><a href="#gettingstarted" class="sidebar-item">Getting Started</a></li>
+        <li class="collection-item"><a href="#updates" class="sidebar-item">Update Log</a></li>
+        <li class="collection-item"><a href="#functionality" class="sidebar-item">Functionality</a></li>
+        <li class="collection-item"><a href="#apicall" class="sidebar-item">API calling Convention</a></li>
+        <li class="collection-item"><a href="#parameters" class="sidebar-item">Parameters</a></li>
+        <li class="collection-item"><a href="#four" class="sidebar-item">Integrating our API</a></li>
+        <li class="collection-item"><a href="#five" class="sidebar-item">API Response</a></li>
       </ul>
     </div>
 
     <div class="col s9" id="contents">
 
-    <div class="manual-heading"> User manual - V3.0 </a> </div>
-    <a href="http://api.kaiworship.xyz/v2/" style="text-decoration: underline;"><p align="right">API End Point</p></a>
-    <a name="one"></a>
+    <div class="manual-heading">User manual - V3.0</a></div>
+
+    <a name="gettingstarted"></a>
+    <br />
+    <br />
     <div class="divider"></div>
-    <div class="section">
+    <br />
+    <h5>Getting Started</h5>
+    <br />
+    Our API is accessible as a web service. You can access our endpoint here at:
+    <br />
+    <br />
+    <a href="http://api.kaiworship.xyz/v2/" id="endpoint-url" class="link">http://api.kaiworship.xyz/v2/</a>
+    <br />
+    <br />
+    To use our API, append desired parameters to the end of the above URL in the format described in <a href="#apicall" class="link">API Calling Convention</a>.
+    You can then make a HTTP request using this URL.
+    <br />
+    <br />
+    Alternatively, you can use our <a href="showcase.html" class="link">tool</a> to generate a URL based on your desired parameters. The tool also displays the response our API would provide.
+    <br />
+    <br />
+
+    <a name="updates"></a>
+    <div class="divider"></div>
+    <br />
+    <h5>Update Log</h5>
+    <br />
+      <div id="update-sub">Changes compared to the last version - <a class="link" href="UserManual-V2.html">v2.0</a>:</div>
+        <br />
+            <li><strong>Team Signature on Logs</strong></li>
+              For all API calls made a log file is outputted which contains:
+              <ol>
+                <li>Developer Team Name</li>
+                <li>Version</li>
+                <li>Date Stamp (in UTC time)</li>
+              </ol>
+            <li><strong>Error Handling for Incorrect Statistics Area</strong></li>
+
+    <br />
+    <br />
+    <a name="functionality"></a>
+    <div class="divider"></div>
       <br />
       <h5>Functionality</h5>
       <br />
-        Data sourced from the Australian Bureau of Statistics (ABS) is usually cluttered and hard to read. This API implementation provides industry data and statistics relating to Retail and Merchandise Exports from the ABS in more human readable format. The core functionality of the API is outlined below.
+        Data sourced directly from the Australian Bureau of Statistics (ABS) is cluttered and hard to read.
+        This API provides ABS data and statistics on the Retail industry and on Merchandise Exports in a human readable format.
+        The core functionality of the API is outlined below:
         <br>
-        <br>Given atleast the area of statistic, we are able to:
+        <br>
+        Users are able to specify whether they want to obtain Retail industry data, or Merchandise Exports data.
+        <br />
+        <br />
+        For Retail industry data, users are able to:
         <ol>
-          <li>Retrieve industry specific data for Retail or Merchandise Exports</li>
-          <li>Have the industry data filtered further by a list of industry-specific categories</li>
-          <li>For specified industry groups, show:</li>
+          <li>Obtain data on one or more retail industry categories, including the total for all categories.</li>
+          <li>Obtain data on one or more Australian states/territories, including the total for the country.</li>
+          <li>Specify dates between which the data will be obtained.</li>
+          <li>For each retail category, in each state, users are returned with the following information:</li>
             <ol>
-              <li>Monthly retail turnover</li>
-              <li>Monthly value of various commodities that are exported</li>
+              <li>Retail turnover (in millions of $A)</li>
+              <li>The month this data is for</li>
             </ol>
-          <li>Retrieve Merchandise and Retail data for all of Australia, or one or more specified states/territories within the certain category</li>
-          <li>Show all data based the user's input of start and/or end dates</li>
         </ol>
-      <br>
+        For Merchandise Export data, users are able to:
+        <ol>
+          <li>Obtain data on one or more export commodity, including the total for all exports.</li>
+          <li>Obtain data on one or more Australian states/territories, including the total for the country.</li>
+          <li>Specify dates between which the data will be obtained.</li>
+          <li>For each export commodity, in each state, users are returned with the following information:</li>
+            <ol>
+              <li>Value of exports (in thousands of $A)</li>
+              <li>The month this data is for</li>
+            </ol>
+        </ol>
+      <br />
 
-      <a name="two"></a>
-      <br />
+      <a name="apicall"></a>
       <div class="divider"></div>
-      <br />
-      <br />
-      <h5>Update Log</h5>
-      <br />
-        <div>New updates in v3.0 from v2.0</div>
-          <p>Functionality which has been implemented:</p>
-              <li><strong>Team Signature on Logs</strong></li>
-                For all API calls made a log file is outputted which contains:
-                <ol>
-                  <li>Developer Team Name</li>
-                  <li>Version</li>
-                  <li>Date Stamp (in UTC time)</li>
-                </ol>
-              <li><strong>Error Handling for Incorrect Statistics Area</strong></li>
-
-      <br>
-      <br />
-      <a name="three"></a>
-      <div class="divider"></div>
-      <br />
       <br />
       <h5>API Calling Convention</h5>
       <br />
-        <p>Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:</p>
-
+        Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:
+        <br />
+        <br />
         <code>http://api.kaiworship.xyz/v3/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
-        <table>
+        <br />
+        <br />
+      <br />
+      <a name="parameters"></a>
+      <div class="divider"></div>
+      <br />
+      <h5>Parameters</h5>
+        <table class="striped">
           <thead>
-          <td>
+          <th>
             Parameter
-          </td>
-          <td>
+          </th>
+          <th>
             Arguments and Formats
-          </td>
-          <td>
+          </th>
+          <th>
             Requirement
-          </td>
-          <td>
+          </th>
+          <th>
             Separated By
-          </td>
-          <td>
+          </th>
+          <th>
             Example
-          </td>
+          </th>
           </thead>
           <tr>
             <td>
@@ -335,14 +379,14 @@
           <code><a href="http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
           Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
-          <h5>Python:</h5>
+          <h6>Python:</h6>
             <pre><code class="python">
               import urllib2
               response = urllib2.urlopen(url)
               json_string = response.read()
             </code></pre>
 
-          <h5>JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</h5>
+          <h6>JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</h6>
             <pre><code class="js">
             fetch(url)
                 .then((data) => {
@@ -357,7 +401,6 @@
 
 
 
-    </div>
     <br />
     <a name="five"></a>
     <div class="divider"></div>
