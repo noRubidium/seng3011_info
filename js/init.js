@@ -82,7 +82,7 @@ $(document).ready(() => {
         // }
 
         console.log(categ);
-        const baseUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
+        const baseUrl = `http://api.kaiworship.xyz/v3/${stats}/${categ}/${states}`;
         
         const params = '?${startDate}?${endDate}';
         var requestUrl = baseUrl.concat(params);
@@ -111,7 +111,7 @@ $(document).ready(() => {
         const categ = (Math.random() > 0.5) ? 'Total': randomString(6);
         const states = (Math.random() > 0.5) ? 'UNSW': randomString(6);
 
-        const requestUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
+        const requestUrl = `http://api.kaiworship.xyz/v3/${stats}/${categ}/${states}`;
         const resultdisp = $("#result-display");
 
         resultdisp.text("Loading...");
