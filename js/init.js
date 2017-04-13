@@ -82,7 +82,7 @@ $(document).ready(() => {
         // }
 
         console.log(categ);
-        const baseUrl = `http://api.kaiworship.xyz/v2/${stats}/${categ}/${states}`;
+        const baseUrl = `http://api.kaiworship.xyz/v3/${stats}/${categ}/${states}`;
         
         const params = '?${startDate}?${endDate}';
         var requestUrl = baseUrl.concat(params);
