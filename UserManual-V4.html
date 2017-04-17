@@ -515,108 +515,57 @@
         <br>
         <p>JSON Response from our API:</p>
         <pre style="max-height:300px;"><code class="json">
-{
-  "Header": {
-    "end_date": "2017-04-17",
-    "team": "Eleven51",
-    "elapsed_time": 4.176855087280273,
-    "version": "v4",
-    "time": "2017-04-17 14:27:49",
-    "start_date": "2016-05-17"
-  },
-  "MonthlyRetailData": [{
-    "category": "Food",
-    "regional_data": [{
-      "state": "AUS",
-      "data": [{
-        "date": "2016-05-31",
-        "turnover": 9815.2
-      },
-      {
-        "date": "2016-06-30",
-        "turnover": 9516.5
-      },
-      {
-        "date": "2016-07-31",
-        "turnover": 9928.5
-      },
-      {
-        "date": "2016-08-31",
-        "turnover": 10041.9
-      },
-      {
-        "date": "2016-09-30",
-        "turnover": 10005.7
-      },
-      {
-        "date": "2016-10-31",
-        "turnover": 10482.6
-      },
-      {
-        "date": "2016-11-30",
-        "turnover": 10435.7
-      },
-      {
-        "date": "2016-12-31",
-        "turnover": 12230.1
-      },
-      {
-        "date": "2017-01-31",
-        "turnover": 10431.5
-      },
-      {
-        "date": "2017-02-28",
-        "turnover": 9574.6
-      }]
-    }]
-  },
-  {
-    "category": "CafesRestaurantsAndTakeawayFood",
-    "regional_data": [{
-      "state": "AUS",
-      "data": [{
-        "date": "2016-05-31",
-        "turnover": 3431.0
-      },
-      {
-        "date": "2016-06-30",
-        "turnover": 3313.9
-      },
-      {
-        "date": "2016-07-31",
-        "turnover": 3573.0
-      },
-      {
-        "date": "2016-08-31",
-        "turnover": 3647.5
-      },
-      {
-        "date": "2016-09-30",
-        "turnover": 3696.3
-      },
-      {
-        "date": "2016-10-31",
-        "turnover": 3716.6
-      },
-      {
-        "date": "2016-11-30",
-        "turnover": 3678.5
-      },
-      {
-        "date": "2016-12-31",
-        "turnover": 4047.3
-      },
-      {
-        "date": "2017-01-31",
-        "turnover": 3621.4
-      },
-      {
-        "date": "2017-02-28",
-        "turnover": 3260.6
-      }]
-    }]
-  }]
-}
+          {
+            "Header": {
+              "end_date": "2014-05-01",
+              "team": "Eleven51",
+              "elapsed_time": 3.5119056701660156,
+              "version": "v4",
+              "time": "2017-04-17 14:35:27",
+              "start_date": "2014-02-01"
+            },
+            "MonthlyCommodityExportData": [{
+              "regional_data": [{
+                "state": "NSW",
+                "data": [{
+                  "date": "2014-02-28",
+                  "value": 36053.845
+                },
+                {
+                  "date": "2014-03-31",
+                  "value": 35558.589
+                },
+                {
+                  "date": "2014-04-30",
+                  "value": 37975.071
+                },
+                {
+                  "date": "2014-05-31",
+                  "value": 44953.016
+                }]
+              },
+              {
+                "state": "SA",
+                "data": [{
+                  "date": "2014-02-28",
+                  "value": 91358.087
+                },
+                {
+                  "date": "2014-03-31",
+                  "value": 96998.913
+                },
+                {
+                  "date": "2014-04-30",
+                  "value": 83416.81
+                },
+                {
+                  "date": "2014-05-31",
+                  "value": 114941.179
+                }]
+              }],
+              "commodity": "BeveragesAndTobacco"
+            }]
+          }
         </code>
         </pre>
         <p>The JSON response is formated by category, in the example above the categories are Beverages and Tobacco & Manufactured goods. Each category property contains selected states which in the example are NSW and SA. Within each state there which exists a list of months with the corresponding statistic value.</p>
@@ -633,118 +582,108 @@
       <code><a href="http://api.kaiworship.xyz/v4/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v4/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
       <p>JSON Response from our API:</p>
       <pre style="max-height:300px;"><code class="json">
-      {
-         "Header":{
-            "end_date":null,
-            "team":"Eleven51",
-            "elapsed_time":660.4750156402588,
-            "version":"v4",
-            "time":"2017-04-13 05:15:33",
-            "start_date":null
-         },
-         "MonthlyRetailData":[
-            {
-               "category":"Food",
-               "regional_data":[
-                  {
-                     "state":"AUS",
-                     "data":[
-                        {
-                           "date":"2016-05-31",
-                           "turnover":9815.2
-                        },
-                        {
-                           "date":"2016-06-30",
-                           "turnover":9516.5
-                        },
-                        {
-                           "date":"2016-07-31",
-                           "turnover":9928.5
-                        },
-                        {
-                           "date":"2016-08-31",
-                           "turnover":10041.9
-                        },
-                        {
-                           "date":"2016-09-30",
-                           "turnover":10005.7
-                        },
-                        {
-                           "date":"2016-10-31",
-                           "turnover":10482.6
-                        },
-                        {
-                           "date":"2016-11-30",
-                           "turnover":10435.7
-                        },
-                        {
-                           "date":"2016-12-31",
-                           "turnover":12230.1
-                        },
-                        {
-                           "date":"2017-01-31",
-                           "turnover":10431.5
-                        },
-                        {
-                           "date":"2017-02-28",
-                           "turnover":9574.6
-                        }
-                     ]
-                  }
-               ]
-            },
-            {
-               "category":"CafesRestaurantsAndTakeawayFood",
-               "regional_data":[
-                  {
-                     "state":"AUS",
-                     "data":[
-                        {
-                           "date":"2016-05-31",
-                           "turnover":3431.0
-                        },
-                        {
-                           "date":"2016-06-30",
-                           "turnover":3313.9
-                        },
-                        {
-                           "date":"2016-07-31",
-                           "turnover":3573.0
-                        },
-                        {
-                           "date":"2016-08-31",
-                           "turnover":3647.5
-                        },
-                        {
-                           "date":"2016-09-30",
-                           "turnover":3696.3
-                        },
-                        {
-                           "date":"2016-10-31",
-                           "turnover":3716.6
-                        },
-                        {
-                           "date":"2016-11-30",
-                           "turnover":3678.5
-                        },
-                        {
-                           "date":"2016-12-31",
-                           "turnover":4047.3
-                        },
-                        {
-                           "date":"2017-01-31",
-                           "turnover":3621.4
-                        },
-                        {
-                           "date":"2017-02-28",
-                           "turnover":3260.6
-                        }
-                     ]
-                  }
-               ]
-            }
-         ]
-      }
+        {
+          "Header": {
+            "end_date": "2017-04-17",
+            "team": "Eleven51",
+            "elapsed_time": 4.176855087280273,
+            "version": "v4",
+            "time": "2017-04-17 14:27:49",
+            "start_date": "2016-05-17"
+          },
+          "MonthlyRetailData": [{
+            "category": "Food",
+            "regional_data": [{
+              "state": "AUS",
+              "data": [{
+                "date": "2016-05-31",
+                "turnover": 9815.2
+              },
+              {
+                "date": "2016-06-30",
+                "turnover": 9516.5
+              },
+              {
+                "date": "2016-07-31",
+                "turnover": 9928.5
+              },
+              {
+                "date": "2016-08-31",
+                "turnover": 10041.9
+              },
+              {
+                "date": "2016-09-30",
+                "turnover": 10005.7
+              },
+              {
+                "date": "2016-10-31",
+                "turnover": 10482.6
+              },
+              {
+                "date": "2016-11-30",
+                "turnover": 10435.7
+              },
+              {
+                "date": "2016-12-31",
+                "turnover": 12230.1
+              },
+              {
+                "date": "2017-01-31",
+                "turnover": 10431.5
+              },
+              {
+                "date": "2017-02-28",
+                "turnover": 9574.6
+              }]
+            }]
+          },
+          {
+            "category": "CafesRestaurantsAndTakeawayFood",
+            "regional_data": [{
+              "state": "AUS",
+              "data": [{
+                "date": "2016-05-31",
+                "turnover": 3431.0
+              },
+              {
+                "date": "2016-06-30",
+                "turnover": 3313.9
+              },
+              {
+                "date": "2016-07-31",
+                "turnover": 3573.0
+              },
+              {
+                "date": "2016-08-31",
+                "turnover": 3647.5
+              },
+              {
+                "date": "2016-09-30",
+                "turnover": 3696.3
+              },
+              {
+                "date": "2016-10-31",
+                "turnover": 3716.6
+              },
+              {
+                "date": "2016-11-30",
+                "turnover": 3678.5
+              },
+              {
+                "date": "2016-12-31",
+                "turnover": 4047.3
+              },
+              {
+                "date": "2017-01-31",
+                "turnover": 3621.4
+              },
+              {
+                "date": "2017-02-28",
+                "turnover": 3260.6
+              }]
+            }]
+          }]
+        }
       </code>
   </div>
 
