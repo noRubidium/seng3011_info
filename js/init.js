@@ -84,7 +84,7 @@ $(document).ready(() => {
         console.log(categ);
         const baseUrl = `http://api.kaiworship.xyz/v4/${stats}/${categ}/${states}`;
 
-        const params = '?${startDate}?${endDate}';
+        const params = `?${startDate ? `startDate=${startDate}`:''}&${endDate ? `endDate=${endDate}`:''}`;
         var requestUrl = baseUrl.concat(params);
 
         const resultdisp = $("#result-display");
