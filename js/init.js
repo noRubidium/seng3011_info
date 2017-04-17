@@ -1,4 +1,4 @@
-// please note, 
+// please note,
 // that IE11 now returns undefined again for window.chrome
 // and new Opera 30 outputs true for window.chrome
 // and new IE Edge outputs to true now for window.chrome
@@ -72,9 +72,9 @@ $(document).ready(() => {
         // params for the url we display to users
         var endDateParam = endDate == '' ? '':('&endDate='+ endDate);
         var startDateParam = startDate == '' ? '':('?startDate='+ startDate)
-        
+
         var additionalInfo = '';
-        
+
         //assign default start date
         // if (startDate == '') {
         //     startDate = '2016-01-01';
@@ -82,8 +82,8 @@ $(document).ready(() => {
         // }
 
         console.log(categ);
-        const baseUrl = `http://api.kaiworship.xyz/v3/${stats}/${categ}/${states}`;
-        
+        const baseUrl = `http://api.kaiworship.xyz/v4/${stats}/${categ}/${states}`;
+
         const params = '?${startDate}?${endDate}';
         var requestUrl = baseUrl.concat(params);
 
@@ -111,7 +111,7 @@ $(document).ready(() => {
         const categ = (Math.random() > 0.5) ? 'Total': randomString(6);
         const states = (Math.random() > 0.5) ? 'UNSW': randomString(6);
 
-        const requestUrl = `http://api.kaiworship.xyz/v3/${stats}/${categ}/${states}`;
+        const requestUrl = `http://api.kaiworship.xyz/v4/${stats}/${categ}/${states}`;
         const resultdisp = $("#result-display");
 
         resultdisp.text("Loading...");
