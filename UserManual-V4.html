@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Eleven51 - release page</title>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/manuals.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <style>
+        td ol {
+            -moz-column-count: 2;
+            -moz-column-gap: 40px;
+            -webkit-column-count: 2;
+            -webkit-column-gap: 40px;
+            column-count: 2;
+            column-gap: 40px;
+        }
+    </style>
+</head>
+<body>
+  <nav class="blue-grey darken-4" id="top-navbar" role="navigation">
+    <div class="nav-wrapper"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index.html#release">Release</a></li>
+        <li><a href="UserManual-V3.html">User Manual</a></li>
+        <li><a href="showcase.html">Try it out!</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="index.html#release">Release</a></li><li><a href="UserManual-V3.html">User Manual</a></li><li><a href="showcase.html">Try it out!</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="row" id="over">
+
+    <div class="col s3" id="sidebar">
+      <ul class="collection with-header">
+        <li class="collection-header">Version 4.0 Documentation</li>
+        <li class="collection-item"><a href="#gettingstarted" class="sidebar-item">Getting Started</a></li>
+        <li class="collection-item"><a href="#updates" class="sidebar-item">Update Log</a></li>
+        <li class="collection-item"><a href="#functionality" class="sidebar-item">Functionality</a></li>
+        <li class="collection-item"><a href="#apicall" class="sidebar-item">API Calling Convention</a></li>
+        <li class="collection-item"><a href="#errors" class="sidebar-item">Error Handling</a></li>
+        <li class="collection-item"><a href="#parameters" class="sidebar-item">Parameters</a></li>
+        <li class="collection-item"><a href="#acceptable" class="sidebar-item">Acceptable Input</a></li>
+        <li class="collection-item"><a href="#integrate" class="sidebar-item">Integrating our API</a></li>
+        <li class="collection-item"><a href="#apiresponse" class="sidebar-item">API Response</a></li>
+        <li class="collection-item"><a href="#examples" class="sidebar-item">Examples</a></li>
+      </ul>
+    </div>
+
+    <div class="col s9" id="contents">
+
+    <div class="manual-heading">User manual - V4.0</a></div>
+
+    <br />
+
+    <a name="gettingstarted"></a>
+    <div class="divider"></div>
+    <br />
+    <h5>Getting Started</h5>
+    <br />
+    Our API is accessible as a web service. You can access our endpoint here at:
+    <br />
+    <br />
+    <a href="http://api.kaiworship.xyz/v3/" id="endpoint-url" class="link">http://api.kaiworship.xyz/v3/</a>
+    <br />
+    <br />
+    To use our API, append desired parameters to the end of the above URL in the format described in <a href="#apicall" class="link">API Calling Convention</a>.
+    You can then make a HTTP request using this URL.
+    <br />
+    <br />
+    Alternatively, you can use our <a href="showcase.html" class="link">tool</a> to generate a URL based on your desired parameters. The tool also displays the response our API would provide.
+    <br />
+    <br />
+
+    <a name="updates"></a>
+    <div class="divider"></div>
+    <br />
+    <h5>Update Log</h5>
+    <br />
+      <div id="update-sub">Changes compared to the last version - <a class="link" href="UserManual-V2.html">v3.0</a>:</div>
+        <br />
+            <li><strong>Caching is added to the API end point</strong></li>
+              For all API calls it will smartly cache the information,
+              and the speed of doing API call was significantly increased from around 900ms per API call to 80ms on average, fastest one available! If you are looking for performance, use our API!
+
+    <br />
+    <br />
+    <a name="functionality"></a>
+    <div class="divider"></div>
+      <br />
+      <h5>Functionality</h5>
+      <br />
+        Data sourced directly from the Australian Bureau of Statistics (ABS) is cluttered and hard to read.
+        This API provides ABS data and statistics on the Retail industry and on Merchandise Exports in a human readable format.
+        The core functionality of the API is outlined below:
+        <br>
+        <br>
+        Users are able to specify whether they want to obtain Retail industry data, or Merchandise Exports data.
+        <br />
+        <br />
+        For Retail industry data, users are able to:
+        <ol>
+          <li>Obtain data on one or more retail industry categories, including the total for all categories.</li>
+          <li>Obtain data on one or more Australian states/territories, including the total for the country.</li>
+          <li>Specify dates between which the data will be obtained.</li>
+          <li>For each retail category, in each state, users are returned with the following information:</li>
+            <ol>
+              <li>Retail turnover (in millions of $A)</li>
+              <li>The month this data is for</li>
+            </ol>
+        </ol>
+        For Merchandise Export data, users are able to:
+        <ol>
+          <li>Obtain data on one or more export commodity, including the total for all exports.</li>
+          <li>Obtain data on one or more Australian states/territories, including the total for the country.</li>
+          <li>Specify dates between which the data will be obtained.</li>
+          <li>For each export commodity, in each state, users are returned with the following information:</li>
+            <ol>
+              <li>Value of exports (in thousands of $A)</li>
+              <li>The month this data is for</li>
+            </ol>
+        </ol>
+      <br />
+
+      <a name="apicall"></a>
+      <div class="divider"></div>
+      <br />
+      <h5>API Calling Convention</h5>
+      <br />
+        Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:
+        <br />
+        <br />
+        <code>http://api.kaiworship.xyz/v3/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
+        <br />
+        <br />
+      <br />
+      <a name="parameters"></a>
+      <div class="divider"></div>
+      <br />
+      <h5>Parameters</h5>
+        <table class="striped">
+          <thead>
+          <th>
+            Parameter
+          </th>
+          <th>
+            Arguments and Formats
+          </th>
+          <th>
+            Requirement
+          </th>
+          <th>
+            Separated By
+          </th>
+          <th>
+            Example
+          </th>
+          </thead>
+          <tr>
+            <td>
+              statisticsArea
+            </td>
+            <td>
+              A string which can take value “Retail” or “MerchandiseExports”
+            </td>
+            <td>
+              Mandatory
+            </td>
+            <td>
+              N/A
+            </td>
+            <td>
+              “Retail”
+            </td>
+          </tr>
+          <tr>
+            <td>
+              category
+            </td>
+            <td>
+              A list of one or more categories, separated by commas, in the form of a string.
+            </td>
+            <td>
+              Mandatory
+            </td>
+            <td>
+              Comma
+            </td>
+            <td>
+              “Food,HouseholdGood”
+            </td>
+          </tr>
+          <tr>
+            <td>
+              state
+            </td>
+            <td>
+              A list of one or more states/territories, separated by commas, in the form of a string. If no paramaters are defined 'Total' will be set as default.
+            </td>
+            <td>
+              Optional
+            </td>
+            <td>
+              Comma
+            </td>
+            <td>
+              “SA,VIC,NT”
+            </td>
+          </tr>
+          <tr>
+            <td>
+              startDate
+            </td>
+            <td>
+              A date string with the format “YYYY-MM-DD”.
+            </td>
+            <td>
+              Optional
+            </td>
+            <td>
+              N/A
+            </td>
+            <td>
+              “2012-12-12”
+            </td>
+          </tr>
+          <tr>
+            <td>
+              endDate
+            </td>
+            <td>
+              A date string with the format “YYYY-MM-DD”
+            </td>
+            <td>
+              Optional
+            </td>
+            <td>
+              N/A
+            </td>
+            <td>
+              “2017-01-27”
+            </td>
+          </tr>
+        </table>
+        <br>
+      Due to the start and end data being optional, there are various cases
+      <li>If no start date and no end date provded. Data will be provided for previous 12 months from today</li>
+      <li>If only start date is provided. The end date will be set to a year after the start date</li>
+      <li>If only end data is provided. The Start date will be set to a year before the end date</li>
+
+      <br />
+      <a name="acceptable"></a>
+      <div class="divider"></div>
+      <br />
+      <h5>Acceptable Input</h5>
+      <br />
+      Below are all the possible values which can be used as parameters in a call to our API.
+      Please only use values listed in the table below.
+      <br />
+      <br />
+      <table class="bordered responsive-table">
+        <thead>
+            <td>
+              <strong>Parameter</strong>
+            </td>
+            <td>
+                <strong>Remarks</strong>
+            </td>
+            <td>
+                <strong>Available Options</strong>
+            </td>
+        </thead>
+        <tr>
+          <td>
+            <strong>StatisticsArea</strong>
+          </td>
+            <td></td>
+          <td>
+            <ol>
+                <li>Retail</li>
+                <li>Merchandise</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Category</strong> (retail)
+          </td>
+          <td>
+          If Statistics Area is chosen to be Retail,
+              you are able to choose one or more of the following Industries.
+          </td>
+          <td>
+            <ol>
+              <li>Total</li>
+              <li>Food</li>
+              <li>HouseholdGood</li>
+              <li>ClothingFootwareAndPersonalAccessory</li>
+              <li>DepartmentStores</li>
+              <li>CafesRestaurantsAndTakeawayFood</li>
+              <li>Other</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Commodities</strong> (Merchendise Exports)
+          </td>
+          <td>
+          If Statistics Area is chosen to be Merchandise Exports,
+                you are able to choose one or more of the following Commodities
+          </td>
+          <td>
+            <ol>
+              <li>Total</li>
+              <li>FoodAndLiveAnimals</li>
+              <li>BeveragesAndTobacco</li>
+              <li>CrudeMaterialAndInedible</li>
+              <li>MineralFuelLubricantAndRelatedMaterial</li>
+              <li>AnimalAndVegetableOilFatAndWaxes</li>
+              <li>ChemicalsAndRelatedProducts</li>
+              <li>ManufacturedGoods</li>
+              <li>MachineryAndTransportEquipments</li>
+              <li>OtherManufacturedArticles</li>
+              <li>Unclassified</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>States</strong>
+          </td>
+            <td>You are able to choose one or multiple values from the states. Use 'Total' for statistics on the entire country.</td>
+            <td>
+                <ol>
+                    <li>Total</li>
+                      <li>NSW</li>
+                      <li>WA</li>
+                      <li>SA</li>
+                      <li>ACT</li>
+                      <li>VIC</li>
+                      <li>TAS</li>
+                      <li>QLD</li>
+                      <li>NT</li>
+                </ol>
+            </td>
+        </tr>
+      </table>
+
+      <br />
+      <a name="errors"></a>
+      <h5>Error Handling</h5>
+      <p>
+      Invalid input is handled with a corresponding error message notifying the user of the invalid parameter, followed by a list of valid paramaters which should be used instead.</p>
+
+      For example, the following invalid url:<br>
+
+      <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
+      <br>
+      <br />
+      would return:
+      <br />
+      <pre style="max-height:300px;"><code class="json">
+{
+"error":"The type you are requiring (MachineryAndTransportEquipment) doesn't exist. You should choose from ['AnimalAndVegetableOilFatAndWaxes', 'BeveragesAndTobacco', 'CrudeMaterialAndInedible', 'Unclassified', 'OtherManufacturedArticles', 'FoodAndLiveAnimals', 'ChemicalsAndRelatedProducts', 'MachineryAndTransportEquipments', 'MineralFuelLubricantAndRelatedMaterial', 'ManufacturedGoods', 'Total']"
+}
+      </code></pre>
+      The URL above "MachineryAndTransportEquipment" is missing a 's' at the end, it should be "MachineryAndTransportEquiments".</p>
+      </p>
+      If start and end dates are not provided in the format of 'YYYY-MM-DD', they're invalid inputs. Which the user will be prompted to format them correctly.
+
+
+      <br />
+      <a name="integrate"></a>
+      <div class="divider"></div>
+      <br />
+      <h5>How to Integrate our API within a Webapp</h5>
+      <br />
+
+          <!-- <p>An example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
+          <code><a href="http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
+          -->
+          Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
+
+          <br />
+          <br />
+          <div class="language-title">Python:</div>
+            <pre><code class="python">
+              import urllib2
+              response = urllib2.urlopen(url)
+              json_string = response.read()
+            </code></pre>
+
+          <div class="language-title">JavaScript (ES6, Experiment version, supported by latest Chrome and Node.js Engine):</div>
+            <pre><code class="js">
+            fetch(url)
+                .then((data) => {
+                    // handle data
+                    console.log(data);
+                })
+                .catch((error) => {
+                    //handle error
+                });
+            </code></pre>
+
+
+
+    <br />
+    <a name="apiresponse"></a>
+    <div class="divider"></div>
+      <br />
+      <h5>API response</h5>
+      <br />
+        Our API returns a response to a call in JSON format. The following is an outline of the response's JSON properties:
+        <br />
+        <br />
+        <table class="bordered responsive-table">
+          <thead>
+              <td>
+                <strong>Property</strong>
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+                  <strong>Description</strong>
+              </td>
+          </thead>
+          <tr>
+            <td>
+              <strong>Statistics Area</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            The statistics area chosen to be queried, that is:
+                <li>"MonthlyRetailData" for Retail</li>
+                <li>"MonthlyCommodityExportData" for Merchandise Exports</li>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <strong>Category</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>The industry-specific category as listed above in the <a href="#acceptable" class="link">Acceptable Input</a> section.</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>States</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            States of Australia as chosen by the user, in their 3-letter abbreviation
+                <ol>
+                    <li>Australia - AUS</li>
+                      <li>New South Wales - NSW</li>
+                      <li>Western Australia - WA</li>
+                      <li>South Australia - SA</li>
+                      <li>Australian Captial Territory - ACT</li>
+                      <li>Victoria - VIC</li>
+                      <li>Tasmania - TAS</li>
+                      <li>Queensland - QLD</li>
+                      <li>Northern Territory - NT</li>
+                </ol>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Data</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            The data for the specified month, state and category. This contains within it:
+            <br />
+            <br />
+                Date - the last date of the month in which the data pertains to (in the format YYYY-MM-DD)
+                <br />
+                Value - the actual data value, which is:
+                    <li>for Retail: Turnover in millions of $A</li>
+                    <li>for MerchandiseExports: Export value in thousands of $A</li>
+            </td>
+          </tr>
+        </table>
+        </p>
+
+      <br />
+
+      <a name="examples"></a>
+        <h5>Examples</h5>
+        <br />
+
+      <p>The API response is in JSON format, which gives the relevant statistica data given the paramaters selected. Below is an example API call with these paramaters selected below. This example shows the example URL and JSON response.</p>
+        <ul>
+          <li>Statistics Area:  'Merchandise'</li>
+          <li>Category: 'Beverages And Tobacco' , 'Manufactured Goods'</li>
+          <li>State: 'New South Wales','South Australia'</li>
+          <li>Start Date: '1st Febuary 2014'</li>
+          <li>End Date: '1st May 2014</li>
+        </ul>
+        <p>Example url:</p>
+        <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v3/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</a></code>
+        <br>
+        <p>JSON Response from our API:</p>
+        <pre style="max-height:300px;"><code class="json">
+          {
+             "Header":{
+                "end_date":"2014-05-01",
+                "team":"Eleven51",
+                "elapsed_time":623.8517761230469,
+                "version":"v3",
+                "time":"2017-04-13 05:16:28",
+                "start_date":"2014-02-01"
+             },
+             "MonthlyCommodityExportData":[
+                {
+                   "regional_data":[
+                      {
+                         "state":"NSW",
+                         "data":[
+                            {
+                               "date":"2014-02-28",
+                               "value":36053.845
+                            },
+                            {
+                               "date":"2014-03-31",
+                               "value":35558.589
+                            },
+                            {
+                               "date":"2014-04-30",
+                               "value":37975.071
+                            },
+                            {
+                               "date":"2014-05-31",
+                               "value":44953.016
+                            }
+                         ]
+                      },
+                      {
+                         "state":"SA",
+                         "data":[
+                            {
+                               "date":"2014-02-28",
+                               "value":91358.087
+                            },
+                            {
+                               "date":"2014-03-31",
+                               "value":96998.913
+                            },
+                            {
+                               "date":"2014-04-30",
+                               "value":83416.81
+                            },
+                            {
+                               "date":"2014-05-31",
+                               "value":114941.179
+                            }
+                         ]
+                      }
+                   ],
+                   "commodity":"BeveragesAndTobacco"
+                }
+             ]
+          }
+        </code>
+        </pre>
+        <p>The JSON response is formated by category, in the example above the categories are Beverages and Tobacco & Manufactured goods. Each category property contains selected states which in the example are NSW and SA. Within each state there which exists a list of months with the corresponding statistic value.</p>
+
+        Here is another example with Retail as the statistics Area. In this example no dates have been selected. So as a default value the start date will be January of the previous year.
+
+      <ul>
+          <li>Statistics Area:  'Retail'</li>
+          <li>Category: 'Food' , 'Cafes Restuarants And Takeaway Food'</li>
+          <li>State: 'Total'</li>
+      </ul>
+
+      <p>Example url:</p>
+      <code><a href="http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
+      <p>JSON Response from our API:</p>
+      <pre style="max-height:300px;"><code class="json">
+      {
+         "Header":{
+            "end_date":null,
+            "team":"Eleven51",
+            "elapsed_time":660.4750156402588,
+            "version":"v3",
+            "time":"2017-04-13 05:15:33",
+            "start_date":null
+         },
+         "MonthlyRetailData":[
+            {
+               "category":"Food",
+               "regional_data":[
+                  {
+                     "state":"AUS",
+                     "data":[
+                        {
+                           "date":"2016-05-31",
+                           "turnover":9815.2
+                        },
+                        {
+                           "date":"2016-06-30",
+                           "turnover":9516.5
+                        },
+                        {
+                           "date":"2016-07-31",
+                           "turnover":9928.5
+                        },
+                        {
+                           "date":"2016-08-31",
+                           "turnover":10041.9
+                        },
+                        {
+                           "date":"2016-09-30",
+                           "turnover":10005.7
+                        },
+                        {
+                           "date":"2016-10-31",
+                           "turnover":10482.6
+                        },
+                        {
+                           "date":"2016-11-30",
+                           "turnover":10435.7
+                        },
+                        {
+                           "date":"2016-12-31",
+                           "turnover":12230.1
+                        },
+                        {
+                           "date":"2017-01-31",
+                           "turnover":10431.5
+                        },
+                        {
+                           "date":"2017-02-28",
+                           "turnover":9574.6
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "category":"CafesRestaurantsAndTakeawayFood",
+               "regional_data":[
+                  {
+                     "state":"AUS",
+                     "data":[
+                        {
+                           "date":"2016-05-31",
+                           "turnover":3431.0
+                        },
+                        {
+                           "date":"2016-06-30",
+                           "turnover":3313.9
+                        },
+                        {
+                           "date":"2016-07-31",
+                           "turnover":3573.0
+                        },
+                        {
+                           "date":"2016-08-31",
+                           "turnover":3647.5
+                        },
+                        {
+                           "date":"2016-09-30",
+                           "turnover":3696.3
+                        },
+                        {
+                           "date":"2016-10-31",
+                           "turnover":3716.6
+                        },
+                        {
+                           "date":"2016-11-30",
+                           "turnover":3678.5
+                        },
+                        {
+                           "date":"2016-12-31",
+                           "turnover":4047.3
+                        },
+                        {
+                           "date":"2017-01-31",
+                           "turnover":3621.4
+                        },
+                        {
+                           "date":"2017-02-28",
+                           "turnover":3260.6
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+      </code>
+  </div>
+
+</div>
+
+
+   <footer class="page-footer blue-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Team Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students
+            working on this project like it's not our full time job. Any amount
+            would help support and continue development on this project and is
+            greatly appreciated.</p>
+        </div>
+        <div class="col l6 s12">
+          <h5 class="white-text">Team members</h5>
+          <div class="col l6 s12">
+            <ul>
+              <li><a class="white-text" href="https://www.linkedin.com/in/vaishnavi-bapat-59179758/" target="_blank">Vaishnavi Bapat</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/pranav-bhatia-65563694/" target="_blank">Pranav Bhatia</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/clinton-hadinata-5b7598133/" target="_blank">Clinton Hadinata</a></li>
+            </ul>
+          </div>
+          <div class="col l6 s12">
+            <ul>
+              <li><a class="white-text" href="https://www.linkedin.com/in/minjie-shen-4a2511ba/" target="_blank">Minjie Shen</a></li>
+              <li><a class="white-text" href="#!">Jessica Theodosius</a></li>
+              <li><a class="white-text" href="https://www.linkedin.com/in/jason-vo/" target="_blank">Jason Vo</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by Eleven51
+      <!-- Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a> -->
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <!--<script src="js/init.js"></script>-->
+    <link rel="stylesheet" href="/css/code_styles/atom-one-dark.css">
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
