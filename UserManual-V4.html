@@ -70,7 +70,7 @@
     Our API is accessible as a web service. You can access our endpoint here at:
     <br />
     <br />
-    <a href="http://api.kaiworship.xyz/v3/" id="endpoint-url" class="link">http://api.kaiworship.xyz/v3/</a>
+    <a href="http://api.kaiworship.xyz/v4/" id="endpoint-url" class="link">http://api.kaiworship.xyz/v4/</a>
     <br />
     <br />
     To use our API, append desired parameters to the end of the above URL in the format described in <a href="#apicall" class="link">API Calling Convention</a>.
@@ -86,7 +86,7 @@
     <br />
     <h5>Update Log</h5>
     <br />
-      <div id="update-sub">Changes compared to the last version - <a class="link" href="UserManual-V2.html">v3.0</a>:</div>
+      <div id="update-sub">Changes compared to the last version - <a class="link" href="UserManual-V2.html">v4.0</a>:</div>
         <br />
             <li><strong>Caching is added to the API end point</strong></li>
               For all API calls it will smartly cache the information,
@@ -139,7 +139,7 @@
         Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:
         <br />
         <br />
-        <code>http://api.kaiworship.xyz/v3/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
+        <code>http://api.kaiworship.xyz/v4/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
         <br />
         <br />
       <br />
@@ -364,7 +364,7 @@
 
       For example, the following invalid url:<br>
 
-      <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
+      <code><a href="http://api.kaiworship.xyz/v4/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v4/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
       <br>
       <br />
       would return:
@@ -387,7 +387,7 @@
       <br />
 
           <!-- <p>An example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
-          <code><a href="http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v3/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
+          <code><a href="http://api.kaiworship.xyz/v4/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v4/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
           -->
           Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
@@ -510,7 +510,7 @@
           <li>End Date: '1st May 2014</li>
         </ul>
         <p>Example url:</p>
-        <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v3/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</a></code>
+        <code><a href="http://api.kaiworship.xyz/v4/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v4/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</a></code>
         <br>
         <p>JSON Response from our API:</p>
         <pre style="max-height:300px;"><code class="json">
@@ -519,7 +519,7 @@
                 "end_date":"2014-05-01",
                 "team":"Eleven51",
                 "elapsed_time":623.8517761230469,
-                "version":"v3",
+                "version":"v4",
                 "time":"2017-04-13 05:16:28",
                 "start_date":"2014-02-01"
              },
@@ -586,7 +586,7 @@
       </ul>
 
       <p>Example url:</p>
-      <code><a href="http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v3/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
+      <code><a href="http://api.kaiworship.xyz/v4/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v4/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
       <p>JSON Response from our API:</p>
       <pre style="max-height:300px;"><code class="json">
       {
@@ -594,7 +594,7 @@
             "end_date":null,
             "team":"Eleven51",
             "elapsed_time":660.4750156402588,
-            "version":"v3",
+            "version":"v4",
             "time":"2017-04-13 05:15:33",
             "start_date":null
          },
