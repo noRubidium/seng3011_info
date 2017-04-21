@@ -63,6 +63,11 @@ $(document).ready(() => {
       });
 
     $('#submit-button').on("click", () => {
+        const version = $('#version').val();
+        if (!version) {
+            alert('Please choose a version!');
+            return;
+        }
         const stats = $("#stats-area").val() || 'Retail';
         const categ = $("#categories").val().length === 0 ? 'Total' : $("#categories").val() || 'Total';
         const states = $("#states").val() || '';
@@ -82,7 +87,8 @@ $(document).ready(() => {
         // }
 
         console.log(categ);
-        const baseUrl = `http://api.kaiworship.xyz/v4/${stats}/${categ}/${states}`;
+
+        const baseUrl = `http://api.kaiworship.xyz/${version}/${stats}/${categ}/${states}`;
 
         const params = `?${startDate ? `startDate=${startDate}`:''}&${endDate ? `endDate=${endDate}`:''}`;
         var requestUrl = baseUrl.concat(params);
