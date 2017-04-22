@@ -364,25 +364,83 @@
       <br />
       <a name="errors"></a>
       <h5>Error Handling</h5>
-      <p>
-      Invalid input is handled with a corresponding error message notifying the user of the invalid parameter, followed by a list of valid paramaters which should be used instead.</p>
-
-      For example, the following invalid url:<br>
-
-      <code><a href="http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v3/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
-      <br>
-      <br />
-      would return:
-      <br />
-      <pre style="max-height:300px;"><code class="json">
-{
-"error":"The type you are requiring (MachineryAndTransportEquipment) doesn't exist. You should choose from ['AnimalAndVegetableOilFatAndWaxes', 'BeveragesAndTobacco', 'CrudeMaterialAndInedible', 'Unclassified', 'OtherManufacturedArticles', 'FoodAndLiveAnimals', 'ChemicalsAndRelatedProducts', 'MachineryAndTransportEquipments', 'MineralFuelLubricantAndRelatedMaterial', 'ManufacturedGoods', 'Total']"
-}
-      </code></pre>
-      The URL above "MachineryAndTransportEquipment" is missing a 's' at the end, it should be "MachineryAndTransportEquiments".</p>
-      </p>
-      If start and end dates are not provided in the format of 'YYYY-MM-DD', they're invalid inputs. Which the user will be prompted to format them correctly.
-
+        
+        <table class="bordered responsive-table">
+          <thead>
+              <td>
+                <strong>Description</strong>
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+                  <strong>Error Message</strong>
+              </td>
+          </thead>
+          <tr>
+            <td>Invalid statistics area paramater passed</td>  
+            <td></td>
+            <td></td>
+            <td>
+                You should choose the type and categories. Type is either Retail or MerchandiseExports
+            </td>
+          </tr>
+          <tr>
+            <td>Invalid commodity paramaters passed for Merchendise Exports </td>
+            <td></td>
+            <td></td>
+            <td>
+                The type you are requiring (INVALID_INPUT) doesn't exist. You should choose from ['AnimalAndVegetableOilFatAndWaxes', 'BeveragesAndTobacco', 'CrudeMaterialAndInedible', 'Unclassified', 'OtherManufacturedArticles', 'FoodAndLiveAnimals', 'ChemicalsAndRelatedProducts', 'MachineryAndTransportEquipments', 'MineralFuelLubricantAndRelatedMaterial', 'ManufacturedGoods', 'Total']
+            </td>
+          </tr>
+          <tr>
+            <td>Invalid categories area paramater passed for Retail</td>
+            <td></td>
+            <td></td>
+            <td>
+                The type you are requiring (INVALID_INPUT) doesn't exist. You should choose from ['Food', 'HouseholdGood', 'Other', 'DepartmentStores', 'CafesRestaurantsAndTakeawayFood', 'ClothingFootwareAndPersonalAccessory', 'Total']
+            </td>
+          </tr>
+          <tr>
+            <td>Invalid state paramater passed</td>
+            <td></td>
+            <td></td>
+            <td>
+                The type you are requiring (INVALID_INPUT) doesn't exist. You should choose from ['VIC', 'AUS', 'WA', 'ACT', 'TAS', 'SA', 'Total', 'NT', 'QLD', 'NSW']
+            </td>
+          </tr>
+          <tr>
+            <td>Invalid date format for start date</td>
+            <td></td>
+            <td></td>
+            <td>
+                Start date is invalid. Dates should be YYYY-MM-DD
+            </td>
+          </tr>
+          <tr>
+            <td>Invalid date format for end date</td>
+            <td></td>
+            <td></td>
+            <td>
+                End date is invalid. Dates should be YYYY-MM-DD
+            </td>
+          </tr>
+          <tr>
+            <td>Invalid paramaters passed, start date after end date</td>
+            <td></td>
+            <td></td>
+            <td>
+                Start date should be before end date
+            </td>
+          </tr>
+          <tr>
+            <td>No data exists for requested dates</td>
+            <td></td>
+            <td></td>
+            <td>
+                Results not found. ABS does not have the data for the requested dates.
+            </td>
+          </tr>
+        </table>
 
       <br />
       <a name="integrate"></a>
