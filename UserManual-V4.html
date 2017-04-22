@@ -360,7 +360,27 @@
       <br />
       <a name="errors"></a>
       <h5>Error Handling</h5>
+      <p>
+      Invalid input is handled with a corresponding error message notifying the user of the invalid parameter, followed by a list of valid paramaters which should be used instead.</p>
 
+      For example, the following invalid url:<br>
+
+      <code><a href="http://api.kaiworship.xyz/v4/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v4/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
+      <br>
+      <br />
+      would return:
+      <br />
+      <pre style="max-height:300px;"><code class="json">
+{
+"error":"The type you are requiring (MachineryAndTransportEquipment) doesn't exist. You should choose from ['AnimalAndVegetableOilFatAndWaxes', 'BeveragesAndTobacco', 'CrudeMaterialAndInedible', 'Unclassified', 'OtherManufacturedArticles', 'FoodAndLiveAnimals', 'ChemicalsAndRelatedProducts', 'MachineryAndTransportEquipments', 'MineralFuelLubricantAndRelatedMaterial', 'ManufacturedGoods', 'Total']"
+}
+      </code></pre>
+      The URL above "MachineryAndTransportEquipment" is missing a 's' at the end, it should be "MachineryAndTransportEquiments".</p>
+      </p>
+      If start and end dates are not provided in the format of 'YYYY-MM-DD', they're invalid inputs. Which the user will be prompted to format them correctly.
+
+
+      <br />
       <table class="bordered responsive-table">
           <thead>
               <td>
@@ -373,7 +393,7 @@
               </td>
           </thead>
           <tr>
-            <td>Invalid statistics area paramater passed</td>  
+            <td>Invalid statistics area paramater passed</td>
             <td></td>
             <td></td>
             <td>
