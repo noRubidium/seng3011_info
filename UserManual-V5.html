@@ -27,7 +27,7 @@
     <div class="nav-wrapper"><a id="logo-container" href="index.html" class="brand-logo">Australian Statistics API</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.html#release">Release</a></li>
-        <li><a href="UserManual-V5.html">User Manual</a></li>
+        <li><a href="UserManual-V4.html">User Manual</a></li>
         <li><a href="showcase.html">Try it out!</a></li>
       </ul>
 
@@ -42,7 +42,7 @@
 
     <div class="col s3" id="sidebar">
       <ul class="collection with-header">
-        <li class="collection-header">Version 4.0 Documentation</li>
+        <li class="collection-header">Version 5.0 Documentation</li>
         <li class="collection-item"><a href="#gettingstarted" class="sidebar-item">Getting Started</a></li>
         <li class="collection-item"><a href="#updates" class="sidebar-item">Update Log</a></li>
         <li class="collection-item"><a href="#functionality" class="sidebar-item">Functionality</a></li>
@@ -58,7 +58,7 @@
 
     <div class="col s9" id="contents">
 
-    <div class="manual-heading">User manual - V4.0</a></div>
+    <div class="manual-heading">User manual - V5.0</a></div>
 
     <br />
 
@@ -70,7 +70,7 @@
     Our API is accessible as a web service. You can access our endpoint here at:
     <br />
     <br />
-    <a href="http://api.kaiworship.xyz/v4/" id="endpoint-url" class="link">http://api.kaiworship.xyz/v4/</a>
+    <a href="http://api.kaiworship.xyz/v5/" id="endpoint-url" class="link">http://api.kaiworship.xyz/v5/</a>
     <br />
     <br />
     To use our API, append desired parameters to the end of the above URL in the format described in <a href="#apicall" class="link">API Calling Convention</a>.
@@ -86,12 +86,10 @@
     <br />
     <h5>Update Log</h5>
     <br />
-      <div id="update-sub">Changes compared to the last version - <a class="link" href="UserManual-V3.html">v3.0</a>:</div>
+      <div id="update-sub">Changes compared to the last version - <a class="link" href="UserManual-V4.html">v4.0</a>:</div>
         <br />
-            <li><strong>Caching is added to the API end point</strong></li>
-              For all API calls it will smartly cache the information,
-              and the speed of doing API call was significantly increased from around 900ms per API call to 100ms on average, fastest one available! Server process time is around 2-3ms! If you are looking for performance, use our API!
-            <li><strong>Migrated server to Singapore, halves the response time</strong></li>
+            <li><strong>Data is now sourced from external source</strong></li>
+              Due to ABS API having issues, we have now use a snapshot of the complete dataset instead of querying the ABS for data.
 
     <br />
     <br />
@@ -140,7 +138,7 @@
         Parameters will be passed to our module through a HTTP GET call with the following parameters, and be templated in the following way:
         <br />
         <br />
-        <code>http://api.kaiworship.xyz/v4/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
+        <code>http://api.kaiworship.xyz/v5/{statisticsArea}/{category}/{state}?startDate={startDate}&endDate={endDate}</code>
         <br />
         <br />
       <br />
@@ -365,7 +363,7 @@
 
       For example, the following invalid url:<br>
 
-      <code><a href="http://api.kaiworship.xyz/v4/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v4/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
+      <code><a href="http://api.kaiworship.xyz/v5/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/">http://api.kaiworship.xyz/v5/MerchandiseExports/MachineryAndTransportEquipment/NSW,Total/</a></code>
       <br>
       <br />
       would return:
@@ -466,7 +464,7 @@
       <br />
 
           <!-- <p>An example if you were after Retail data for Department Stores and Household Goods in QLD and Victoria from 2015-03-01 to 2015-07-01, the url would be:</p>
-          <code><a href="http://api.kaiworship.xyz/v4/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v4/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
+          <code><a href="http://api.kaiworship.xyz/v5/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01">http://api.kaiworship.xyz/v5/Retail/DepartmentStores,HouseholdGood/QLD,VIC?startDate=2015-03-01&endDate=2015-07-01</a></code><br><br>
           -->
           Here are examples of how to call this API in various languages, assuming the url is defined as a variable <code>url</code>
 
@@ -589,7 +587,7 @@
           <li>End Date: '1st May 2014</li>
         </ul>
         <p>Example url:</p>
-        <code><a href="http://api.kaiworship.xyz/v4/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v4/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</a></code>
+        <code><a href="http://api.kaiworship.xyz/v5/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01">http://api.kaiworship.xyz/v5/MerchandiseExports/BeveragesAndTobacco/NSW,SA/?startDate=2014-02-01&endDate=2014-05-01</a></code>
         <br>
         <p>JSON Response from our API:</p>
         <pre style="max-height:300px;"><code class="json">
@@ -598,7 +596,7 @@
               "end_date": "2014-05-01",
               "team": "Eleven51",
               "elapsed_time": 3.5119056701660156,
-              "version": "v4",
+              "version": "v5",
               "time": "2017-04-17 14:35:27",
               "start_date": "2014-02-01"
             },
@@ -657,7 +655,7 @@
       </ul>
 
       <p>Example url:</p>
-      <code><a href="http://api.kaiworship.xyz/v4/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v4/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
+      <code><a href="http://api.kaiworship.xyz/v5/Retail/Food,CafesRestaurantsAndTakeawayFood/Total">http://api.kaiworship.xyz/v5/Retail/Food,CafesRestaurantsAndTakeawayFood/Total</a></code>
       <p>JSON Response from our API:</p>
       <pre style="max-height:300px;"><code class="json">
         {
@@ -665,7 +663,7 @@
             "end_date": "2017-04-17",
             "team": "Eleven51",
             "elapsed_time": 4.176855087280273,
-            "version": "v4",
+            "version": "v5",
             "time": "2017-04-17 14:27:49",
             "start_date": "2016-05-17"
           },
